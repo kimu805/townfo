@@ -1,24 +1,82 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## groups テーブル
 
-Things you may want to cover:
+| Column              | Type       | Options     |
+| ------------------- | ---------- | ----------- |
+| name                | string     | null: false |
+| description         | text       | null: false |
 
-* Ruby version
 
-* System dependencies
+### Association
+- has_many :users
+- has_many :notices
+- has_many :circulars
 
-* Configuration
 
-* Database creation
+## users テーブル
 
-* Database initialization
+| Column             | Type       | Options     |
+| ------------------ | ---------- | ----------- |
+| nickname           | string     | null: false |
+| email              | string     | null: false, unique: true |
+| encrypted_password | string     | null: false |
+| admin              | boolean    | null: false, default: false |
+| group              | references | null: false, foreign_key: true |
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
 
-* Deployment instructions
+- belongs_to :group
+- has_many :notices
+- has_many :circulars
 
-* ...
+
+## notices テーブル
+
+| Column   | Type       | Options     |
+| -------- | ---------- | ----------- |
+| title    | string     | null: false |
+| content  | text       | null: false |
+| schedule | date       |
+| tag_id   | integer    | null: false |
+| user     | references | null: false, foreign_key: true |
+| group    | references | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :group
+- belongs_to :user
+- has_many :reads
+
+## reads テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| notice   | references | foreign_key: true              |
+| circular | references | foreign_key: true              |
+| complete | boolean    | null: false, default: false    |
+
+### Association
+
+- belongs_to :user
+- belongs_to :notice
+- belongs_to :circular
+
+## circulars テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| title    | string     | null: false                    |
+| pdf_file | text       | null: false                    |
+| user     | references | null: false, foreign_key: true |
+| group    | references | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :group
+- belongs_to :user
+- has_many :reads
