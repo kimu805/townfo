@@ -16,12 +16,12 @@
 
 ## users テーブル
 
-| Column             | Type       | Options     |
-| ------------------ | ---------- | ----------- |
-| nickname           | string     | null: false |
-| email              | string     | null: false, unique: true |
-| encrypted_password | string     | null: false |
-| admin              | boolean    | null: false, default: false |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| nickname           | string     | null: false                    |
+| email              | string     | null: false, unique: true      |
+| encrypted_password | string     | null: false                    |
+| admin              | boolean    | null: false, default: false    |
 | group              | references | null: false, foreign_key: true |
 
 
