@@ -30,16 +30,17 @@
 - belongs_to :group
 - has_many :notices
 - has_many :circulars
+- has_many :reads
 
 
 ## notices テーブル
 
-| Column   | Type       | Options     |
-| -------- | ---------- | ----------- |
-| title    | string     | null: false |
-| content  | text       | null: false |
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| title    | string     | null: false                    |
+| content  | text       | null: false                    |
 | schedule | date       |
-| tag_id   | integer    | null: false |
+| tag_id   | integer    | null: false                    |
 | user     | references | null: false, foreign_key: true |
 | group    | references | null: false, foreign_key: true |
 
@@ -50,20 +51,6 @@
 - belongs_to :user
 - has_many :reads
 
-## reads テーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| user     | references | null: false, foreign_key: true |
-| notice   | references | foreign_key: true              |
-| circular | references | foreign_key: true              |
-| complete | boolean    | null: false, default: false    |
-
-### Association
-
-- belongs_to :user
-- belongs_to :notice
-- belongs_to :circular
 
 ## circulars テーブル
 
@@ -80,3 +67,19 @@
 - belongs_to :group
 - belongs_to :user
 - has_many :reads
+
+
+## reads テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| notice   | references | foreign_key: true              |
+| circular | references | foreign_key: true              |
+| complete | boolean    | null: false, default: false    |
+
+### Association
+
+- belongs_to :user
+- belongs_to :notice
+- belongs_to :circular
