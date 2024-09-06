@@ -27,13 +27,15 @@
 | nickname           | string     | null: false                    |
 | email              | string     | null: false, unique: true      |
 | encrypted_password | string     | null: false                    |
-| admin              | boolean    | null: false, default: false    |
-| group              | references | null: false, foreign_key: true |
 
 
 ### Association
-
-- belongs_to :group
+<!--承認済みのグループとの関連付け -->
+- has_many :memberships
+- has_many :approved_groups, through: :memberships, source: :group
+<!-- 承認待ちのグループとの関連付け -->
+- has_many :pending_memberships
+- has_many :pending_groups, through: :pending_memberships, source: :group
 - has_many :notices
 - has_many :circulars
 - has_many :reads
