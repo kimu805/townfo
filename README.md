@@ -84,6 +84,7 @@
 - belongs_to :group
 - belongs_to :user
 - has_many :reads
+- has_one_attached :image
 
 
 ## circulars テーブル
@@ -100,6 +101,7 @@
 - belongs_to :group
 - belongs_to :user
 - has_many :reads
+- has_one_attached :pdf_file
 
 
 ## reads テーブル
@@ -114,5 +116,4 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :notice
-- belongs_to :circular
+- belongs_to :readable, polymorphic: true
