@@ -6,6 +6,7 @@
 | ------------------- | ---------- | ----------- |
 | name                | string     | null: false |
 | description         | text       | null: false |
+| owner_id            | integer    | null: false |
 
 
 ### Association
