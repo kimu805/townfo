@@ -61,7 +61,7 @@
                 <mxCell id="22" value="reads" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="-140" y="460" width="180" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="+ user_id (FK)&#10;+ readable_type (FK)&#10;+ readable_id&#10;+ complete" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="22" vertex="1">
+                <mxCell id="23" value="+ user_id (FK)&#10;+ readable_type&#10;+ readable_id&#10;+ complete" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="22" vertex="1">
                     <mxGeometry y="30" width="180" height="110" as="geometry"/>
                 </mxCell>
                 <mxCell id="24" value="" style="fontSize=12;html=1;endArrow=ERmany;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startSize=33;endSize=27;" parent="1" source="2" target="23" edge="1">
