@@ -91,7 +91,6 @@
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | title    | string     | null: false                    |
-| pdf_file | text       | null: false                    |
 | user     | references | null: false, foreign_key: true |
 | group    | references | null: false, foreign_key: true |
 
