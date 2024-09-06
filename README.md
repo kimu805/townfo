@@ -12,7 +12,7 @@
 ### Association
 <!-- 承認済みのユーザーとの関連 -->
 - has_many :memberships
-- has_many :approved_users, through: :memberships, source: :user
+- has_many :users, through: :memberships, source: :user
 <!-- 承認待ちのユーザーとの関連 -->
 - has_many :pending_memberships
 - has_many :pending_users, thorough: :pending_memberships, source: :user
@@ -32,7 +32,7 @@
 ### Association
 <!--承認済みのグループとの関連付け -->
 - has_many :memberships
-- has_many :approved_groups, through: :memberships, source: :group
+- has_many :groups, through: :memberships, source: :group
 <!-- 承認待ちのグループとの関連付け -->
 - has_many :pending_memberships
 - has_many :pending_groups, through: :pending_memberships, source: :group
