@@ -10,7 +10,12 @@
 
 
 ### Association
-- has_many :users
+<!-- 承認済みのユーザーとの関連 -->
+- has_many :memberships
+- has_many :approved_users, through: :memberships, source: :user
+<!-- 承認待ちのユーザーとの関連 -->
+- has_many :pending_memberships
+- has_many :pending_users, thorough: :pending_memberships, source: :user
 - has_many :notices
 - has_many :circulars
 
