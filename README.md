@@ -45,8 +45,8 @@
 
 | Column | Type           | Options                                 |
 | ------ | -------------- | --------------------------------------- |
-| group  | references     | null: false, foreign_key: true      |
-| user   | references     | null: false, foreign_key: true      |
+| group  | references     | null: false, foreign_key: true          |
+| user   | references     | null: false, foreign_key: true          |
 
 
 ### Association
@@ -58,8 +58,8 @@
 
 | Column | Type           | Options                                 |
 | ------ | -------------- | --------------------------------------- |
-| group  | references     | null: false, foreign_key: true      |
-| user   | references     | null: false, foreign_key: true      |
+| group  | references     | null: false, foreign_key: true          |
+| user   | references     | null: false, foreign_key: true          |
 
 
 ### Association
@@ -105,12 +105,12 @@
 
 ## reads テーブル
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| user     | references | null: false, foreign_key: true |
-| notice   | references | foreign_key: true              |
-| circular | references | foreign_key: true              |
-| complete | boolean    | null: false, default: false    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| readable_type | string     | null: false, polymorphic: true |
+| readable_id   | integer    | null: false                    |
+| complete      | boolean    | null: false, default: false    |
 
 ### Association
 
