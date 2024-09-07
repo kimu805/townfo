@@ -1,0 +1,2 @@
+class PendingMembership < ApplicationRecord
+end
