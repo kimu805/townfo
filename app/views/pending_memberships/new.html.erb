@@ -2,9 +2,10 @@
 
 <p>参加したいグループを選択してください</p>
 
-<%= search_form_for @q do |f| %>
+<%= search_form_for @q, url: new_group_pending_membership_path(@groups) do |f| %>
   <%= f.label :name_cont, "グループ名" %><br>
   <%= f.text_field :name_cont, placeholder: "グループ名" %>
+  <%= f.submit "検索" %>
 <% end %>
 
 <table border="1">
@@ -15,9 +16,9 @@
   <% @groups.each do |group| %>
     <tr>
       <td>
-        <%= link_to group.name, group_pending_memberships_path(group), data: {turbo_confirm: "「#{group.name}」に参加申請を送信します。よろしいですか？"} %>
+        <%= link_to group.name, group_pending_memberships_path(group), data: {turbo_confirm: "「#{group.name}」に参加申請を送信します。よろしいですか？", turbo_method: :post} %>
       <td>
-        <%= truncate(group.description, length: 50)
+        <%= truncate(group.description, length: 50) %>
       </td>
     </tr>
   <% end %>

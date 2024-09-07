@@ -12,4 +12,8 @@ class Group < ApplicationRecord
     validates :description
     validates :owner_id
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["name"]
+  end
 end

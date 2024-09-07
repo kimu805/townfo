@@ -1,0 +1,23 @@
+<h1>承認待ち一覧</h1>
+
+<p>グループ名：<%= @group.name %></p>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pending_memberships.each do |pending_member| %>
+      <tr>
+        <td><%= pending_member.user.nickname %></td>
+        <td>
+          <%= link_to '承認', approve_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を承認します。よろしいですか？", turbo_method: :patch} %>
+          <%= link_to "拒否", reject_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を拒否します。よろしいですか？", turbo_method: :delete} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

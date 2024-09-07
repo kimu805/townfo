@@ -1,6 +1,6 @@
 class PendingMembershipsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_group
+  before_action :set_group, except: :new
   before_action :ensure_owner, only: [:index, :approve, :reject]
 
   def index
@@ -26,7 +26,7 @@ class PendingMembershipsController < ApplicationController
     membership = @group.memberships.new(user: pending_membership.user)
     if membership.save
       pending_membership.destroy
-      redirect_to root_path, notice: "「#{memberhsip.user.nickname}」が承認されました。"
+      redirect_to root_path, notice: "「#{membership.user.nickname}」が承認されました。"
     end
   end
 
