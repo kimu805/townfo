@@ -4,7 +4,7 @@
 <%= @notice.title %>
 
 <h2>内容</h2>
-<%= simple_format(h(@group.description), {}, sanitize: false, wrapper_tag: "div") %>
+<%= simple_format(h(@notice.content), {}, sanitize: false, wrapper_tag: "div") %>
 
 <h2>日付</h2>
 <%= @notice.schedule if @notice.schedule %>
@@ -13,4 +13,4 @@
 <%= @notice.tag.name %><br><br>
 
 <%= link_to "編集", edit_group_notice_path(group_id: current_group.id, id: @notice.id) %>
-<%= link_to "削除", group_notice_path(group_id: current_group.id, id: @notice.id), date: {turbo_confirm: "「#{@notice.title}」を削除します。よろしいですか？", turbo_method: :delete} %>
+<%= link_to "削除", group_notice_path(group_id: current_group.id, id: @notice.id), data: {turbo_confirm: "「#{@notice.title}」を削除します。よろしいですか？", turbo_method: :delete} %>

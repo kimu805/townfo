@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_group
-    @current_group ||= current_user.groups
+    @current_group ||= current_user.groups.first
   end
 end
