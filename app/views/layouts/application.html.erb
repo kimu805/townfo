@@ -12,6 +12,12 @@
 
   <body>
     <div class= "header">
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% elsif flash[:alert] %>
+        <%= flash[:alert] %>
+      <% end %>
+      
       <% if user_signed_in? %>
         <%= link_to "編集", "#" %>
         <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete} %>

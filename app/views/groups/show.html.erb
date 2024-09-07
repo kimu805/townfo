@@ -1,2 +1,12 @@
-<h1>Groups#show</h1>
-<p>Find me in app/views/groups/show.html.erb</p>
+<h1>グループ詳細画面</h1>
+
+<h2>グループ名</h2>
+  <%= @group.name %>
+
+<h2>グループ説明</h2>
+  <%= simple_format(h(@group.description), {}, sanitize: false, wrapper_tag: "div") %><br><br>
+
+<% if current_user.id == @group.owner_id %>
+  <%= link_to "グループを編集", edit_group_path(@group) %><br><br>
+  <%= link_to "グループを削除", group_path(@group), data: {turbo_confirm: "グループ「#{@group.name}」を削除した場合、お知らせ等のデータもすべて削除されます。よろしいでしょうか？", turbo_method: :delete} %>
+<% end %>
