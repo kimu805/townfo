@@ -1,8 +1,10 @@
 <h1>お知らせ一覧</h1>
 
+<%= link_to "新規投稿", new_group_notice_path(current_group) %><br><br>
+
 <% @notices.each do |notice| %>
   <p>タイトル：<%= notice.title %></p>
   <p>内容　　：<%= simple_format(h(@group.description), {}, sanitize: false, wrapper_tag: "div") %></p>
   <p>日付　　：<%= notice.schdule if notice.schdule %>
-  <p>タグ　　：<%= notice.tag.name %>
+  <p>タグ　　：<%= notice.tag.name %><br><br>
 <% end %>

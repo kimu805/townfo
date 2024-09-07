@@ -4,6 +4,7 @@ class NoticesController < ApplicationController
   before_action :set_notice, only: [:edit, :update, :detroy, :show]
 
   def index
+    binding.pry
     @notices = current_group.notices.includes(:user)
   end
 

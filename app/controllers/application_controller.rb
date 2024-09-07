@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_group
-    @current_group ||= Group.find_by(id: params[:group_id]) if params[:group_id]
+    @current_group ||= current_user.groups
   end
 end
