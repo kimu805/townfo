@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+User.create(nickname: "owner", email: "owner@owner.com", password: "111111", password_confirmation: "111111")
+User.create(nickname: "test1", email: "test1@test.com", password: "111111", password_confirmation: "111111")
+
+10.times do |i|
+  Group.create(name: "group#{i + 1}", description: "Description of #{i + 1}", owner_id: 1)
+end

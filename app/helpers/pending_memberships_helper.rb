@@ -1,0 +1,2 @@
+module PendingMembershipsHelper
+end
