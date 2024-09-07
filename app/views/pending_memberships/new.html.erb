@@ -1,0 +1,24 @@
+<h1>グループ参加申請</h1>
+
+<p>参加したいグループを選択してください</p>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont, "グループ名" %><br>
+  <%= f.text_field :name_cont, placeholder: "グループ名" %>
+<% end %>
+
+<table border="1">
+  <tr>
+    <th><%= Group.human_attribute_name(:name) %></th>
+    <th></th>
+  </tr>
+  <% @groups.each do |group| %>
+    <tr>
+      <td>
+        <%= link_to group.name, group_pending_memberships_path(group), data: {turbo_confirm: "「#{group.name}」に参加申請を送信します。よろしいですか？"} %>
+      <td>
+        <%= truncate(group.description, length: 50)
+      </td>
+    </tr>
+  <% end %>
+</table>
