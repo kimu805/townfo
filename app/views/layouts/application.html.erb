@@ -22,7 +22,7 @@
         <%= link_to current_user.nickname, "#" %>
         <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete} %>
         <% if current_user.id == current_group.owner_id %>
-          <%= link_to "ユーザー管理", 
+          <%= link_to "ユーザー管理", group_memberships_path(current_group) %>
         <% end %>
       <% else %>
         <%= link_to "ログイン", new_user_session_path %>
