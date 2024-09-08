@@ -12,5 +12,8 @@
 <h2>タグ</h2>
 <%= @notice.tag.name %><br><br>
 
-<%= link_to "編集", edit_group_notice_path(group_id: current_group.id, id: @notice.id) %>
-<%= link_to "削除", group_notice_path(group_id: current_group.id, id: @notice.id), data: {turbo_confirm: "「#{@notice.title}」を削除します。よろしいですか？", turbo_method: :delete} %>
+
+<% if current_user == @notice.user %>
+  <%= link_to "編集", edit_group_notice_path(group_id: current_group.id, id: @notice.id) %>
+  <%= link_to "削除", group_notice_path(group_id: current_group.id, id: @notice.id), data: {turbo_confirm: "「#{@notice.title}」を削除します。よろしいですか？", turbo_method: :delete} %>
+<% end %>
