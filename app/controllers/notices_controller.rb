@@ -2,6 +2,7 @@ class NoticesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_notice, only: [:edit, :update, :destroy, :show]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
     @notices = current_group.notices.includes(:user)
@@ -46,5 +47,12 @@ class NoticesController < ApplicationController
   
   def set_notice
     @notice = current_group.notices.find(params[:id])
+  end
+
+  def move_to_index
+    set_notice
+    unless current_user == @notice.user
+      redirect_to action: :index
+    end
   end
 end
