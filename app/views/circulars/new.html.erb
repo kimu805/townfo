@@ -1,2 +1,26 @@
-<h1>Circulars#new</h1>
-<p>Find me in app/views/circulars/new.html.erb</p>
+<%= form_with(model: @circular, local: true) do |form| %>
+  <% if @circular.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@circular.errors.count, "error") %> prohibited this circular from being saved:</h2>
+      <ul>
+        <% @circular.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pdf_file, "PDFファイル" %>
+    <%= form.file_field :pdf_file %> <!-- ファイルアップロードフィールド -->
+  </div>
+
+  <div class="actions">
+    <%= form.submit nil %>
+  </div>
+<% end %>
