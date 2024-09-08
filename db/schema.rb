@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_07_051035) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_07_075949) do
   create_table "groups", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -26,6 +26,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_07_051035) do
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_memberships_on_group_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "notices", charset: "utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.date "schedule"
+    t.integer "tag_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_notices_on_group_id"
+    t.index ["user_id"], name: "index_notices_on_user_id"
   end
 
   create_table "pending_memberships", charset: "utf8", force: :cascade do |t|
@@ -52,6 +65,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_07_051035) do
 
   add_foreign_key "memberships", "groups"
   add_foreign_key "memberships", "users"
+  add_foreign_key "notices", "groups"
+  add_foreign_key "notices", "users"
   add_foreign_key "pending_memberships", "groups"
   add_foreign_key "pending_memberships", "users"
 end

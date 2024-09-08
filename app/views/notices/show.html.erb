@@ -1,0 +1,19 @@
+<h1>投稿詳細画面</h1>
+
+<h2>タイトル</h2>
+<%= @notice.title %>
+
+<h2>内容</h2>
+<%= simple_format(h(@notice.content), {}, sanitize: false, wrapper_tag: "div") %>
+
+<h2>日付</h2>
+<%= @notice.schedule if @notice.schedule %>
+
+<h2>タグ</h2>
+<%= @notice.tag.name %><br><br>
+
+
+<% if current_user == @notice.user %>
+  <%= link_to "編集", edit_group_notice_path(group_id: current_group.id, id: @notice.id) %>
+  <%= link_to "削除", group_notice_path(group_id: current_group.id, id: @notice.id), data: {turbo_confirm: "「#{@notice.title}」を削除します。よろしいですか？", turbo_method: :delete} %>
+<% end %>

@@ -2,7 +2,7 @@
 
 <p>参加したいグループを選択してください</p>
 
-<%= search_form_for @q, url: new_group_pending_membership_path(@groups) do |f| %>
+<%= search_form_for @q, url: new_pending_membership_path do |f| %>
   <%= f.label :name_cont, "グループ名" %><br>
   <%= f.text_field :name_cont, placeholder: "グループ名" %>
   <%= f.submit "検索" %>

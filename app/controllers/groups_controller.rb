@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
     if @group.save
+      @group.membership.create(user: current_user)
       redirect_to root_path, notice: "グループ「#{@group.name}」を作成しました。"
     else
       render :new, status: :unprocessable_entity

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   # 承認待ちのユーザーとの関連付け
   has_many :pending_memberships, dependent: :destroy
   has_many :pending_groups, through: :pending_memberships, source: :group
+  has_many :notices
 
   validates :nickname, presence: true
 
