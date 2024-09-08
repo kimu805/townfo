@@ -1,11 +1,7 @@
 class PendingMembershipsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, except: :new
-  before_action :ensure_owner, only: [:index, :approve, :reject]
-
-  def index
-    @pending_memberships = @group.pending_memberships
-  end
+  before_action :ensure_owner, only: [:approve, :reject]
 
   def new
     @q = Group.ransack(params[:q])
