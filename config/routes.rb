@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :groups do
     resources :memberships, only: [:index, :destroy]
-    resources :pending_memberships, only: [:index, :create] do
+    resources :pending_memberships, only: [:create] do
       member do
         patch "approve"
         delete "reject"
