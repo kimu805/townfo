@@ -1,7 +1,7 @@
 <h1>お知らせ一覧</h1>
-<%= link_to "回覧板はこちら", group_circulars_path(current_group) %>
+<%= link_to "回覧板はこちら", group_circulars_path(current_group) %><br><br>
 
-<%= link_to "新規投稿", new_group_notice_path(current_group) %><br><br>
+<%= link_to "お知らせ投稿", new_group_notice_path(current_group) %><br><br>
 
 <% @notices.each do |notice| %>
   <p>タイトル：<%= link_to notice.title, group_notice_path(group_id: current_group, id: notice.id)  %></p>
