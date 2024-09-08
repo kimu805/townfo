@@ -1,2 +1,13 @@
-<h1>Circulars#index</h1>
-<p>Find me in app/views/circulars/index.html.erb</p>
+<h1>回覧板一覧</h1>
+<%= link_to "お知らせはこちら", group_notices_path(current_group) %><br><br>
+
+<% if current_user.id == current_group.owner_id %>
+  <%= link_to "回覧板投稿", new_group_circular_path(current_group) %><br><br>
+<% end %>
+
+<% @circulars.each do |circular| %>
+  <p>タイトル：<%= link_to circular.title, group_circular_path(group_id: current_group.id, id: circular.id) %></p>
+  <% if circular.pdf_file.attached? %>
+    <p>PDFファイルが添付されています。</p>
+  <% end %>
+<% end %>
