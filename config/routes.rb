@@ -11,7 +11,12 @@ Rails.application.routes.draw do
       end
     end
     resources :notices
-    resources :circulars, except: [:edit, :update]
+    resources :circulars, except: [:edit, :update] do
+      member do
+        post "read_create"
+        get "show_read_users"
+      end
+    end
   end
   resources :pending_memberships, only: :new
 end
