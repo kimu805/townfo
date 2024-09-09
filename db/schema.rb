@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_08_094056) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_09_055314) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -88,6 +88,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_08_094056) do
     t.index ["user_id"], name: "index_pending_memberships_on_user_id"
   end
 
+  create_table "reads", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "readable_type", null: false
+    t.boolean "complete", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reads_on_user_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -111,4 +120,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_08_094056) do
   add_foreign_key "notices", "users"
   add_foreign_key "pending_memberships", "groups"
   add_foreign_key "pending_memberships", "users"
+  add_foreign_key "reads", "users"
 end
