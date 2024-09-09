@@ -2,16 +2,8 @@
 <%= link_to "戻る", group_circulars_path(current_group) %><br><br>
 
 <%= form_with model: @circular, url: group_circulars_path(current_group), local: true do |form| %>
-  <% if @circular && @circular.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@circular.errors.count, "error") %> prohibited this circular from being saved:</h2>
-      <ul>
-        <% @circular.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+
+  <%= render partial: "shared/error", locals: {model: @circular} %>
 
   <div class="field">
     <%= form.label :title %>
