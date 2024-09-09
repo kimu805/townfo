@@ -30,7 +30,7 @@ class CircularsController < ApplicationController
   end
 
   def read_create
-    current_user.reads.find_or_create_by(readable: @circular)
+    @read = current_user.reads.find_or_create_by(readable: @circular, complete: true)
     redirect_to group_circular_path(group_id: current_group.id, id: @circular.id )
   end
 
