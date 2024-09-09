@@ -11,7 +11,7 @@
     <th><%= User.human_attribute_name(:nickname) %></th>
     <th>既読日</th>
   </tr>
-  <% @group.users.each do |user| %>
+  <% @users.each do |user| %>
     <tr>
       <td>
         <%= user.nickname %>

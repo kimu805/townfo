@@ -9,8 +9,9 @@
   <%= link_to "PDFを表示", url_for(@circular.pdf_file), target: "_blank" %> <!-- PDFを新しいタブで表示 -->
 <% end %><br><br>
 
-
-<%= link_to "見ました", read_create_group_circular_path(group_id: current_group.id, id: @circular.id), data: { turbo_method: :post} %><br><br>
+<% unless @read %>
+  <%= link_to "見ました", read_create_group_circular_path(group_id: current_group.id, id: @circular.id), data: { turbo_method: :post} %><br><br>
+<% end %>
 
 <% if current_user.id == @group.owner_id %>
   <%= link_to "既読管理", show_read_users_group_circular_path(group_id: current_group.id, id: @circular.id) %><br><br>
