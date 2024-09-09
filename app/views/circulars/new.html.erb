@@ -1,8 +1,8 @@
 <h1>回覧板投稿画面</h1>
 <%= link_to "戻る", group_circulars_path(current_group) %><br><br>
 
-<%= form_with(model: @circular, local: true) do |form| %>
-  <% if @circular.errors.any? %>
+<%= form_with model: @circular, url: group_circulars_path(current_group), local: true do |form| %>
+  <% if @circular && @circular.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@circular.errors.count, "error") %> prohibited this circular from being saved:</h2>
       <ul>
