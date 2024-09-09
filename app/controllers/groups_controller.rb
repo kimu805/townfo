@@ -3,9 +3,6 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update, :destroy, :show]
   before_action :ensure_owner, only: [:edit, :update, :destroy]
 
-  def index
-  end
-
   def new
     @group = Group.new
   end
