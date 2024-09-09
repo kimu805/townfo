@@ -35,7 +35,6 @@ class CircularsController < ApplicationController
   end
 
   def show_read_users
-    @read_users = @circular.reads.map(&:user)
   end
 
   private
