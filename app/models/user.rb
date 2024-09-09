@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :pending_groups, through: :pending_memberships, source: :group
   has_many :notices
   has_many :circulars
+  has_many :reads
 
   validates :nickname, presence: true
 
