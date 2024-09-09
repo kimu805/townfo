@@ -1,3 +1,6 @@
+<h1>回覧板投稿画面</h1>
+<%= link_to "戻る", group_circulars_path(current_group) %><br><br>
+
 <%= form_with(model: @circular, local: true) do |form| %>
   <% if @circular.errors.any? %>
     <div id="error_explanation">
