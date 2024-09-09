@@ -90,7 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_09_055314) do
 
   create_table "reads", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "readable_type", null: false
+    t.string "readable", null: false
     t.boolean "complete", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
