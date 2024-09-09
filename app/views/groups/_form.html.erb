@@ -1,5 +1,7 @@
 <%= form_with model: group, url: url, local: true do |f| %>
 
+  <%= render partial: "shared/error", locals: {model: group} %>
+
   <div class= "field">
     <%= f.label :name %>
     <%= f.text_field :name %>

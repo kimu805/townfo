@@ -1,0 +1,13 @@
+<h1>回覧板詳細画面</h1>
+
+<h2>タイトル</h2>
+<p><%= @circular.title %></p>
+
+<% if @circular.pdf_file.attached? %>
+  <h2>PDFファイル</h2>
+  <%= link_to "PDFをダウンロード", rails_blob_path(@circular.pdf_file, disposition: "attachment") %>
+  <%= link_to "PDFを表示", url_for(@circular.pdf_file), target: "_blank" %> <!-- PDFを新しいタブで表示 -->
+<% end %><br><br>
+
+<%= link_to '削除', group_circular_path(group_id: current_group.id, id: @circular.id), data: {turbo_confirm: "回覧板「#{@circular.title}」を削除します。よろしいですか？", turbo_method: :delete} %><br><br>
+<%= link_to '戻る', group_circulars_path(current_group) %>

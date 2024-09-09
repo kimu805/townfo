@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       end
     end
     resources :notices
+    resources :circulars, except: [:edit, :update]
   end
   resources :pending_memberships, only: :new
 end

@@ -1,5 +1,7 @@
 <%= form_with model: notice, url: url, local: true do |f| %>
 
+  <%= render partial: "shared/error", locals: {model: notice} %>
+
   <div class= "field">
     <%= f.label :title %>
     <%= f.text_field :title %>

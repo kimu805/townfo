@@ -7,6 +7,7 @@ class Group < ApplicationRecord
     has_many :pending_memberships, dependent: :destroy
     has_many :pending_users, through: :pending_memberships, source: :user
     has_many :notices
+    has_many :circulars
 
   with_options presence: true do
     validates :name

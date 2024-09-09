@@ -1,0 +1,21 @@
+<h1>回覧板投稿画面</h1>
+<%= link_to "戻る", group_circulars_path(current_group) %><br><br>
+
+<%= form_with model: @circular, url: group_circulars_path(current_group), local: true do |form| %>
+
+  <%= render partial: "shared/error", locals: {model: @circular} %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pdf_file, "PDFファイル" %>
+    <%= form.file_field :pdf_file %> <!-- ファイルアップロードフィールド -->
+  </div>
+
+  <div class="actions">
+    <%= form.submit nil %>
+  </div>
+<% end %>
