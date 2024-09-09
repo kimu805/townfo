@@ -9,13 +9,13 @@ class CircularsController < ApplicationController
   end
 
   def new
-    @circulars = @group.circulars.build()
+    @circular = @group.circulars.build()
   end
 
   def create
     @circulars = @group.circulars.build(circular_params)
     if @circulars.save
-      redirect_to root_path, notice: "回覧板を投稿しました。"
+      redirect_to group_circulars_path(current_group) , notice: "回覧板を投稿しました。"
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class CircularsController < ApplicationController
 
   def destroy
     @circular.destroy
-    redirect_to root_path
+    redirect_to group_circulars_path(current_group), notice: "「#{@circular.title}」を削除しました。"
   end
 
   private
