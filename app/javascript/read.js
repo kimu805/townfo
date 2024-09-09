@@ -27,7 +27,7 @@ function read() {
 // 既読情報をサーバーに送信する関数
 function markNoticeAsRead(noticeId) {
   fetch(`/notices/${noticeId}/mark_as_read`, {
-    method: 'PATCH',
+    method: 'POST',
     headers: {
       'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       'Content-Type': 'application/json'
