@@ -13,8 +13,8 @@ class CircularsController < ApplicationController
   end
 
   def create
-    @circulars = @group.circulars.build(circular_params)
-    if @circulars.save
+    @circular = @group.circulars.build(circular_params)
+    if @circular.save
       redirect_to group_circulars_path(current_group) , notice: "回覧板を投稿しました。"
     else
       render :new, status: :unprocessable_entity
