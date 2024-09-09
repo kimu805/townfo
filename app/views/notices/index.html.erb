@@ -3,10 +3,16 @@
 
 <%= link_to "お知らせ投稿", new_group_notice_path(current_group) %><br><br>
 
-<% @notices.each do |notice| %>
-  <p>タイトル：<%= link_to notice.title, group_notice_path(group_id: current_group, id: notice.id)  %></p>
-  <p>内容　　：<%= simple_format(h(notice.content), {}, sanitize: false, wrapper_tag: "div") %></p>
-  <p>日付　　：<%= notice.schedule if notice.schedule %>
-  <p>タグ　　：<%= notice.tag.name %>
-  <p>投稿者　：<%= notice.user.nickname %><br><br>
-<% end %>
+
+<ul id="notices_list">
+  <% @notices.each do |notice| %>
+    <li class="notice_item" data-notice-id="<%= notice.id %>"
+      <p>タイトル：<%= link_to notice.title, group_notice_path(group_id: current_group, id: notice.id)  %></p>
+      <p>内容　　：<%= simple_format(h(notice.content), {}, sanitize: false, wrapper_tag: "div") %></p>
+      <p>日付　　：<%= notice.schedule if notice.schedule %>
+      <p>タグ　　：<%= notice.tag.name %>
+      <p>投稿者　：<%= notice.user.nickname %><br><br>
+    </li>
+  <% end %>
+</ul>
+  
