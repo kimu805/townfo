@@ -13,10 +13,14 @@ RSpec.describe User, type: :model do
     end
     context "新規登録できないとき" do
       it "nicknameが空だと登録できない" do
-
+        @user.nickname = ""
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
       it "emailが空だと登録できない" do
-
+        @user.email = ""
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email can't be blank")
       end
       it "重複したemailは登録できない" do
 
@@ -25,7 +29,9 @@ RSpec.describe User, type: :model do
         
       end
       it "passwordが空だと登録できない" do
-
+        @user.password = ""
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password can't be blank")
       end
       it "passwordは5文字以下では登録できない" do
 
