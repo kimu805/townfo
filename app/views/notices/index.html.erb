@@ -6,12 +6,13 @@
 
 <ul id="notices_list">
   <% @notices.each do |notice| %>
-    <li class="notice_item" data-notice-id="<%= notice.id %>"
-      <p>タイトル：<%= link_to notice.title, group_notice_path(group_id: current_group, id: notice.id)  %></p>
+    <li class="notice_item" data-notice-id="<%= notice.id %>" data-group-id="<%= current_group.id %>">
+      <p>タイトル：<%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id)  %></p>
       <p>内容　　：<%= simple_format(h(notice.content), {}, sanitize: false, wrapper_tag: "div") %></p>
       <p>日付　　：<%= notice.schedule if notice.schedule %>
       <p>タグ　　：<%= notice.tag.name %>
-      <p>投稿者　：<%= notice.user.nickname %><br><br>
+      <p>投稿者　：<%= notice.user.nickname %>
+      <p>既読　　：<%= notice.reads.count %><br><br>
     </li>
   <% end %>
 </ul>
