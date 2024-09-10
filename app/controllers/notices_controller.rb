@@ -1,7 +1,7 @@
 class NoticesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_notice, only: [:edit, :update, :destroy, :show]
+  before_action :set_notice, only: [:edit, :update, :destroy, :show, :mark_as_read]
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
@@ -38,6 +38,11 @@ class NoticesController < ApplicationController
   end
 
   def show
+  end
+
+  def mark_as_read
+    current_user.reads.find_or_create_by(readable: @notice, complete: true)
+    head :ok
   end
 
   private
