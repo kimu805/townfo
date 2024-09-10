@@ -14,3 +14,7 @@ Membership.create(user_id: 1, group_id: 1)
   User.create(nickname: "test#{i+1}", email: "test#{i+1}@test.com", password: "111111", password_confirmation:"111111")
   Membership.create(user_id: i+2, group_id: 1)
 end
+
+5.times do |i|
+  Notice.create(title: "title#{i+1}", content: "content of title#{i+1}", tag_id: 3, user_id: 1, group_id: 1)
+end
