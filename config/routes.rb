@@ -10,8 +10,17 @@ Rails.application.routes.draw do
         delete "reject"
       end
     end
-    resources :notices
-    resources :circulars, except: [:edit, :update]
+    resources :notices do
+      member do
+        post "mark_as_read"
+      end
+    end
+    resources :circulars, except: [:edit, :update] do
+      member do
+        post "read_create"
+        get "show_read_users"
+      end
+    end
   end
   resources :pending_memberships, only: :new
 end

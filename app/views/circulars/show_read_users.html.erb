@@ -1,0 +1,28 @@
+<h1>既読管理</h1>
+
+<%= link_to "戻る", group_circular_path(group_id: current_group.id, id: @circular.id) %>
+
+<p>グループ名：<%= @group.name %></p>
+<p>回覧板名：<%= @circular.title %></p>
+
+<h2>既読状況</h2>
+<table border="1">
+  <tr>
+    <th><%= User.human_attribute_name(:nickname) %></th>
+    <th>既読日</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= user.nickname %>
+      </td>
+      <td>
+        <% if read = user.reads.find_by(readable: @circular) %>
+          <%= read.created_at %>
+        <% else %>
+          <p>未読</p>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

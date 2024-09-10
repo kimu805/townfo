@@ -1,8 +1,8 @@
 class CircularsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group
-  before_action :set_circular, only: [:show, :destroy]
-  before_action :ensure_owner, except: [:index, :show]
+  before_action :set_circular, only: [:show, :destroy, :read_create, :show_read_users]
+  before_action :ensure_owner, except: [:index, :show, :read_create]
 
   def index
     @circulars = @group.circulars
@@ -22,11 +22,21 @@ class CircularsController < ApplicationController
   end
 
   def show
+    @read = current_user.reads.find_by(readable: @circular, complete: true)
   end
 
   def destroy
     @circular.destroy
     redirect_to group_circulars_path(current_group), notice: "「#{@circular.title}」を削除しました。"
+  end
+
+  def read_create
+    current_user.reads.find_or_create_by(readable: @circular, complete: true)
+    redirect_to group_circular_path(group_id: current_group.id, id: @circular.id )
+  end
+
+  def show_read_users
+    @users = @group.users
   end
 
   private

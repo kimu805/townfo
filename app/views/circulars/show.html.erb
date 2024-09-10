@@ -9,5 +9,13 @@
   <%= link_to "PDFを表示", url_for(@circular.pdf_file), target: "_blank" %> <!-- PDFを新しいタブで表示 -->
 <% end %><br><br>
 
-<%= link_to '削除', group_circular_path(group_id: current_group.id, id: @circular.id), data: {turbo_confirm: "回覧板「#{@circular.title}」を削除します。よろしいですか？", turbo_method: :delete} %><br><br>
+<% unless @read %>
+  <%= link_to "見ました", read_create_group_circular_path(group_id: current_group.id, id: @circular.id), data: { turbo_method: :post} %><br><br>
+<% end %>
+
+<% if current_user.id == @group.owner_id %>
+  <%= link_to "既読管理", show_read_users_group_circular_path(group_id: current_group.id, id: @circular.id) %><br><br>
+  <%= link_to '削除', group_circular_path(group_id: current_group.id, id: @circular.id), data: {turbo_confirm: "回覧板「#{@circular.title}」を削除します。よろしいですか？", turbo_method: :delete} %><br><br>
+<% end %>
+
 <%= link_to '戻る', group_circulars_path(current_group) %>

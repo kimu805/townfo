@@ -6,6 +6,7 @@
 <% end %>
 
 <% @circulars.each do |circular| %>
+  <p>投稿者：<%= circular.user.nickname %>
   <p>タイトル：<%= link_to circular.title, group_circular_path(group_id: current_group.id, id: circular.id) %></p>
   <% if circular.pdf_file.attached? %>
     <p>PDFファイルが添付されています。</p>

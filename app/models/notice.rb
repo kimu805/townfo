@@ -1,6 +1,7 @@
 class Notice < ApplicationRecord
   belongs_to :group
   belongs_to :user
+  has_many :reads, as: :readable
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tag
 
