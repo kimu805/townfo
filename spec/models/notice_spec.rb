@@ -18,7 +18,31 @@ RSpec.describe Notice, type: :model do
       end
     end
     context "投稿できない場合" do
-      
+      it "titleが空では登録できない" do
+        @notice.title = ""
+        @notice.valid?
+        expect(@notice.errors.full_messages).to include("Title can't be blank")
+      end
+      it "contentが空では登録できない" do
+        @notice.content = ""
+        @notice.valid?
+        expect(@notice.errors.full_messages).to include("Content can't be blank")
+      end
+      it "tag_idが空では登録できない" do
+        @notice.tag_id = nil
+        @notice.valid?
+        expect(@notice.errors.full_messages).to include("Tag can't be blank")
+      end
+      it "userが紐づいていないと登録できない" do
+        @notice.user_id = nil
+        @notice.valid?
+        expect(@notice.errors.full_messages).to include("User must exist")
+      end
+      it "groupが紐づいていないと登録できない" do
+        @notice.group_id = nil
+        @notice.valid?
+        expect(@notice.errors.full_messages).to include("Group must exist")
+      end
     end
   end
 end
