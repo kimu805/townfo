@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Circular, type: :model do
   before do
     @circular = FactoryBot.build(:circular)
+    @circular.pdf_file.attach(io: File.open("public/images/表示確認用2.pdf"), filename: "表示確認用.pdf", content_type: "application/pdf")
   end
 
   describe "回覧板作成機能" do
@@ -18,10 +19,9 @@ RSpec.describe Circular, type: :model do
         expect(@circular.errors.full_messages).to include("Title can't be blank")
       end
       it "pdf_fileが空では作成できない" do
-        @circular.pdf_file = ""
+        @circular.pdf_file = nil
         @circular.valid?
-        binding.pry
-        expect(@circular.errors.full_messages).to include("pdf_file can't be blank")
+        expect(@circular.errors.full_messages).to include("Pdf file can't be blank")
       end
     end
   end
