@@ -29,7 +29,6 @@ RSpec.describe Group, type: :model do
         @group.valid?
         expect(@group.errors.full_messages).to include("Owner can't be blank")
       end
-
     end
   end
 end
