@@ -10,7 +10,11 @@ Rails.application.routes.draw do
         delete "reject"
       end
     end
-    resources :notices
+    resources :notices do
+      member do
+        post "mark_as_read"
+      end
+    end
     resources :circulars, except: [:edit, :update] do
       member do
         post "read_create"
