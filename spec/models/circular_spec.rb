@@ -23,6 +23,16 @@ RSpec.describe Circular, type: :model do
         @circular.valid?
         expect(@circular.errors.full_messages).to include("Pdf file can't be blank")
       end
+      it "userが紐づいていなければ作成できない" do
+        @circular.user = nil
+        @circular.valid?
+        expect(@circular.errors.full_messages).to include("User must exist")
+      end
+      it "groupが紐づいていなければ作成できない" do
+        @circular.group = nil
+        @circular.valid?
+        expect(@circular.errors.full_messages).to include("Group must exist")
+      end
     end
   end
 end
