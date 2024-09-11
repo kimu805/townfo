@@ -77,7 +77,6 @@
 - has_many :reads
 - has_one_attached :image
 
-
 ## circulars テーブル
 
 | Column   | Type       | Options                        |
