@@ -8,7 +8,6 @@
 | description         | text       | null: false |
 | owner_id            | integer    | null: false |
 
-
 ### Association
 <!-- 承認済みのユーザーとの関連 -->
 - has_many :memberships
