@@ -48,7 +48,6 @@
 - belongs_to :group
 - belongs_to :user
 
-
 ## pending_memberships テーブル
 
 | Column | Type           | Options                                 |
