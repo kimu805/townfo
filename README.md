@@ -59,7 +59,6 @@
 - belongs_to :group
 - belongs_to :user
 
-
 ## notices テーブル
 
 | Column   | Type       | Options                        |
