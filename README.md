@@ -37,7 +37,6 @@
 - has_many :circulars
 - has_many :reads
 
-
 ## memberships テーブル
 
 | Column | Type           | Options                                 |
