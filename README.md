@@ -92,7 +92,6 @@
 - has_many :reads
 - has_one_attached :pdf_file
 
-
 ## reads テーブル
 
 | Column        | Type       | Options                        |
