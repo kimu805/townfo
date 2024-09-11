@@ -18,7 +18,6 @@
 - has_many :notices
 - has_many :circulars
 
-
 ## users テーブル
 
 | Column             | Type       | Options                        |
