@@ -26,7 +26,6 @@
 | email              | string     | null: false, unique: true      |
 | encrypted_password | string     | null: false                    |
 
-
 ### Association
 <!--承認済みのグループとの関連付け -->
 - has_many :memberships
