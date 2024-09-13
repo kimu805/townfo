@@ -1,16 +1,16 @@
 <%= render "shared/header" %>
 
-<div class= "main">
+<div class= "notice_index_main">
 
   <div class= "index_btn_box">
     <div class= "index_btn_list">
       <div class= "notice_index_btn_box">
-        <%= link_to( group_notices_path(current_group), class: "notice_index_btn_link link") do %>
+        <%= link_to( group_notices_path(current_group), class: "link") do %>
           <div class= "notice_index_btn_text">お知らせ一覧</div>
         <% end %>
       </div>
       <div class= "circular_index_btn_box">
-        <%= link_to( group_circulars_path(current_group), class: "circular_index_btn_link link") do %>
+        <%= link_to( group_circulars_path(current_group), class: "link") do %>
           <div class= "circular_index_btn_text">回覧板一覧</div>
         <% end %>
       </div>
@@ -23,7 +23,23 @@
         <div class= "notice_item" data-notice-id="<%= notice.id %>" data-group-id="<%= current_group.id %>">
           <div class= "notice_header">
             <div class= "notice_header_info">
-              <span class= "notice_tag"><%= notice.tag.name %></span>
+              <% if notice.tag.name == "お知らせ" %>
+                <span class= "notice_tag green">
+                  <%= notice.tag.name %>
+                </span>
+              <% elsif notice.tag.name == "イベント" %>
+                <span class= "notice_tag blue">
+                  <%= notice.tag.name %>
+                </span>
+              <% elsif notice.tag.name == "緊急" %>
+                <span class= "notice_tag yellow">
+                  <%= notice.tag.name %>
+                </span>
+              <% elsif notice.tag.name == "重要" %>
+                <span class= "notice_tag red">
+                  <%= notice.tag.name %>
+                </span>
+              <% end %>
               <div class= "notice_header_day"><%= notice.created_at %></div>
             </div>
             <h2 class= "notice_title">
@@ -41,10 +57,6 @@
       <% end %>
     </div>
   </div>
-
-
-
-
 
 </div>
 
