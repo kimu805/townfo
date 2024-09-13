@@ -1,8 +1,10 @@
 <header class="header">
-  <div class="app_title">townfo</div>
+  <div class="app_title">
+    <%= link_to "townfo", root_path, class: "link" %>
+  </div>
   <ul class="nav_lists">
     <li class="nav_list"><%= current_group.name %></li>
-    <li class="nav_list"><%= current_user.nickname %></li>
+    <li class="nav_list"><%= link_to current_user.nickname, group_user_path(group_id: current_group.id, id: current_user.id), class: "link" %></li>
     <li class="nav_list">
       <%= link_to "ログアウト", destroy_user_session_path, data: {turbo_method: :delete}, class: "link" %>
     </li>

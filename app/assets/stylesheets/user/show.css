@@ -1,0 +1,33 @@
+.mypage{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid black;
+}
+
+.mypage_box{
+  width: 60vw;
+  margin-top: 30px;
+  
+}
+
+.user_name{
+  font-weight: bold;
+  font-size: 24px;
+}
+.user_email{
+  font-size: 18px;
+}
+.user_edit_btn{
+  background-color: whitesmoke;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 150px;
+  margin-top: 10px;
+}
+
+.user_notice{
+  font-size: 24px;
+  font-weight: bold;
+}
