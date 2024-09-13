@@ -1,5 +1,3 @@
-<%= render "shared/header" %>
-
 <div class= "main">
   <div class= "main_box">
     <%= form_with model: @user, url: user_session_path, id: "new_user", class: "new_user", local: true do |f| %>
@@ -30,11 +28,5 @@
         <%= f.submit "ログイン" ,class:"login-red-btn" %>
       </div>
     <% end %>
-
-
-
   </div>
 </div>
-
-
-<%= render "shared/footer" %>
