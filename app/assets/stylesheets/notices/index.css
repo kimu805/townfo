@@ -14,9 +14,6 @@
   padding: 25px;
 }
 
-.notice_header{
-}
-
 .notice_header_info{
   display: flex;
   justify-content: space-between;
