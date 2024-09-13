@@ -1,13 +1,28 @@
-<h1>マイページ</h1>
+<%= render "shared/header" %>
 
-<h2>ユーザー情報</h2>
-名前：<%= @user.nickname %>
-メールアドレス：<%= @user.email %>
+<div class= "mypage">
+  <div class= "mypage_box">
+    <div class= "user_info_box">
+      <div class= "user_name"><%= @user.nickname %></div>
+      <div class= "user_email"><%= @user.email %></div>
+    </div>
+    <div class= "user_edit_btn">
+      <%= link_to "プロフィールを編集", "#", class: "link" %> 
+    </div>
+  </div>
+</div>
+
+
 
 <div class= "main_container">
   <div class= "notices_list">
+    <span class= "user_notice">
+      <%= @user.nickname %>の投稿
+    </span>
     <% @notices.each do |notice| %>
       <%= render partial: "notices/notice", locals: {notice: notice} %>
     <% end %>
   </div>
 </div>
+
+<%= render "shared/footer" %>
