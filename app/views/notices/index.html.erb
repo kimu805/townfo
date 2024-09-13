@@ -1,17 +1,21 @@
 <%= render "shared/header" %>
 
-<h1>お知らせ一覧</h1>
-<%= link_to "回覧板はこちら", group_circulars_path(current_group) %><br><br>
-
 <div class= "main">
 
-  <div class= "index_btn">
-    <div class= "notice_index_btn">b</div>
-    <div class= "circular_index_btn">a</div>
+  <div class= "index_btn_box">
+    <div class= "index_btn_list">
+      <div class= "notice_index_btn_box">
+        <%= link_to( group_notices_path(current_group), class: "notice_index_btn_link link") do %>
+          <div class= "notice_index_btn_text">お知らせ一覧</div>
+        <% end %>
+      </div>
+      <div class= "circular_index_btn_box">
+        <%= link_to( group_circulars_path(current_group), class: "circular_index_btn_link link") do %>
+          <div class= "circular_index_btn_text">回覧板一覧</div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-
-
 
   <div class= "main_container">
     <div class= "notices_list">
