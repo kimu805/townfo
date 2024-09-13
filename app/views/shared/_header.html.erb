@@ -4,11 +4,11 @@
     <li class="nav_list"><%= current_group.name %></li>
     <li class="nav_list"><%= current_user.nickname %></li>
     <li class="nav_list">
-      <%= link_to "ログアウト", destroy_user_session_path, data: {turbo_method: :delete} %>
+      <%= link_to "ログアウト", destroy_user_session_path, data: {turbo_method: :delete}, class: "link" %>
     </li>
     <% if current_group && current_user.id == current_group.owner_id %>
       <li class="nav_list">
-        <%= link_to "ユーザー管理", group_memberships_path(current_group) %>
+        <%= link_to "ユーザー管理", group_memberships_path(current_group), class: "link" %>
       </li>
     <% end %>
   </ul>
