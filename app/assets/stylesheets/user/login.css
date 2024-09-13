@@ -1,10 +1,10 @@
-.login-btn {
+.commit-btn {
   width: 30%;
   margin: 0 auto;
   margin-top: 50px;
 }
 
-.login-red-btn {
+.commit-red-btn {
   width: 100%;
   background: #ee827c;
   border: 1px solid #ee827c;
