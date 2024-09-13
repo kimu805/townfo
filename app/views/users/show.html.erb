@@ -1,2 +1,13 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>マイページ</h1>
+
+<h2>ユーザー情報</h2>
+名前：<%= @user.nickname %>
+メールアドレス：<%= @user.email %>
+
+<div class= "main_container">
+  <div class= "notices_list">
+    <% @notices.each do |notice| %>
+      <%= render partial: "notices/notice", locals: {notice: notice} %>
+    <% end %>
+  </div>
+</div>
