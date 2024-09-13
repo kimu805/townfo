@@ -1,19 +1,68 @@
-<h1>お知らせ一覧</h1>
-<%= link_to "回覧板はこちら", group_circulars_path(current_group) %><br><br>
+<%= render "shared/header" %>
 
-<%= link_to "お知らせ投稿", new_group_notice_path(current_group) %><br><br>
+<div class= "notice_index_main">
 
+  <div class= "index_btn_box">
+    <div class= "index_btn_list">
+      <div class= "notice_index_btn_box">
+        <%= link_to( group_notices_path(current_group), class: "link") do %>
+          <div class= "notice_index_btn_text">お知らせ一覧</div>
+        <% end %>
+      </div>
+      <div class= "circular_index_btn_box">
+        <%= link_to( group_circulars_path(current_group), class: "link") do %>
+          <div class= "circular_index_btn_text">回覧板一覧</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<ul id="notices_list">
-  <% @notices.each do |notice| %>
-    <li class="notice_item" data-notice-id="<%= notice.id %>" data-group-id="<%= current_group.id %>">
-      <p>タイトル：<%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id)  %></p>
-      <p>内容　　：<%= simple_format(h(notice.content), {}, sanitize: false, wrapper_tag: "div") %></p>
-      <p>日付　　：<%= notice.schedule if notice.schedule %>
-      <p>タグ　　：<%= notice.tag.name %>
-      <p>投稿者　：<%= notice.user.nickname %>
-      <p>既読　　：<%= notice.reads.count %><br><br>
-    </li>
-  <% end %>
-</ul>
-  
+  <div class= "main_container">
+    <div class= "notices_list">
+      <% @notices.each do |notice| %>
+        <div class= "notice_item" data-notice-id="<%= notice.id %>" data-group-id="<%= current_group.id %>">
+          <div class= "notice_header">
+            <div class= "notice_header_info">
+              <% if notice.tag.name == "お知らせ" %>
+                <span class= "notice_tag green">
+                  <%= notice.tag.name %>
+                </span>
+              <% elsif notice.tag.name == "イベント" %>
+                <span class= "notice_tag blue">
+                  <%= notice.tag.name %>
+                </span>
+              <% elsif notice.tag.name == "緊急" %>
+                <span class= "notice_tag yellow">
+                  <%= notice.tag.name %>
+                </span>
+              <% elsif notice.tag.name == "重要" %>
+                <span class= "notice_tag red">
+                  <%= notice.tag.name %>
+                </span>
+              <% end %>
+              <div class= "notice_header_day"><%= notice.created_at %></div>
+            </div>
+            <h2 class= "notice_title">
+              <%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id), class: "link" %>
+            </h2>
+          </div>
+          <div class= "notice_user_name">投稿者：<%= notice.user.nickname %></div>
+          <p class= "notice_content">
+            <%= simple_format(h(notice.content), {}, sanitize: false, wrapper_tag: "div") %>
+          </p>
+          <div class= "notice_footer">
+            <div class= "notice_reads">既読：<%= notice.reads.count %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<%= link_to( new_group_notice_path(current_group), class: "notice_new_btn link") do %>
+  <span class= "notice_new_btn_text">投稿</span>
+  <%= image_tag "icon_pencil.png", size: "185x60", class: "notice_new_btn_icon" %>
+<% end %>
+
+<%= render "shared/footer" %>
