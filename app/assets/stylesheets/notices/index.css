@@ -3,11 +3,11 @@
   justify-content: center;
 }
 
-.notices{
+.notices_list{
   width: 60vw;
 }
 
-.notice{
+.notice_item{
   border: 2px solid black;
   border-radius: 5px;
   margin-top: 30px;
@@ -45,15 +45,23 @@
   font-weight: bold;
 }
 
+.notice_title_link{
+  text-decoration: none;
+  color: black;
+}
+
 .notice_user_name{
   font-size: 14px;
 }
 .notice_content{
-
+  margin-top: 8px;
 }
 .notice_footer{
-
+  margin: 5px;
+  display: flex;
+  justify-content: end;
 }
 .notice_reads{
-
+  color: gray;
+  font-size: 14px;
 }
