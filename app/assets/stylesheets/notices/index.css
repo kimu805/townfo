@@ -62,3 +62,24 @@
   color: gray;
   font-size: 14px;
 }
+
+.notice_new_btn{
+  width: 120px;
+  background: #fff;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+}
+.notice_new_btn_text{
+  color: black;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.notice_new_btn_icon{
+  width: 60%;
+}
