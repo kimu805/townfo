@@ -1,8 +1,10 @@
 .main{
+}
+
+.main_container{
   display: flex;
   justify-content: center;
 }
-
 .notices_list{
   width: 60vw;
 }
@@ -49,6 +51,7 @@
 
 .notice_user_name{
   font-size: 14px;
+  color: gray;
 }
 .notice_content{
   margin-top: 8px;
