@@ -48,3 +48,19 @@
   font-size: 16px;
   resize: none;
 }
+
+.commit-btn {
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.commit-red-btn {
+  width: 100%;
+  background: #ee827c;
+  border: 1px solid #ee827c;
+  color: #fff;
+  line-height: 48px;
+  font-size: 16px;
+  cursor: pointer;
+}
