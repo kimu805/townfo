@@ -17,7 +17,7 @@
             <div class="notice_header_day"><%= notice.created_at %></div>
           </div>
           <h2 class="notice_title">
-            <%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id), class: "notice_title_link" %>
+            <%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id), class: "link" %>
           </h2>
         </div>
         <div class="notice_user_name">投稿者：<%= notice.user.nickname %></div>
