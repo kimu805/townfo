@@ -3,36 +3,45 @@
 <h1>お知らせ一覧</h1>
 <%= link_to "回覧板はこちら", group_circulars_path(current_group) %><br><br>
 
-<%= link_to "お知らせ投稿", new_group_notice_path(current_group) %><br><br>
+<div class= "main">
+  <div class= "index-btn"></div>
 
-<div class="main">
-  <div class="notices_list">
+
+
+
+
+  <div class= "notices_list">
     <% @notices.each do |notice| %>
-      <div class="notice_item" data-notice-id="<%= notice.id %>" data-group-id="<%= current_group.id %>">
-        <div class="notice_header">
-          <div class="notice_header_info">
-            <span class="notice_tag"><%= notice.tag.name %></span>
-            <div class="notice_header_day"><%= notice.created_at %></div>
+      <div class= "notice_item" data-notice-id="<%= notice.id %>" data-group-id="<%= current_group.id %>">
+        <div class= "notice_header">
+          <div class= "notice_header_info">
+            <span class= "notice_tag"><%= notice.tag.name %></span>
+            <div class= "notice_header_day"><%= notice.created_at %></div>
           </div>
-          <h2 class="notice_title">
+          <h2 class= "notice_title">
             <%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id), class: "link" %>
           </h2>
         </div>
-        <div class="notice_user_name">投稿者：<%= notice.user.nickname %></div>
-        <p class="notice_content">
+        <div class= "notice_user_name">投稿者：<%= notice.user.nickname %></div>
+        <p class= "notice_content">
           <%= simple_format(h(notice.content), {}, sanitize: false, wrapper_tag: "div") %>
         </p>
-        <div class="notice_footer">
-          <div class="notice_reads">既読：<%= notice.reads.count %></div>
+        <div class= "notice_footer">
+          <div class= "notice_reads">既読：<%= notice.reads.count %></div>
         </div>
       </div>
     <% end %>
   </div>
+
+
+
+
+
 </div>
 
-<%= link_to( new_group_notice_path(current_group) class: "notice_new_btn") do %>
-  <span class="notice_new_btn_text">投稿する</span>
-  <%= image_tag "icon_pencil.png", size: "185x50", class: "notice_new_btn_icon" %>
+<%= link_to( new_group_notice_path(current_group), class: "notice_new_btn link") do %>
+  <span class= "notice_new_btn_text">投稿</span>
+  <%= image_tag "icon_pencil.png", size: "185x60", class: "notice_new_btn_icon" %>
 <% end %>
 
 <%= render "shared/footer" %>
