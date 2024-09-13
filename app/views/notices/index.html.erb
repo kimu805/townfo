@@ -5,8 +5,6 @@
 
 <%= link_to "お知らせ投稿", new_group_notice_path(current_group) %><br><br>
 
-
-
 <div class="main">
   <div class="notices_list">
     <% @notices.each do |notice| %>
@@ -31,5 +29,10 @@
     <% end %>
   </div>
 </div>
+
+<%= link_to( new_group_notice_path(current_group) class: "notice_new_btn") do %>
+  <span class="notice_new_btn_text">投稿する</span>
+  <%= image_tag "icon_pencil.png"
+<% end %>
 
 <%= render "shared/footer" %>
