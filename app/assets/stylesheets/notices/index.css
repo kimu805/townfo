@@ -36,6 +36,7 @@
 
 .notice_header_day{
   color: gray;
+  font-size: 13px;
 }
 
 .notice_title{
@@ -45,7 +46,7 @@
 }
 
 .notice_user_name{
-
+  font-size: 14px;
 }
 .notice_content{
 
