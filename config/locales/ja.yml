@@ -1,5 +1,13 @@
 ja:
   activerecord:
+    models:
+       group: グループ
+       user: ユーザー
+       membership: メンバー
+       pending_membership: 承認待ち
+       notice: お知らせ
+       circular: 回覧板
+       read: 既読情報
     attributes:
       group:
         name: グループ名
