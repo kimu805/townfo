@@ -1,0 +1,25 @@
+.show_edit_delete_btn{
+  margin-top: 20px;
+}
+
+a.edit_btn, a.delete_btn {
+  font-size: 18px;
+  color: #000;
+  background-color: #a0d8ef;
+  border-bottom: 5px solid #89c3eb;
+  margin-right: 20px;
+  font-weight: bold;
+  
+}
+
+a.delete_btn{
+  background-color: #f6b894;
+  border-bottom: 5px solid #f19072;
+}
+
+a.edit_btn:hover, a.delete_btn:hover{
+  margin-top: 3px;
+  color: #000;
+  background: #e6eae3;
+  border-bottom: 2px solid #e6eae3;
+}
