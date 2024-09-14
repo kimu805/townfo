@@ -1,3 +1,17 @@
+<div class= "main">
+  <div class= "main_box">
+    <%= link_to(group_notices_path(current_group), class: "link") do %>
+      <%= image_tag "back.png", size: "40x40", class: "back_image" %>
+    <% end %>
+    <div class= "page_title"> 
+      <div class= "page_title_text">お知らせ詳細</div>
+    </div>
+
+    <%= render partial: "notice", locals: {notice: @notice} %>
+
+  </div>
+</div>
+
 <h1>投稿詳細画面</h1>
 
 <h2>タイトル</h2>
