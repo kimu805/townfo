@@ -37,7 +37,7 @@
       <%= f.label :tag_id, class: "form-text" %>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.collection_select(:tag_id, Tag.all, :id, :name, {class: "form-text"}) %>
+    <%= f.collection_select(:tag_id, Tag.all, :id, :name, {class:"input-default"}) %>
   </div>
   <% if request.path == new_group_notice_path(current_group) %>
     <div class='commit-btn'>
