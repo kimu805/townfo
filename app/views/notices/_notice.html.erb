@@ -18,7 +18,7 @@
           <%= notice.tag.name %>
         </span>
       <% end %>
-      <div class= "notice_header_day"><%= notice.created_at %></div>
+      <div class= "notice_header_day"><%= l notice.created_at %></div>
     </div>
     <h2 class= "notice_title">
       <%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id), class: "link" %>
