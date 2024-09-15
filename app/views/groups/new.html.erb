@@ -4,12 +4,6 @@
       <%= image_tag "back.png", size: "40x40", class: "back_image" %>
     <% end %>
     
-    <div class= "page_title">
-      <div class= "page_title_text">
-        グループ新規作成
-      </div>
-    </div>
-    
     <%= render partial: "form", locals: { group: @group, url: groups_path } %>
 
   </div>
