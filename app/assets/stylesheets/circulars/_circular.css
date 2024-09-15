@@ -1,0 +1,28 @@
+.circular{
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 30px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.circular_right{
+  width: 70%;
+}
+.circular_title{
+  margin: 3px 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+.circular_left{
+  width: 30%;
+}
+.circular_created_at{
+  color: gray;
+  font-size: 13px;
+}
+.circular_pdf_file{
+  margin-top: 10px;
+  font-size: 13px;
+}
