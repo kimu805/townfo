@@ -1,0 +1,43 @@
+.pendingMembershipNew_heading3{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.pendingMembershipsIndex_searchBox{
+  margin: 30px 0;
+}
+
+
+/* 検索フォーム *************************************************************************************/
+.search-form-3 {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #777777;
+  border-radius: 25px;
+}
+
+.search-form-3 input {
+  width: 45vw;
+  height: 45px;
+  padding: 5px 15px;
+  border: none;
+  box-sizing: border-box;
+  font-size: 1em;
+  outline: none;
+}
+
+.search-form-3 input::placeholder{
+  color: #777777;
+}
+/* /検索フォーム *************************************************************************************/
+.pendingMembership_createButton{
+  padding: 5px 15px;
+  background-color: #eaf4fc;
+}
+
+.pendingMembership_createButton:hover{
+  background-color: #c1e4e9;
+}

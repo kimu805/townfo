@@ -24,8 +24,8 @@
               <tr>
                 <td><%= pending_member.user.nickname %></td>
                 <td>
-                  <%= link_to '承認', approve_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を承認します。よろしいですか？", turbo_method: :patch} %>
-                  <%= link_to "拒否", reject_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を拒否します。よろしいですか？", turbo_method: :delete} %>
+                  <%= link_to '承認', approve_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を承認します。よろしいですか？", turbo_method: :patch}, class: "membershipIndex_approveButton link" %>
+                  <%= link_to "拒否", reject_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を拒否します。よろしいですか？", turbo_method: :delete}, class: "membershipIndex_rejectButton link" %>
                 </td>
               </tr>
             <% end %>

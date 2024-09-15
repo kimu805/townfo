@@ -49,6 +49,24 @@ table th{
   font-weight: bold;
 }
 
+.membershipIndex_approveButton{
+  padding: 5px 15px;
+  background-color: #eaf4fc;
+}
+
+.membershipIndex_approveButton:hover{
+  background-color: #c1e4e9;
+}
+
+.membershipIndex_rejectButton{
+  padding: 5px 15px;
+  background-color: #f3bf88;
+}
+
+.membershipIndex_rejectButton:hover{
+  background-color: #f19072;
+}
+
 .memberships_box{
   padding-top: 20px;
 
