@@ -1,14 +1,27 @@
-<h1>回覧板一覧</h1>
-<%= link_to "お知らせはこちら", group_notices_path(current_group) %><br><br>
+<div class= "main">
+  <div class= "main_box">
 
-<% if current_user.id == current_group.owner_id %>
-  <%= link_to "回覧板投稿", new_group_circular_path(current_group) %><br><br>
-<% end %>
+    <div class= "index_btn_box">
+      <div class= "gray_index_btn_box">
+        <%= link_to( group_notices_path(current_group), class: "link") do %>
+          <div class= "gray_index_btn_text">お知らせ一覧</div>
+        <% end %>
+      </div>
+      <div class= "white_index_btn_box">
+        <%= link_to( group_circulars_path(current_group), class: "link") do %>
+          <div class= "white_index_btn_text">回覧板一覧</div>
+        <% end %>
+      </div>
+    </div>
 
-<% @circulars.each do |circular| %>
-  <p>投稿者：<%= circular.user.nickname %>
-  <p>タイトル：<%= link_to circular.title, group_circular_path(group_id: current_group.id, id: circular.id) %></p>
-  <% if circular.pdf_file.attached? %>
-    <p>PDFファイルが添付されています。</p>
-  <% end %>
-<% end %>
+    <% @circulars.each do |circular| %>
+      <%= render partial: "circular", locals: { circular: circular } %>
+    <% end %>
+    
+
+    <%= link_to( new_group_circular_path(current_group), class: "new_btn link") do %>
+      <span class= "new_btn_text">投稿</span>
+      <%= image_tag "icon_pencil.png", size: "185x60", class: "new_btn_icon" %>
+    <% end %>
+  </div>
+</div>
