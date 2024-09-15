@@ -40,3 +40,6 @@ ja:
         complete:
           "true": "既読"
           "false": "未読"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
