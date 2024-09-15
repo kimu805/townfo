@@ -1,0 +1,13 @@
+<%= link_to(group_circular_path(group_id: current_group.id, id: circular.id), class: "link") do %>
+  <div class= "circular">
+    <div class= "circular_right">
+      <div class= "circular_title">
+        <%= circular.title %>
+      </div>
+    </div>
+    <div class= "circular_left">
+      <div class= "circular_created_at"><%= l circular.created_at %></div>
+      <div class= "circular_pdf_file">PDF有り</div>
+    </div>
+  </div>
+<% end %>
