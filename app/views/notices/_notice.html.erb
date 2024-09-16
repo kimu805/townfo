@@ -1,40 +1,42 @@
-<div class= "notice_item" data-notice-id="<%= notice.id %>" data-group-id="<%= current_group.id %>">
-  <div class= "notice_header">
-    <div class= "notice_header_info">
-      <% if notice.tag.name == "お知らせ" %>
-        <span class= "notice_tag green">
-          <%= notice.tag.name %>
-        </span>
-      <% elsif notice.tag.name == "イベント" %>
-        <span class= "notice_tag blue">
-          <%= notice.tag.name %>
-        </span>
-      <% elsif notice.tag.name == "緊急" %>
-        <span class= "notice_tag yellow">
-          <%= notice.tag.name %>
-        </span>
-      <% elsif notice.tag.name == "重要" %>
-        <span class= "notice_tag red">
-          <%= notice.tag.name %>
-        </span>
-      <% end %>
-      <div class= "notice_header_day"><%= l notice.created_at %></div>
+<%= link_to(group_notice_path(group_id: current_group.id, id: notice.id), class: "link") do %>
+  <div class= "notice_item" data-notice-id="<%= notice.id %>" data-group-id="<%= current_group.id %>">
+    <div class= "notice_header">
+      <div class= "notice_header_info">
+        <% if notice.tag.name == "お知らせ" %>
+          <span class= "notice_tag green">
+            <%= notice.tag.name %>
+          </span>
+        <% elsif notice.tag.name == "イベント" %>
+          <span class= "notice_tag blue">
+            <%= notice.tag.name %>
+          </span>
+        <% elsif notice.tag.name == "緊急" %>
+          <span class= "notice_tag yellow">
+            <%= notice.tag.name %>
+          </span>
+        <% elsif notice.tag.name == "重要" %>
+          <span class= "notice_tag red">
+            <%= notice.tag.name %>
+          </span>
+        <% end %>
+        <div class= "notice_header_day"><%= l notice.created_at %></div>
+      </div>
+      <h2 class= "notice_title">
+        <%= notice.title %>
+      </h2>
     </div>
-    <h2 class= "notice_title">
-      <%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id), class: "link" %>
-    </h2>
+    <div class= "notice_user_name">投稿者：<%= notice.user.nickname %></div>
+    <% if request.path == group_notices_path(current_group) %>
+      <p class="notice_content">
+        <%= simple_format(sanitize(truncate(notice.content, length: 200)), {}, wrapper_tag: "div") %>
+      </p>
+    <% else %>
+      <p class= "notice_content">
+        <%= simple_format(h(notice.content), {}, sanitize: false, wrapper_tag: "div") %>
+      </p>
+    <% end %>
+    <div class= "notice_footer">
+      <div class= "notice_reads">既読：<%= notice.reads.count %></div>
+    </div>
   </div>
-  <div class= "notice_user_name">投稿者：<%= notice.user.nickname %></div>
-  <% if request.path == group_notices_path(current_group) %>
-    <p class="notice_content">
-      <%= simple_format(sanitize(truncate(notice.content, length: 200)), {}, wrapper_tag: "div") %>
-    </p>
-  <% else %>
-    <p class= "notice_content">
-      <%= simple_format(h(notice.content), {}, sanitize: false, wrapper_tag: "div") %>
-    </p>
-  <% end %>
-  <div class= "notice_footer">
-    <div class= "notice_reads">既読：<%= notice.reads.count %></div>
-  </div>
-</div>
+<% end %>
