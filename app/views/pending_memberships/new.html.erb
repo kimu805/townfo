@@ -31,12 +31,12 @@
         <% @groups.each do |group| %>
           <tr>
             <td>
-              <%= group.name %>
+              <%= link_to group.name, group_path(group), class: "link" %>
               <% if current_user.pending_memberships.length == 0 %>
                 <%= link_to "申請", group_pending_memberships_path(group), data: {turbo_confirm: "「#{group.name}」に参加申請を送信します。よろしいですか？", turbo_method: :post}, class: "pendingMembership_createButton link" %>
               <% end %>
             <td>
-              <%= truncate(group.description, length: 200) %>
+              <%= link_to truncate(group.description, length: 200), group_path(group), class: "link" %>
             </td>
           </tr>
         <% end %>
