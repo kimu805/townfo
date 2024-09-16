@@ -1,0 +1,26 @@
+.circularIndex_indexButton_box{
+  display: flex;
+  justify-content: space-around;
+}
+
+.circularIndex_circularIndexButton{
+  padding: 30px 0;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.circularIndex_noticeIndexButton{
+  padding: 30px 0;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  background-color: #c0c6c9;
+  font-size: 20px;
+}
+
+.circularIndex_noticeIndexButton:hover{
+  background-color: #afafb0;
+}
