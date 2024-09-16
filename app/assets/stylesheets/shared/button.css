@@ -1,0 +1,17 @@
+.blueButton{
+  padding: 5px 15px;
+  background-color: #eaf4fc;
+}
+
+.blueButton:hover{
+  background-color: #c1e4e9;
+}
+
+.redButton{
+  padding: 5px 15px;
+  background-color: #f3bf88;
+}
+
+.redButton:hover{
+  background-color: #f19072;
+}
