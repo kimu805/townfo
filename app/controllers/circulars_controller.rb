@@ -1,7 +1,7 @@
 class CircularsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group
-  before_action :set_circular, only: [:show, :destroy, :read_create, :show_read_users]
+  before_action :set_circular, only: [:show, :destroy, :read_create]
   before_action :ensure_owner, except: [:index, :show, :read_create]
 
   def index
@@ -23,6 +23,7 @@ class CircularsController < ApplicationController
 
   def show
     @read = current_user.reads.find_by(readable: @circular, complete: true)
+    @users = @group.users
   end
 
   def destroy
@@ -33,10 +34,6 @@ class CircularsController < ApplicationController
   def read_create
     current_user.reads.find_or_create_by(readable: @circular, complete: true)
     redirect_to group_circular_path(group_id: current_group.id, id: @circular.id )
-  end
-
-  def show_read_users
-    @users = @group.users
   end
 
   private
