@@ -37,7 +37,18 @@ function markNoticeAsRead(noticeId, groupId) {
   }).then((response) => {
     if (!response.ok) {
       console.error("既読情報の送信に失敗しました");
+      return
     }
-  });
+    return response.json()
+  }).then((data) => {
+    if (data && data.read_count !== undefined) {
+      const noticeReadsElement = document.querySelector(`.notice_reads[data-notice-id= "${noticeId}"]`)
+      if (noticeReadsElement) {
+        noticeReadsElement.textContent = `既読：${data.read_count}`
+      }
+    }
+  }).catch((error) => {
+    console.log("エラーが発せしました", error)
+  })
 }
 window.addEventListener("turbo:load", read)

@@ -36,7 +36,7 @@
       </p>
     <% end %>
     <div class= "notice_footer">
-      <div class= "notice_reads">既読：<%= notice.reads.count %></div>
+      <div class= "notice_reads", data-notice-id= "<%= notice.id %>">既読：<%= notice.reads.count %></div>
     </div>
   </div>
 <% end %>
