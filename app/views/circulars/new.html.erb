@@ -1,21 +1,38 @@
-<h1>回覧板投稿画面</h1>
-<%= link_to "戻る", group_circulars_path(current_group) %><br><br>
+<div class= "main">
+  <div class= "main_box">
 
-<%= form_with model: @circular, url: group_circulars_path(current_group), local: true do |form| %>
+    <%= link_to(group_notices_path(current_group), class: "link") do %>
+      <%= image_tag "back.png", size: "40x40", class: "back_image" %>
+    <% end %>
+    
+    <%= form_with model: @circular, url: group_circulars_path(current_group), local: true do |f| %>  
+      <div class='form-header'>
+        <h1 class='form-header-text'>
+          回覧板新規投稿
+        </h1>
+      </div>
+      
+      <%= render partial: "shared/error", locals: {model: @circular} %>
 
-  <%= render partial: "shared/error", locals: {model: @circular} %>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <%= f.label :title, class: "form-text" %>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :title, class:"input-default", autofocus: true %>
+      </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <%= f.label :pdf_file, class: "form-text" %>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.file_field :pdf_file, class:"input-default" %>
+      </div>
+
+      <div class='commit-btn'>
+        <%= f.submit "投稿" ,class:"commit-red-btn" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :pdf_file, "PDFファイル" %>
-    <%= form.file_field :pdf_file %> <!-- ファイルアップロードフィールド -->
-  </div>
-
-  <div class="actions">
-    <%= form.submit nil %>
-  </div>
-<% end %>
+</div>
