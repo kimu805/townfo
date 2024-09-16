@@ -1,33 +1,3 @@
-/* table ***************************************************************************/
-table{
-  border-collapse: collapse;
-  border: 1.5px solid black;
-  border-spacing: 0;
-  width: 100%;
-}
-
-table tr{
-  cursor: pointer;
-}
-
-table tr:hover{
-  background-color: #d4f0fd;
-}
-
-table th,table td{
-  text-align: center;
-  width: 25%;
-  padding: 15px 0;
-}
-
-table th{
-  background-color: #e7e7eb;
-  font-weight: bold;
-}
-
-/* /table ***************************************************************************/
-
-
 .page_title{
   text-align: center;
   font-size: 24px;
@@ -40,43 +10,24 @@ table th{
   border-bottom: 1px solid black;
 }
 
-.pending_memberships_title{
+.pending_memberships_heading2_title{
   margin-bottom: 10px;
 }
 
-.pending_memberships_title_text{
+.pending_memberships_heading2_title_text{
   font-size: 20px;
   font-weight: bold;
 }
 
-.membershipIndex_approveButton{
-  padding: 5px 15px;
-  background-color: #eaf4fc;
-}
-
-.membershipIndex_approveButton:hover{
-  background-color: #c1e4e9;
-}
-
-.membershipIndex_rejectButton{
-  padding: 5px 15px;
-  background-color: #f3bf88;
-}
-
-.membershipIndex_rejectButton:hover{
-  background-color: #f19072;
-}
-
 .memberships_box{
   padding-top: 20px;
-
 }
 
-.memberships_title{
+.memberships_heading2_title{
   margin-bottom: 10px;
 }
 
-.memberships_title_text{
+.memberships_heading2_title_text{
   font-size: 20px;
   font-weight: bold;
 }
