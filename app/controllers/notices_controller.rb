@@ -42,7 +42,8 @@ class NoticesController < ApplicationController
 
   def mark_as_read
     current_user.reads.find_or_create_by(readable: @notice, complete: true)
-    head :ok
+    read_count = @notice.reads.count
+    render json: {read_count: read_count}
   end
 
   private
