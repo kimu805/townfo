@@ -9,11 +9,12 @@
     <% @circulars.each do |circular| %>
       <%= render partial: "circular", locals: { circular: circular } %>
     <% end %>
-    
-
-    <%= link_to( new_group_circular_path(current_group), class: "new_btn link") do %>
-      <span class= "new_btn_text">投稿</span>
-      <%= image_tag "icon_pencil.png", size: "185x60", class: "new_btn_icon" %>
+      
+    <% if current_user.id == @group.owner_id %>
+      <%= link_to( new_group_circular_path(current_group), class: "new_btn link") do %>
+        <span class= "new_btn_text">投稿</span>
+        <%= image_tag "icon_pencil.png", size: "185x60", class: "new_btn_icon" %>
+      <% end %>
     <% end %>
   </div>
 </div>
