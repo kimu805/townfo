@@ -8,8 +8,8 @@
     </div>
 
     <div class= "pending_memberships_box">
-      <div class= "pending_memberships_title">
-        <h2 class= "pending_memberships_title_text">承認待ち一覧</h2>
+      <div class= "pending_memberships_heading2_title">
+        <h2 class= "pending_memberships_heading2_title_text">承認待ち一覧</h2>
       </div>
       <div class= "pending_memberships_table">
         <table border="1">
@@ -24,8 +24,8 @@
               <tr>
                 <td><%= pending_member.user.nickname %></td>
                 <td>
-                  <%= link_to '承認', approve_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を承認します。よろしいですか？", turbo_method: :patch}, class: "membershipIndex_approveButton link" %>
-                  <%= link_to "拒否", reject_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を拒否します。よろしいですか？", turbo_method: :delete}, class: "membershipIndex_rejectButton link" %>
+                  <%= link_to '承認', approve_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を承認します。よろしいですか？", turbo_method: :patch}, class: "blueButton link" %>
+                  <%= link_to "拒否", reject_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を拒否します。よろしいですか？", turbo_method: :delete}, class: "redButton link" %>
                 </td>
               </tr>
             <% end %>
@@ -35,8 +35,8 @@
     </div>
 
     <div class= "memberships_box">
-      <div class= "memberships_title">
-        <h2 class= "memberships_title_text">メンバー</h2>
+      <div class= "memberships_heading2_title">
+        <h2 class= "memberships_heading2_title_text">メンバー</h2>
       </div>
       <div class= "memberships_table">
         <table border="1">
