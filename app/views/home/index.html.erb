@@ -1,3 +1,21 @@
-<h1>グループ管理</h1>
-<%= link_to "グループを立ち上げる", new_group_path %><br><br>
-<%= link_to "グループに参加する", new_pending_membership_path %>
+<div class= "main">
+  <div class= "main_box">
+    <div class= "homeIndex_heading3">
+      どちらかを選んで、townfoを始めよう！
+    </div>
+
+    <div class= "homeIndex_button_box">
+      <%= link_to(new_group_path, class: "link") do %>
+        <div class= "homeIndex_newGroupButton_text">
+          グループを立ち上げる
+        </div>
+      <% end %>
+      <%= link_to(new_pending_membership_path, class: "link") do %>
+        <div class= "homeIndex_newPendingMembershipButton_text">
+          グループに参加する
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

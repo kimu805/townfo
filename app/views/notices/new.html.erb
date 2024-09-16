@@ -1,5 +1,11 @@
-<h1>お知らせ投稿画面</h1>
+<div class= "main">
+  <div class= "main_box">
 
-<%= link_to "戻る", group_notices_path(current_group) %>
+    <%= link_to(group_notices_path(current_group), class: "link") do %>
+      <%= image_tag "back.png", size: "40x40", class: "back_image" %>
+    <% end %>
 
-<%= render partial: "form", locals: { notice: @notice, url: group_notices_path(current_group) } %>
+    <%= render partial: "form", locals: { notice: @notice, url: group_notices_path(current_group) } %>
+
+  </div>
+</div>

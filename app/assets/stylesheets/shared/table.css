@@ -1,0 +1,28 @@
+/* table ***************************************************************************/
+table{
+  border-collapse: collapse;
+  border: 1.5px solid black;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table tr{
+  cursor: pointer;
+}
+
+table tr:hover{
+  background-color: #d4f0fd;
+}
+
+table th,table td{
+  text-align: center;
+  width: 25%;
+  padding: 15px 0;
+}
+
+table th{
+  background-color: #e7e7eb;
+  font-weight: bold;
+}
+
+/* /table ***************************************************************************/

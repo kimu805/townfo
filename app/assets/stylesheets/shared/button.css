@@ -1,0 +1,31 @@
+.blueButton{
+  padding: 5px 15px;
+  background-color: #eaf4fc;
+}
+
+.blueButton:hover{
+  background-color: #c1e4e9;
+}
+
+.redButton{
+  padding: 5px 15px;
+  background-color: #f3bf88;
+}
+
+.redButton:hover{
+  background-color: #f19072;
+}
+
+.greenButton {
+  background-color: #aacf53;
+  color: #000;
+  border-radius: 10px;
+  padding: 10px 30px;
+  text-decoration: none;
+  font-size: 1em;
+  box-shadow: 0 5px 0 #99ab4e;
+}
+.greenButton:hover {
+  color: #000;
+  opacity: 0.6;
+}

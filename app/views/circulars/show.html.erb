@@ -1,21 +1,79 @@
-<h1>回覧板詳細画面</h1>
+<div class= "main">
+  <div class= "main_box">
 
-<h2>タイトル</h2>
-<p><%= @circular.title %></p>
+    <%= link_to(group_circulars_path(current_group), class: "link") do %>
+      <%= image_tag "back.png", size: "40x40", class: "back_image" %>
+    <% end %>
+    <div class= "page_title"> 
+      <div class= "page_title_text">回覧板詳細</div>
+    </div>
 
-<% if @circular.pdf_file.attached? %>
-  <h2>PDFファイル</h2>
-  <%= link_to "PDFをダウンロード", rails_blob_path(@circular.pdf_file, disposition: "attachment") %>
-  <%= link_to "PDFを表示", url_for(@circular.pdf_file), target: "_blank" %> <!-- PDFを新しいタブで表示 -->
-<% end %><br><br>
+    <%= render partial: "circular", locals: { circular: @circular} %>
+    
+    <% if current_user.id == @group.owner_id %>
+      <div class= "circularShow_deleteButton">
+        <%= link_to '削除', group_circular_path(group_id: current_group.id, id: @circular.id), data: {turbo_confirm: "回覧板「#{@circular.title}」を削除します。よろしいですか？", turbo_method: :delete}, class: "redButton link" %>
+      </div>
+    <% end %>
 
-<% unless @read %>
-  <%= link_to "見ました", read_create_group_circular_path(group_id: current_group.id, id: @circular.id), data: { turbo_method: :post} %><br><br>
-<% end %>
+    <div class= "circularShow_pdf_box">
+      <div class= "circularShow_heading2_title">
+        <div class= "circularShow_heading2_title_text">
+          PDF
+        </div>
+      </div>
+      <div class= "circularShow_pdfLink_box">
+        <%= link_to "ダウンロード", rails_blob_path(@circular.pdf_file, disposition: "attachment"), class: "circularShow_pdfDownload redButton link" %>
 
-<% if current_user.id == @group.owner_id %>
-  <%= link_to "既読管理", show_read_users_group_circular_path(group_id: current_group.id, id: @circular.id) %><br><br>
-  <%= link_to '削除', group_circular_path(group_id: current_group.id, id: @circular.id), data: {turbo_confirm: "回覧板「#{@circular.title}」を削除します。よろしいですか？", turbo_method: :delete} %><br><br>
-<% end %>
+        <%= link_to "表示", url_for(@circular.pdf_file), target: "_blank", class: "circularShow_pdfDisplay blueButton link" %>
 
-<%= link_to '戻る', group_circulars_path(current_group) %>
+      </div>
+    </div>
+    
+    <% if !@read %>
+      <div class= "circularShow_read_box">
+        <%= link_to "見ました！", read_create_group_circular_path(group_id: current_group.id, id: @circular.id), data: { turbo_method: :post}, class: "greenButton link" %>
+      </div>
+    <% end %>
+
+    <% if current_user.id == @group.owner_id %>
+      <div class= "circularShow_readUser_box">
+
+        <div class= "circularShow_heading2_title">
+          <div class= "circularShow_heading2_title_text">
+            既読管理
+          </div>
+        </div>
+
+        <div class= "circularShow_readUser_table">
+          <table border="1">
+            <tr>
+              <th><%= User.human_attribute_name(:nickname) %></th>
+              <th>既読日</th>
+            </tr>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <%= user.nickname %>
+                </td>
+                <td>
+                  <% if read = user.reads.find_by(readable: @circular) %>
+                    <%= l read.created_at %>
+                  <% else %>
+                    <p>未読</p>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+
+      </div>
+    <% end %>
+
+
+
+
+  </div>
+</div>
+

@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     resources :circulars, except: [:edit, :update] do
       member do
         post "read_create"
-        get "show_read_users"
       end
     end
   end

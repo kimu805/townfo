@@ -1,0 +1,39 @@
+.circularShow_deleteButton{
+  margin: 20px 0 30px;
+}
+.circularShow_pdf_box{
+  margin: 30px 0;
+  width: 100%;
+}
+.circularShow_heading2_title{
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+.circularShow_heading2_title_text{
+  font-size: 20px;
+  font-weight: bold;
+}
+.circularShow_pdfLink_box{
+  display: flex;
+  width: 100%;
+}
+.circularShow_pdfDownload{
+  line-height: 50px;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+}
+.circularShow_pdfDisplay{
+  line-height: 50px;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+}
+.circularShow_read_box{
+  margin-top: 30px;
+  width: 100%;
+}
+
+.circularShow_readUser_box{
+  margin: 30px 0;
+}

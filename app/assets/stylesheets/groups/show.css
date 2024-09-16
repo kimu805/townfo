@@ -1,0 +1,20 @@
+.groupShow_group_box{
+  margin: 30px 0;
+}
+.groupShow_groupName{
+  margin-bottom: 30px;
+}
+.groupShow_heading2_title{
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.groupShow_groupDescription{
+  margin-bottom: 30px;
+}
+
+.groupShow_button_box{
+  margin: 60px 0;
+}

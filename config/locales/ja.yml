@@ -1,0 +1,45 @@
+ja:
+  activerecord:
+    models:
+       group: グループ
+       user: ユーザー
+       membership: メンバー
+       pending_membership: 承認待ち
+       notice: お知らせ
+       circular: 回覧板
+       read: 既読情報
+    attributes:
+      group:
+        name: グループ名
+        description: グループの説明
+        owner_id: グループの管理者
+      user:
+        nickname: お名前
+      membership:
+        group: グループ
+        user: ユーザー
+      pending_membership:
+        group: グループ
+        user: ユーザー
+      notice: 
+        title: タイトル
+        content: 内容
+        schedule: 日付
+        tag_id: タグ
+        user: ユーザー
+        group: グループ
+      circular:
+        title: タイトル
+        pdf_file: PDFファイル
+        user: ユーザー
+        group: グループ
+      read:
+        user: ユーザー
+        readable_type: 関連モデル
+        readable_id: モデルID
+        complete:
+          "true": "既読"
+          "false": "未読"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"

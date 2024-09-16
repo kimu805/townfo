@@ -1,0 +1,33 @@
+.page_title{
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.pending_memberships_box{
+  padding: 10px 0 30px 0;
+  border-bottom: 1px solid black;
+}
+
+.pending_memberships_heading2_title{
+  margin-bottom: 10px;
+}
+
+.pending_memberships_heading2_title_text{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.memberships_box{
+  padding-top: 20px;
+}
+
+.memberships_heading2_title{
+  margin-bottom: 10px;
+}
+
+.memberships_heading2_title_text{
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -1,12 +1,43 @@
-<h1>グループ詳細画面</h1>
+<div class= "main">
+  <div class= "main_box">
+    <% if current_group %>
+      <%= link_to(group_notices_path(current_group), class: "link") do %>
+        <%= image_tag "back.png", size: "40x40", class: "back_image" %>
+      <% end %>
+    <% else %>
+      <%= link_to(new_pending_membership_path, class: "link") do %>
+        <%= image_tag "back.png", size: "40x40", class: "back_image" %>
+      <% end %>
+    <% end %>
+    <div class= "page_title"> 
+      <div class= "page_title_text">グループ詳細</div>
+    </div>
 
-<h2>グループ名</h2>
-  <%= @group.name %>
+    <div class= "groupShow_group_box">
+      <div class= "groupShow_groupName">
+        <div class= "groupShow_heading2_title">
+          グループ名
+        </div>
+        <div class= "groupShow_groupName_text">
+          <%= @group.name %>
+        </div>
+      </div>
+      <div class= "groupShow_groupDescription">
+        <div class= "groupShow_heading2_title">
+          説明
+        </div>
+        <div class= "groupShow_groupDescription_text">
+          <%= simple_format(h(@group.description), {}, sanitize: false, wrapper_tag: "div") %>
+        </div>
+      </div>
+    </div>
 
-<h2>グループ説明</h2>
-  <%= simple_format(h(@group.description), {}, sanitize: false, wrapper_tag: "div") %><br><br>
+    <% if current_user.id == @group.owner_id %>
+      <div class= "groupShow_button_box">
+        <%= link_to "編集", edit_group_path(@group), class: "blueButton link" %>
+        <%= link_to "削除", group_path(@group), data: {turbo_confirm: "グループ「#{@group.name}」を削除した場合、お知らせ等のデータもすべて削除されます。よろしいでしょうか？", turbo_method: :delete}, class: "redButton link" %>
+      </div>
+    <% end %>
 
-<% if current_user.id == @group.owner_id %>
-  <%= link_to "グループを編集", edit_group_path(@group) %><br><br>
-  <%= link_to "グループを削除", group_path(@group), data: {turbo_confirm: "グループ「#{@group.name}」を削除した場合、お知らせ等のデータもすべて削除されます。よろしいでしょうか？", turbo_method: :delete} %>
-<% end %>
+  </div>
+</div>
