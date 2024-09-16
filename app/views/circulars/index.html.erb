@@ -1,17 +1,9 @@
 <div class= "main">
   <div class= "main_box">
 
-    <div class= "index_btn_box">
-      <div class= "gray_index_btn_box">
-        <%= link_to( group_notices_path(current_group), class: "link") do %>
-          <div class= "gray_index_btn_text">お知らせ一覧</div>
-        <% end %>
-      </div>
-      <div class= "white_index_btn_box">
-        <%= link_to( group_circulars_path(current_group), class: "link") do %>
-          <div class= "white_index_btn_text">回覧板一覧</div>
-        <% end %>
-      </div>
+    <div class= "circularIndex_indexButton_box">
+      <%= link_to "お知らせ一覧", group_notices_path(current_group), class: "circularIndex_noticeIndexButton link" %>
+      <%= link_to "回覧板一覧", group_circulars_path(current_group), class: "circularIndex_circularIndexButton link" %>
     </div>
 
     <% @circulars.each do |circular| %>
