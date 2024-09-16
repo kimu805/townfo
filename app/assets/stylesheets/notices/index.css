@@ -8,32 +8,31 @@
   width: 60vw;
 }
 
-.index_btn_box{
+.noticeIndex_indexButton_box{
   display: flex;
   justify-content: space-around;
 }
 
-.white_index_btn_box{
-  width: 50%;
+.noticeIndex_noticeIndexButton{
   padding: 30px 0;
-  background-color: white;
-}
-
-.white_index_btn_text{
+  width: 50%;
   text-align: center;
+  align-items: center;
+  background-color: white;
   font-size: 20px;
   font-weight: bold;
 }
-
-.gray_index_btn_box{
-  width: 50%;
+.noticeIndex_circularIndexButton{
   padding: 30px 0;
-  background-color: #e7e7eb;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  background-color: #c0c6c9;
+  font-size: 20px;
 }
 
-.gray_index_btn_text{
-  text-align: center;
-  font-size: 20px;
+.noticeIndex_circularIndexButton:hover{
+  background-color: #afafb0;
 }
 
 .notice_item{
