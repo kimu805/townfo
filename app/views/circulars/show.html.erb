@@ -23,31 +23,55 @@
         </div>
       </div>
       <div class= "circularShow_pdfLink_box">
-        <%= link_to(rails_blob_path(@circular.pdf_file, disposition: "attachment"), class: "link") do %>
-          <div class= "circularShow_pdfDownload">
-            ダウンロード
-          </div>
-        <% end %>
-        <%= link_to(url_for(@circular.pdf_file), target: "_blank", class: "link") do %>
-          <div class= "circularShow_pdfDisplay">
-            新規タブで表示
-          </div>
-        <% end %>
+        <%= link_to "ダウンロード", rails_blob_path(@circular.pdf_file, disposition: "attachment"), class: "circularShow_pdfDownload redButton link" %>
+
+        <%= link_to "表示", url_for(@circular.pdf_file), target: "_blank", class: "circularShow_pdfDisplay blueButton link" %>
 
       </div>
     </div>
-
-    <div class= "circularShow_read">
-      <%= link_to "見ました！", read_create_group_circular_path(group_id: current_group.id, id: @circular.id), data: { turbo_method: :post}, class: "link" %>
-    </div>
-
-    <div class= "circularShow_owner_box">
-      <div class= "circularShow_readManager">
-        <% if current_user.id == @group.owner_id %>
-          <%= link_to "既読管理", show_read_users_group_circular_path(group_id: current_group.id, id: @circular.id), class: "link" %>
-        <% end %>
+    
+    <% if !@read %>
+      <div class= "circularShow_read_box">
+        <%= link_to "見ました！", read_create_group_circular_path(group_id: current_group.id, id: @circular.id), data: { turbo_method: :post}, class: "greenButton link" %>
       </div>
-    </div>
+    <% end %>
+
+    <% if current_user.id == @group.owner_id %>
+      <div class= "circularShow_readUser_box">
+
+        <div class= "circularShow_heading2_title">
+          <div class= "circularShow_heading2_title_text">
+            既読管理
+          </div>
+        </div>
+
+        <div class= "circularShow_readUser_table">
+          <table border="1">
+            <tr>
+              <th><%= User.human_attribute_name(:nickname) %></th>
+              <th>既読日</th>
+            </tr>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <%= user.nickname %>
+                </td>
+                <td>
+                  <% if read = user.reads.find_by(readable: @circular) %>
+                    <%= l read.created_at %>
+                  <% else %>
+                    <p>未読</p>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+
+      </div>
+    <% end %>
+
+
 
 
   </div>
