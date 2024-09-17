@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_group
 
   def show
     @user = current_group.users.find(params[:id])
@@ -10,8 +9,17 @@ class UsersController < ApplicationController
   def edit
   end
 
-  private
-  def set_group
-    @group = Group.find(params[:group_id])
+  def update
+    if current_user.update(user_params)
+      redirect_to group_user_path(group_id: current_group.id, id: current_user.id)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
+
+  private
+  def user_params
+    params.require(:user).permit(:nickname, :email)
+  end
+  
 end
