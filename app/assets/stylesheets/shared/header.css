@@ -22,5 +22,38 @@
 }
 
 .nav_list{
-  margin-right: 16px;
+  margin-right: 24px;
+  position: relative;
+}
+
+.dropdown_lists {
+  display: none; /* 最初は非表示にする */
+  position: absolute;
+  top: 100%; /* ナビゲーションリストの下に表示 */
+  right: 1px;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1;
+  min-width: 120px; /* メニューの最小幅を設定 */
+}
+
+.dropdown_list {
+  list-style: none;
+}
+
+.dropdown_link {
+  padding: 10px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown_link:hover {
+  background-color: #f0f0f0;
+}
+
+/* ユーザー名をクリックしたときにメニューを表示 */
+.nav_list:hover .dropdown_lists {
+  display: block; /* ホバー時に表示 */
 }
