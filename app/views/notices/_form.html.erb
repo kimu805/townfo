@@ -1,13 +1,13 @@
 <%= form_with model: notice, url: url, local: true do |f| %>
 
   <div class='form-header'>
-  <% if request.path == new_group_notice_path(current_group) %>
-    <h1 class='form-header-text'>
-      新規お知らせ入力
-    </h1>
-  <% elsif request.path == edit_group_notice_path(current_group) %>
+  <% if notice.persisted? %>
     <h1 class='form-header-text'>
       お知らせ編集画面
+    </h1>
+  <% else %>
+    <h1 class='form-header-text'>
+      新規お知らせ入力
     </h1>
   <% end %>
   </div>
@@ -37,15 +37,15 @@
       <%= f.label :tag_id, class: "form-text" %>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.collection_select(:tag_id, Tag.all, :id, :name, {class:"input-default"}) %>
+    <%= f.collection_select(:tag_id, Tag.all, :id, :name, {prompt: false}, {class: "select_input"}) %>
   </div>
-  <% if request.path == new_group_notice_path(current_group) %>
-    <div class='commit-btn'>
-      <%= f.submit "投稿" ,class:"commit-red-btn" %>
-    </div>
-  <% elsif request.path == edit_group_notice_path(current_group) %>
+  <% if notice.persisted? %>
     <div class='commit-btn'>
       <%= f.submit "更新" ,class:"commit-red-btn" %>
+    </div>
+  <% else %>
+    <div class='commit-btn'>
+      <%= f.submit "投稿" ,class:"commit-red-btn" %>
     </div>
   <% end %>
 <% end %>
