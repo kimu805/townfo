@@ -8,7 +8,7 @@
           <div class= "user_email"><%= @user.email %></div>
         </div>
         <div class= "user_edit_btn">
-          <%= link_to "プロフィールを編集", edit_user_registration_path, class: "link" %> 
+          <%= link_to "プロフィールを編集", edit_group_user_path(group_id: @group.id, id: @user.id), class: "link" %> 
         </div>
       </div>
     </div>
