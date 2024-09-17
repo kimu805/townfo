@@ -1,0 +1,14 @@
+.error_container{
+  display: flex;
+  justify-content: center;
+}
+
+.error_title_box{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.error_message{
+  margin: 5px 0;
+}

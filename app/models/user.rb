@@ -15,5 +15,4 @@ class User < ApplicationRecord
   has_many :reads
 
   validates :nickname, presence: true
-
 end

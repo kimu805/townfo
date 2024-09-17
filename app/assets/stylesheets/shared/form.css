@@ -33,6 +33,18 @@
   font-weight: bold;
 }
 
+.select_input{
+  width: 100%;
+  margin-top: 5px;
+  height: 50px;
+  padding: 8px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 14px;
+  resize: none;
+}
+
 .indispensable{
   background-color: lavender;
 }
@@ -57,10 +69,14 @@
 
 .commit-red-btn {
   width: 100%;
-  background: #ee827c;
-  border: 1px solid #ee827c;
+  background-color: #ed6d3d;
+  border: 1px solid #ed6d3d;
   color: #fff;
   line-height: 48px;
   font-size: 16px;
   cursor: pointer;
+}
+
+.commit-red-btn:hover{
+  background-color: #bb5535;
 }

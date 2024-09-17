@@ -1,18 +1,19 @@
 <%= form_with model: group, url: url, local: true do |f| %>
 
+  <div class='form-header'>
+    <% if group.persisted? %>
+      <h1 class='form-header-text'>
+        グループ情報編集
+      </h1>
+    <% else %>
+      <h1 class='form-header-text'>
+        グループ新規作成
+      </h1>
+    <% end %>
+  </div>
+
   <%= render partial: "shared/error", locals: {model: group} %>
 
-  <div class='form-header'>
-  <% if request.path == new_group_path %>
-    <h1 class='form-header-text'>
-      グループ新規作成
-    </h1>
-  <% elsif request.path == edit_group_path(group) %>
-    <h1 class='form-header-text'>
-      グループ情報編集
-    </h1>
-  <% end %>
-  </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <%= f.label :name, class: "form-text" %>
@@ -20,6 +21,7 @@
     </div>
     <%= f.text_field :name, class:"input-default", autofocus: true %>
   </div>
+  
   <div class="form-group">
     <div class='form-text-wrap'>
       <%= f.label :description, class: "form-text" %>
@@ -28,13 +30,14 @@
     <%= f.text_area :description, class:"input-default", placeholder:"" %>
   </div>
 
-  <% if request.path == new_group_path %>
-    <div class='commit-btn'>
-      <%= f.submit "作成" ,class:"commit-red-btn" %>
-    </div>
-  <% elsif request.path == edit_group_path(group) %>
+  <% if group.persisted? %>
     <div class='commit-btn'>
       <%= f.submit "更新" ,class:"commit-red-btn" %>
     </div>
+  <% else %>
+    <div class='commit-btn'>
+      <%= f.submit "作成" ,class:"commit-red-btn" %>
+    </div>
   <% end %>
+
 <% end %>

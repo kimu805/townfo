@@ -16,22 +16,22 @@ RSpec.describe Circular, type: :model do
       it "titleが空では作成できない" do
         @circular.title = ""
         @circular.valid?
-        expect(@circular.errors.full_messages).to include("Title can't be blank")
+        expect(@circular.errors.full_messages).to include("タイトルを入力してください")
       end
       it "pdf_fileが空では作成できない" do
         @circular.pdf_file = nil
         @circular.valid?
-        expect(@circular.errors.full_messages).to include("Pdf file can't be blank")
+        expect(@circular.errors.full_messages).to include("PDFファイルを入力してください")
       end
       it "userが紐づいていなければ作成できない" do
         @circular.user = nil
         @circular.valid?
-        expect(@circular.errors.full_messages).to include("User must exist")
+        expect(@circular.errors.full_messages).to include("ユーザーを入力してください")
       end
       it "groupが紐づいていなければ作成できない" do
         @circular.group = nil
         @circular.valid?
-        expect(@circular.errors.full_messages).to include("Group must exist")
+        expect(@circular.errors.full_messages).to include("グループを入力してください")
       end
     end
   end

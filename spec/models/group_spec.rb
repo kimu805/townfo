@@ -17,17 +17,17 @@ RSpec.describe Group, type: :model do
       it "nameが空では登録できない" do
         @group.name = ""
         @group.valid?
-        expect(@group.errors.full_messages).to include("Name can't be blank")
+        expect(@group.errors.full_messages).to include("グループ名を入力してください")
       end
       it "descriptionが空では登録できない" do
         @group.description = ""
         @group.valid?
-        expect(@group.errors.full_messages).to include("Description can't be blank")
+        expect(@group.errors.full_messages).to include("グループの説明を入力してください")
       end
       it "owner_idが空では登録できない" do
         @group.owner_id = ""
         @group.valid?
-        expect(@group.errors.full_messages).to include("Owner can't be blank")
+        expect(@group.errors.full_messages).to include("グループの管理者を入力してください")
       end
     end
   end

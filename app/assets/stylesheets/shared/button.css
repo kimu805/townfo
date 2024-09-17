@@ -1,10 +1,10 @@
 .blueButton{
   padding: 5px 15px;
-  background-color: #eaf4fc;
+  background-color: #a0d8ef;
 }
 
 .blueButton:hover{
-  background-color: #c1e4e9;
+  background-color: #89c3eb;
 }
 
 .redButton{

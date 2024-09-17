@@ -21,27 +21,27 @@ RSpec.describe Notice, type: :model do
       it "titleが空では登録できない" do
         @notice.title = ""
         @notice.valid?
-        expect(@notice.errors.full_messages).to include("Title can't be blank")
+        expect(@notice.errors.full_messages).to include("タイトルを入力してください")
       end
       it "contentが空では登録できない" do
         @notice.content = ""
         @notice.valid?
-        expect(@notice.errors.full_messages).to include("Content can't be blank")
+        expect(@notice.errors.full_messages).to include("内容を入力してください")
       end
       it "tag_idが空では登録できない" do
         @notice.tag_id = nil
         @notice.valid?
-        expect(@notice.errors.full_messages).to include("Tag can't be blank")
+        expect(@notice.errors.full_messages).to include("タグを入力してください")
       end
       it "userが紐づいていないと登録できない" do
         @notice.user_id = nil
         @notice.valid?
-        expect(@notice.errors.full_messages).to include("User must exist")
+        expect(@notice.errors.full_messages).to include("ユーザーを入力してください")
       end
       it "groupが紐づいていないと登録できない" do
         @notice.group_id = nil
         @notice.valid?
-        expect(@notice.errors.full_messages).to include("Group must exist")
+        expect(@notice.errors.full_messages).to include("グループを入力してください")
       end
     end
   end
