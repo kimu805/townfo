@@ -69,10 +69,14 @@
 
 .commit-red-btn {
   width: 100%;
-  background: #ee827c;
-  border: 1px solid #ee827c;
+  background-color: #ed6d3d;
+  border: 1px solid #ed6d3d;
   color: #fff;
   line-height: 48px;
   font-size: 16px;
   cursor: pointer;
+}
+
+.commit-red-btn:hover{
+  background-color: #bb5535;
 }
