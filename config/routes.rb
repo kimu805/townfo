@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   root to: "home#index"
   resources :groups do
-    resources :users, only: :show
+    resources :users, only: [:show, :edit, :update]
     resources :memberships, only: [:destroy]
     resources :pending_memberships, only: [:create] do
       member do
