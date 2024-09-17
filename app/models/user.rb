@@ -15,5 +15,5 @@ class User < ApplicationRecord
   has_many :reads
 
   validates :nickname, presence: true
-
+  validates :password, presence: true, on: :create
 end
