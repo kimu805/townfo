@@ -39,5 +39,69 @@
       </div>
     <% end %>
 
+    <% if current_group %>
+      <div class= "groupShow_memberships_box">
+        <div class= "page_title">
+          <div class= "page_title_text">ユーザー管理</div>
+        </div>
+
+        <% if current_user.id == @group.owner_id %>
+          <div class= "pending_memberships_box">
+            <div class= "pending_memberships_heading2_title">
+              <h2 class= "pending_memberships_heading2_title_text">承認待ち一覧</h2>
+            </div>
+            <div class= "pending_memberships_table">
+              <table border="1">
+                <thead>
+                  <tr>
+                    <th>名前</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @pending_memberships.each do |pending_member| %>
+                    <tr>
+                      <td><%= pending_member.user.nickname %></td>
+                      <td>
+                        <%= link_to '承認', approve_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を承認します。よろしいですか？", turbo_method: :patch}, class: "blueButton link" %>
+                        <%= link_to "拒否", reject_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を拒否します。よろしいですか？", turbo_method: :delete}, class: "redButton link" %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        <% end %>
+
+        <div class= "memberships_box">
+          <div class= "memberships_heading2_title">
+            <h2 class= "memberships_heading2_title_text">メンバー</h2>
+          </div>
+          <div class= "memberships_table">
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>名前</th>
+                  <th>メールアドレス</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.nickname %></td>
+                    <td><%= user.email %></td>
+                    <% if current_user == @group.owner_id || user == current_user %>
+                      <td><%= link_to "退会", group_membership_path(group_id: @group.id, id: user.memberships.first.id), data: {turbo_confirm: "#{user.nickname}を退会させます。よろしいですか？", turbo_method: :delete}, class: "redButton link" %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
