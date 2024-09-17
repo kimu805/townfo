@@ -35,6 +35,8 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @users = @group.users
+    @pending_memberships = @group.pending_memberships
   end
 
   private
