@@ -84,7 +84,7 @@
               <tbody>
                 <% @users.each do |user| %>
                   <tr>
-                    <td><%= user.nickname %></td>
+                    <td><%= link_to user.nickname, group_user_path(group_id: @group.id, id: user.id), class: "link" %></td>
                     <td><%= user.email %></td>
                     <td>
                       <% if current_user.id == @group.owner_id || user.id == current_user.id %>
