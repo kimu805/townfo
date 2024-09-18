@@ -15,6 +15,7 @@ ja:
         owner_id: グループの管理者
       user:
         nickname: お名前
+        profile: プロフィール
       membership:
         group: グループ
         user: ユーザー
