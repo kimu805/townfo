@@ -1,15 +1,23 @@
 <div class= "main">
   <div class= "main_box">
+    <%= link_to(group_notices_path(current_group), class: "link") do %>
+      <%= image_tag "back.png", size: "40x40", class: "back_image" %>
+    <% end %>
 
     <div class= "mypage">
       <div class= "mypage_box">
         <div class= "user_info_box">
           <div class= "user_name"><%= @user.nickname %></div>
           <div class= "user_email"><%= @user.email %></div>
+          <div class= "user_profile">
+            <%= simple_format(h(@user.profile), {}, sanitize: false, wrapper_tag: "div") %>
+          </div>
         </div>
-        <div class= "user_edit_btn">
-          <%= link_to "プロフィールを編集", edit_group_user_path(group_id: current_group.id, id: @user.id), class: "blueButton link" %> 
-        </div>
+        <% if current_user == @user %>
+          <div class= "user_edit_btn">
+            <%= link_to "プロフィールを編集", edit_group_user_path(group_id: current_group.id, id: @user.id), class: "blueButton link" %> 
+          </div>
+        <% end %>
       </div>
     </div>
 

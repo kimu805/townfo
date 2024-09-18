@@ -43,6 +43,7 @@
       <div class= "groupShow_memberships_box">
         <div class= "page_title">
           <div class= "page_title_text">ユーザー管理</div>
+          <p class= "page_title_message">※名前をクリックするとユーザーの詳細を確認できます</p>
         </div>
 
         <% if current_user.id == @group.owner_id %>
@@ -61,7 +62,7 @@
                 <tbody>
                   <% @pending_memberships.each do |pending_member| %>
                     <tr>
-                      <td><%= pending_member.user.nickname %></td>
+                      <td><%= link_to pending_member.user.nickname, group_user_path(group_id: pending_member.group.id, id: pending_member.user.id), class: "link" %></td>
                       <td>
                         <%= link_to '承認', approve_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を承認します。よろしいですか？", turbo_method: :patch}, class: "blueButton link" %>
                         <%= link_to "拒否", reject_group_pending_membership_path(group_id: @group.id, id: pending_member.id), data: {turbo_confirm: "#{pending_member.user.nickname}を拒否します。よろしいですか？", turbo_method: :delete}, class: "redButton link" %>
@@ -90,7 +91,7 @@
               <tbody>
                 <% @users.each do |user| %>
                   <tr>
-                    <td><%= user.nickname %></td>
+                    <td><%= link_to user.nickname, group_user_path(group_id: @group.id, id: user.id), class: "link" %></td>
                     <td><%= user.email %></td>
                     <td>
                       <% if current_user.id == @group.owner_id || user.id == current_user.id %>
