@@ -13,6 +13,30 @@
   </head>
 
   <body>
+    <div id="flash-message" class="flash-message <%= flash[:notice] ? 'notice' : 'alert' %>">
+      <span class="icon">
+        <% if flash[:notice] %>
+          &#x2714; <!-- チェックマークアイコン -->
+        <% elsif flash[:alert] %>
+          &#x26A0; <!-- 警告アイコン -->
+        <% end %>
+      </span>
+      <%= flash[:notice] || flash[:alert] %>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var flashMessage = document.getElementById('flash-message');
+        if (flashMessage.innerHTML.trim() !== '') {
+          flashMessage.classList.add('show'); // 表示
+
+          // 5秒後にメッセージを消す
+          setTimeout(function() {
+            flashMessage.classList.add('hide'); // フェードアウト
+          }, 5000);
+        }
+      });
+    </script>
     <%= render "shared/header" %>
     <%= yield %>
     <%= render "shared/footer" %>
