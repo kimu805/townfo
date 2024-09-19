@@ -6,7 +6,11 @@ class MembershipsController < ApplicationController
   def destroy
     membership_user = Membership.find(params[:id])
     membership_user.destroy
-    redirect_to group_path(@group)
+    if current_group
+      redirect_to group_path(@group), notice: "「#{membership_user.user.nickname}」様を退会させました。"
+    else
+      redirect_to root_path
+    end
   end
 
   private

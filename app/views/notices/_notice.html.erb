@@ -1,5 +1,5 @@
-<%= link_to(group_notice_path(group_id: current_group.id, id: notice.id), class: "link") do %>
-  <div class= "notice_item" data-notice-id="<%= notice.id %>" data-group-id="<%= current_group.id %>">
+<div class= "notice_item" data-notice-id="<%= notice.id %>" data-group-id="<%= current_group.id %>">
+  <%= link_to(group_notice_path(group_id: current_group.id, id: notice.id), class: "link") do %>
     <div class= "notice_header">
       <div class= "notice_header_info">
         <% if notice.tag.name == "お知らせ" %>
@@ -25,9 +25,11 @@
         <%= notice.title %>
       </h2>
     </div>
-    <%= link_to(group_user_path(group_id: current_group.id, id: notice.user.id), class: "link") do %>
-      <div class= "notice_user_name">投稿者：<%= notice.user.nickname %></div>
-    <% end %>
+  <% end %>
+  <%= link_to(group_user_path(group_id: current_group.id, id: notice.user.id), class: "link") do %>
+    <div class= "notice_user_name">投稿者：<%= notice.user.nickname %></div>
+  <% end %>
+  <%= link_to(group_notice_path(group_id: current_group.id, id: notice.id), class: "link") do %>
     <% if request.path == group_notices_path(current_group) || request.path == group_user_path(group_id: current_group.id, id: notice.user.id) %>
       <p class="notice_content">
         <%= simple_format(sanitize(truncate(notice.content, length: 200)), {}, wrapper_tag: "div") %>
@@ -40,5 +42,5 @@
     <div class= "notice_footer">
       <div class= "notice_reads", data-notice-id= "<%= notice.id %>">既読：<%= notice.reads.count %></div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
