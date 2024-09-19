@@ -28,17 +28,23 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        var flashMessage = document.getElementById("flash-message");
-        if (flashMessage && flashMessage.innerHTML.trim() !== '') {
-          flashMessage.classList.add('show'); // 表示
+        var flashMessage = document.getElementById('flash-message');
+        if (flashMessage) {
+          console.log('Flash message element exists');
+          console.log('Flash message content:', flashMessage.innerHTML.trim());
 
-          // 5秒後にメッセージを消す
-          setTimeout(function() {
-            flashMessage.classList.add('hide'); // フェードアウト
-          }, 5000);
+          if (flashMessage.innerHTML.trim() !== '') {
+            flashMessage.classList.add('show'); // 表示
+
+            // 5秒後にメッセージを消す
+            setTimeout(function() {
+              flashMessage.classList.add('hide'); // フェードアウト
+            }, 5000);
+          }
+        } else {
+          console.log('Flash message element does not exist');
         }
       });
-
     </script>
     <%= render "shared/header" %>
     <%= yield %>
