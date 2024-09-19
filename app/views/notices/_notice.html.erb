@@ -25,7 +25,9 @@
         <%= notice.title %>
       </h2>
     </div>
-    <%= link_to "投稿者：#{notice.user.nickname}", group_user_path(group_id: current_group.id, id: notice.user.id), class: "notice_user_name link" %>
+    <%= link_to(group_user_path(group_id: current_group.id, id: notice.user.id), class: "link") do %>
+      <div class= "notice_user_name">投稿者：<%= notice.user.nickname %></div>
+    <% end %>
     <% if request.path == group_notices_path(current_group) || request.path == group_user_path(group_id: current_group.id, id: notice.user.id) %>
       <p class="notice_content">
         <%= simple_format(sanitize(truncate(notice.content, length: 200)), {}, wrapper_tag: "div") %>
