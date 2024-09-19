@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <% if flash[:notice] || flash[:alert] %>
+    
       <div id="flash-message" class="flash-message <%= flash[:notice] ? 'notice' : 'alert' %>">
         <span class="icon">
           <% if flash[:notice] %>
@@ -24,7 +24,7 @@
         </span>
         <%= flash[:notice] || flash[:alert] %>
       </div>
-    <% end %>
+    
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
