@@ -76,18 +76,20 @@
 }
 
 .preview{
-  min-width: 300px;
+  /* min-width: 300px; */
   scroll-snap-align: start;
   width: 100%;
 }
 
 .preview img {
-  width: 100%;
+  width: 258px;
+  height: 145px;
   object-fit: cover;
 }
 
 .notice_previewImage_deleteButton{
   text-align: center;
+  width: 228px;
 }
 /* /preview */
 
