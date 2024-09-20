@@ -2,6 +2,7 @@ class Notice < ApplicationRecord
   belongs_to :group
   belongs_to :user
   has_many :reads, as: :readable, dependent: :destroy
+  has_many_attached :images
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tag
 
