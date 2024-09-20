@@ -48,7 +48,7 @@ class NoticesController < ApplicationController
 
   private
   def notice_params
-    params.require(:notice).permit(:title, :content, :schedule, :tag_id).merge(user_id: current_user.id)
+    params.require(:notice).permit(:title, :content, :schedule, :tag_id, {images: []}).merge(user_id: current_user.id)
   end
   
   def set_notice
