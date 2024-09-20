@@ -24,6 +24,7 @@ ja:
         user: ユーザー
       notice: 
         title: タイトル
+        images: 画像
         content: 内容
         schedule: 日付
         tag_id: タグ
