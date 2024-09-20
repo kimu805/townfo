@@ -7,7 +7,9 @@
     </div>
     <div class= "circular_left">
       <div class= "circular_created_at"><%= l circular.created_at %></div>
-      <div class= "circular_pdf_file">PDF有り</div>
+      <% if circular.pdf_file.attached? %>
+        <div class= "circular_pdf_file">PDF有り</div>
+      <% end %>
     </div>
   </div>
 <% end %>
