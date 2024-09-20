@@ -20,14 +20,14 @@
     <%= f.text_field :title, class:"input-default", autofocus: true %>
   </div>
 
-  <div class= "form-group">
+  <div class= "form-group images">
     <div class= "form-text-wrap">
       <%= f.label :images, class: "form-text" %>
     </div>
-    <div class= "previews">
+    <div class= "notice_image_previews">
     
     </div>
-   <%= f.file_field :images, name: "notice[:images][]", data: {index: 0} class: "input-default" %> 
+   <%= f.file_field :images, name: "notice[images][]", data: {index: 0}, class: "input-default" %> 
   </div>
 
   <div class="form-group">
