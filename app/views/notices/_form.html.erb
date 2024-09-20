@@ -24,7 +24,10 @@
     <div class= "form-text-wrap">
       <%= f.label :images, class: "form-text" %>
     </div>
-   <%= f.text_field :images, class: "input-default" %> 
+    <div class= "previews">
+    
+    </div>
+   <%= f.file_field :images, name: "notice[:images][]", data: {index: 0} class: "input-default" %> 
   </div>
 
   <div class="form-group">
