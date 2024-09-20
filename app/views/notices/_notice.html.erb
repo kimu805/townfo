@@ -31,11 +31,11 @@
   <% end %>
   <%= link_to(group_notice_path(group_id: current_group.id, id: notice.id), class: "link") do %>
 
-    <div class= "notice_image_box">
-      <div class= "notice_image">
-        <%= iamge_tag notice.images.first %>
-      </div>
-    </div>
+    <% if notice.images.attached? %>
+      <% notice.images.each do |image| %>
+        <%= image_tag image , size: "200x200" %>
+      <% end %>
+    <% end %>
 
     <% if request.path == group_notices_path(current_group) || request.path == group_user_path(group_id: current_group.id, id: notice.user.id) %>
       <p class="notice_content">
