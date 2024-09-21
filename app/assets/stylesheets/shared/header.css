@@ -21,6 +21,7 @@ body{
 .header_appDescription{
   font-size: 14px;
   font-weight: bold;
+  margin-left: 5px;
 }
 
 .nav_lists{
