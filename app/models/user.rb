@@ -14,5 +14,5 @@ class User < ApplicationRecord
   has_many :circulars
   has_many :reads
 
-  validates :nickname, presence: true, length: {maximum: 40}
+  validates :nickname, presence: true, length: {maximum: 30}
 end
