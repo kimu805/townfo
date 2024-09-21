@@ -6,8 +6,8 @@ class Group < ApplicationRecord
     # 承認待ちのユーザーとの関連付け
     has_many :pending_memberships, dependent: :destroy
     has_many :pending_users, through: :pending_memberships, source: :user
-    has_many :notices
-    has_many :circulars
+    has_many :notices, dependent: :destroy
+    has_many :circulars, dependent: :destroy
 
   with_options presence: true do
     validates :name
