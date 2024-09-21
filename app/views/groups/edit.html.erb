@@ -1,6 +1,6 @@
 <div class= "main">
   <div class= "main_box">
-    <%= link_to(root_path, class: "link") do %>
+    <%= link_to(group_path(@group), class: "link") do %>
       <%= image_tag "back.png", size: "40x40", class: "back_image" %>
     <% end %>
     <%= render partial: "form", locals: { group: @group, url: group_path(@group) } %>
