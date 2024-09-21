@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     if current_user.update(user_params)
       redirect_to group_user_path(group_id: current_group.id, id: current_user.id), notice: "「#{current_user.nickname}」様の情報を変更しました。"
     else
