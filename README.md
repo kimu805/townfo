@@ -64,6 +64,26 @@ townfo(タウンフォ)
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/a2e23cfff69f1abc4202cf979909acdf.png)](https://gyazo.com/a2e23cfff69f1abc4202cf979909acdf)
 
+# 使用技術
+・フロントエンド  
+HTML・CSS・JavaScript
+
+・バックエンド
+ruby 3.2.0  
+Ruby on Rails 7.0.0
+
+・テスト  
+RSpec
+
+・インフラ  
+
+・テキストエディタ  
+VSCode
+
+・その他  
+バージョン管理：Git,GitHub  
+タスク管理：Notion  
+
 # アプリ作成の背景
 ある雨の朝、おじいちゃんが町中を車で回りながら叫んでいた。
 
