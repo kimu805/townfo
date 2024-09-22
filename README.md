@@ -66,7 +66,9 @@ townfo(タウンフォ)
 
 # 使用技術
 ・フロントエンド  
-HTML・CSS・JavaScript
+HTML  
+CSS  
+JavaScript
 
 ・バックエンド  
 ruby 3.2.0  
