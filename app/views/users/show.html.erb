@@ -24,9 +24,7 @@
     <span class= "user_notice">
       <%= @user.nickname %>の投稿
     </span>
-    <% @notices.each do |notice| %>
-      <%= render partial: "notices/notice", locals: {notice: notice} %>
-    <% end %>
+    <%= render partial: "notices/notice", collection: @notices %>
     
   </div>
 </div>
