@@ -68,7 +68,7 @@ townfo(タウンフォ)
 ・フロントエンド  
 HTML・CSS・JavaScript
 
-・バックエンド
+・バックエンド  
 ruby 3.2.0  
 Ruby on Rails 7.0.0
 
