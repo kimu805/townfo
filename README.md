@@ -61,6 +61,9 @@ townfo(タウンフォ)
 ・詳細  
 ・既読(polymorphic)  
 
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/a2e23cfff69f1abc4202cf979909acdf.png)](https://gyazo.com/a2e23cfff69f1abc4202cf979909acdf)
+
 # アプリ作成の背景
 ある雨の朝、おじいちゃんが町中を車で回りながら叫んでいた。
 
