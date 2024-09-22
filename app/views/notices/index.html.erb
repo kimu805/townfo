@@ -5,9 +5,8 @@
       <%= link_to "回覧板一覧", group_circulars_path(current_group), class: "noticeIndex_circularIndexButton link" %>
     </div>
 
-    <% @notices.each do |notice| %>
-      <%= render partial: "notice", locals: { notice: notice } %>
-    <% end %>
+    <%= render partial: "notice", collection: @notices %>
+    
   </div>
 </div>
 
