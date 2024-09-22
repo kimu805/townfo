@@ -6,9 +6,7 @@
       <%= link_to "回覧板一覧", group_circulars_path(current_group), class: "circularIndex_circularIndexButton link" %>
     </div>
 
-    <% @circulars.each do |circular| %>
-      <%= render partial: "circular", locals: { circular: circular } %>
-    <% end %>
+    <%= render partial: "circular", collection: @circulars %>
       
     <% if current_user.id == @group.owner_id %>
       <%= link_to( new_group_circular_path(current_group), class: "new_btn link") do %>
