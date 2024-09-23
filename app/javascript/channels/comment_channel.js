@@ -11,7 +11,20 @@ if (location.pathname.match(/\/notices\/\d/)) {
     },
   
     received(data) {
-      // Called when there's incoming data on the websocket for this channel
+      const html = `
+      <div class= "noticeShow_comment_box">
+        <div class= "noticeShow_comment_userNickname">
+          ${data.user.nickname}：
+        </div>
+        <div class= "noticeShow_comment_text">
+          ${data.comment.text}
+        </div>
+      </div>
+      `
+      const comments = document.querySelector(".noticeShow_commentsIndex_box")
+      comments.insertAdjacentHTML("beforeend", html)
+      const commentForm = document.getElementById("comment_form")
+      commentForm.reset()
     }
   });
 }
