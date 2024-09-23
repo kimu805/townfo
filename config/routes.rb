@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       end
     end
     resources :notices do
+      resources :comments, only: :create
       member do
         post "mark_as_read"
       end
