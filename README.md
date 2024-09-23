@@ -21,6 +21,8 @@ townfo(タウンフォ)
 ①ヘッダーから「新規登録」を行う。  
 [![Image from Gyazo](https://i.gyazo.com/00ac2122270dba2d93d5f57a2f182607.png)](https://gyazo.com/00ac2122270dba2d93d5f57a2f182607)  
 ②「グループを立ち上げる」「グループに参加する」のどちらかを選択する。  
+[![Image from Gyazo](https://i.gyazo.com/9f458283a83ff05f8d514a59f1dd1fed.png)](https://gyazo.com/9f458283a83ff05f8d514a59f1dd1fed)  
+
 ## 「グループを立ち上げる」を選んだ場合
 ③グループの情報を入力してtownfoスタート！  
 立ち上げたユーザーはそのグループの管理者となる。  
