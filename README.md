@@ -28,10 +28,13 @@ townfo(タウンフォ)
 立ち上げたユーザーはそのグループの管理者となる。  
 ## 「グループに参加する」を選んだ場合
 ③参加したいグループを一覧から選択して、参加申請を送信する。  
+[![Image from Gyazo](https://i.gyazo.com/dd792167edea6fb2ee88d6ae9ec6a296.png)](https://gyazo.com/dd792167edea6fb2ee88d6ae9ec6a296)  
 ④管理者のアカウントでログイン。  
 ⑤ヘッダーのグループ名を押下し、表示される承認待ち一覧から③で送信したアカウントを承認。  
+[![Image from Gyazo](https://i.gyazo.com/b23f749726260f08c64170c29905ea39.png)](https://gyazo.com/b23f749726260f08c64170c29905ea39)  
 ⑥ログアウトし、再度③で送信したアカウントでログイン。  
-⑦参加申請が承認され、townfoスタート！
+⑦参加申請が承認され、townfoスタート！  
+[![Image from Gyazo](https://i.gyazo.com/4335df362151b7b0385635090d5e777b.png)](https://gyazo.com/4335df362151b7b0385635090d5e777b)
 
 # 機能一覧
 ## ユーザー管理機能(devise)
