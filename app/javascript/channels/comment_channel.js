@@ -22,7 +22,7 @@ if (location.pathname.match(/\/notices\/\d/)) {
             ${data.user.nickname} ：
           </div>
           <div class= "noticeShow_comment_text">
-            ${data.comment.text}
+            ${formatNewlines(data.comment.text)}
           </div>
         </div>
       `
@@ -32,4 +32,8 @@ if (location.pathname.match(/\/notices\/\d/)) {
       commentForm.reset()
     }
   });
+}
+
+function formatNewlines(text) {
+  return text.replace(/\n/g, "<br>")
 }
