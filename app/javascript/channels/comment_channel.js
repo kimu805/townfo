@@ -1,10 +1,13 @@
 import consumer from "channels/consumer"
 
 if (location.pathname.match(/\/notices\/\d/)) {
+  console.log("読み込み完了")
+  const currentNoticeId = location.pathname.match(/\d+/)[0]
+  
 
   consumer.subscriptions.create({
     channel: "CommentChannel",
-    notice_id: location.pathname.match(/\d+/)[0]
+    notice_id: currentNoticeId
   }, {
 
     connected() {
@@ -16,20 +19,23 @@ if (location.pathname.match(/\/notices\/\d/)) {
     },
   
     received(data) {
-      const html = `
-      <div class= "noticeShow_comment_box">
-        <div class= "noticeShow_comment_userNickname">
-          ${data.user.nickname}：
+      if (data.comment.notice_id === parseInt(currentNoticeId)) {
+        const html = `
+        <div class= "noticeShow_comment_box">
+          <div class= "noticeShow_comment_userNickname">
+            ${data.user.nickname}：
+          </div>
+          <div class= "noticeShow_comment_text">
+            ${formatNewlines(data.comment.text)}
+          </div>
         </div>
-        <div class= "noticeShow_comment_text">
-          ${formatNewlines(data.comment.text)}
-        </div>
-      </div>
-      `
-      const comments = document.querySelector(".noticeShow_commentsIndex_box")
-      comments.insertAdjacentHTML("beforeend", html)
-      const commentForm = document.getElementById("comment_form")
-      commentForm.reset()
+        `
+        const comments = document.querySelector(".noticeShow_commentsIndex_box")
+        comments.insertAdjacentHTML("beforeend", html)
+        const commentForm = document.getElementById("comment_form")
+        commentForm.reset()
+      }
+      
     }
   })
 }
