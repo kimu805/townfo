@@ -3,6 +3,7 @@ class Notice < ApplicationRecord
   belongs_to :user
   has_many :reads, as: :readable, dependent: :destroy
   has_many_attached :images
+  has_many :comments, dependent: :destroy
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :tag
 
