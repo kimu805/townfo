@@ -17,7 +17,7 @@
     <% end %>
 
     <div class= "noticeShow_comments_box">
-      <%= form_with model: [@notice, @comment], url: group_notice_comments_path(group_id: current_group.id, notice_id: @notice.id) do |f| %>
+      <%= form_with model: [@notice, @comment], url: group_notice_comments_path(group_id: current_group.id, notice_id: @notice.id), id: "comment_form" do |f| %>
         <div class= "noticeShow_comments_heading2_title">
           コメント
         </div>
