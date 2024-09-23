@@ -21,8 +21,9 @@
         <div class= "noticeShow_comments_heading2_title">
           コメント
         </div>
-        <div class= "noticeShow_comments_form">
-          <%= f.text_area :text, class: "input-default", placeholder: "" %>
+        <div class= "noticeShow_comments_form_box">
+          <%= f.text_area :text, class: "noticeShow_comments_form", placeholder: "" %>
+          <%= f.submit "送信", class: "noticeShow_comments_from_commit" %>
         </div>
       <% end %>
       <div class= "noticeShow_commentsIndex_box">
@@ -32,7 +33,7 @@
               <%= comment.user.nickname %>：
             </div>
             <div class= "noticeShow_comment_text">
-              <%= comment.text %>
+              <%= simple_format(h(comment.text), {}, sanitize: false, wrapper_tag: "div") %>
             </div>
           </div>
         <% end %>
