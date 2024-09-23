@@ -3,9 +3,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    @notice = Notice.find(params[:notice_id])
     if @comment.save
-      CommentChannel.broadcast_to @notice, {comment: @comment, user: @comment.user}
+      ActionCable.server.broadcast "comment_channel", {comment: @comment, user: @comment.user}
     else
       render "notice/show"
     end
