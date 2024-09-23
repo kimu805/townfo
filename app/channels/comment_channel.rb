@@ -1,6 +1,7 @@
 class CommentChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "comment_channel"
+    @notice = Notice.find(params[:notice_id])
+    stream_for @notice
   end
 
   def unsubscribed
