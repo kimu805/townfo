@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-      redirect_to group_notice_path(group_id: current_group.id, id: params[:notice_id])
+      ActionCable.server.broadcast "comment_channel", {comment: @comment, user: @comment.user}
     else
       render "notice/show"
     end
