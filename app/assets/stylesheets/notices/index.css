@@ -35,6 +35,10 @@
   background-color: #afafb0;
 }
 
+.noticeIndex_displayStyle_btn{
+  margin: 15px 0;
+}
+
 .notice_item{
   border: 2px solid black;
   border-radius: 5px;
@@ -126,4 +130,30 @@
 }
 .new_btn_icon{
   width: 60%;
+}
+
+/* calendar */
+.simple-calendar {
+  td.day {
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
 }
