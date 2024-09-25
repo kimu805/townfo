@@ -15,6 +15,30 @@
       <%= link_to "削除", group_notice_path(group_id: current_group.id, id: @notice.id), data: {turbo_confirm: "「#{@notice.title}」を削除します。よろしいですか？", turbo_method: :delete}, class: "redButton link" %>
     </div>
     <% end %>
+
+    <div class= "noticeShow_comments_box">
+      <%= form_with model: [@notice, @comment], url: group_notice_comments_path(group_id: current_group.id, notice_id: @notice.id),data: {turbo: false}, id: "comment_form" do |f| %>
+        <div class= "noticeShow_comments_heading2_title">
+          コメント
+        </div>
+        <div class= "noticeShow_comments_form_box">
+          <%= f.text_area :text, class: "noticeShow_comments_form", placeholder: "" %>
+          <%= f.submit "送信", class: "noticeShow_comments_from_commit" %>
+        </div>
+      <% end %>
+      <div class= "noticeShow_commentsIndex_box">
+        <% @comments.each do |comment| %>
+          <div class= "noticeShow_comment_box">
+            <div class= "noticeShow_comment_userNickname">
+              <%= comment.user.nickname %>：
+            </div>
+            <div class= "noticeShow_comment_text">
+              <%= simple_format(h(comment.text), {}, sanitize: false, wrapper_tag: "div") %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

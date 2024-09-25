@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_18_010646) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_23_024723) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -47,6 +47,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_18_010646) do
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_circulars_on_group_id"
     t.index ["user_id"], name: "index_circulars_on_user_id"
+  end
+
+  create_table "comments", charset: "utf8", force: :cascade do |t|
+    t.text "text"
+    t.integer "user_id"
+    t.integer "notice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "groups", charset: "utf8", force: :cascade do |t|

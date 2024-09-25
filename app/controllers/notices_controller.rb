@@ -38,6 +38,8 @@ class NoticesController < ApplicationController
   end
 
   def show
+    @comment = current_user.comments.build
+    @comments = @notice.comments.includes(:user)
   end
 
   def mark_as_read

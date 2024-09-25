@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :notices
   has_many :circulars
   has_many :reads
+  has_many :comments
 
   validates :nickname, presence: true, length: {maximum: 30}
 end
