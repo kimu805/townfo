@@ -1,0 +1,10 @@
+<%= month_calendar events: notices do |date, notices| %>
+  <%= date.day %>
+
+  <% notices.each do |notice| %>
+    <div>
+      <%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id), data: {turbo: false}, class: "link" %>
+    <div>
+  <% end %>
+  
+<% end %>

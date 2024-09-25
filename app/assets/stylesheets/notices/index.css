@@ -35,6 +35,15 @@
   background-color: #afafb0;
 }
 
+.noticeIndex_displayStyle_btn{
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+.current_style{
+  border-bottom: 3px solid black;
+}
+
 .notice_item{
   border: 2px solid black;
   border-radius: 5px;
@@ -126,4 +135,40 @@
 }
 .new_btn_icon{
   width: 60%;
+}
+
+/* calendar
+.simple-calendar {
+  td.day {
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+} */
+
+.calendar-heading{
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}
+
+.calendar-title{
+  font-size: 24px;
 }
