@@ -6,6 +6,12 @@ class NoticesController < ApplicationController
 
   def index
     @notices = current_group.notices.includes(:user)
+
+    if params[:view] == "calendar"
+      render :calendar
+    else
+      render :list
+    end
   end
 
   def new
