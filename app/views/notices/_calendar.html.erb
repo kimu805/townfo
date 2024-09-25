@@ -3,7 +3,7 @@
 
   <% notices.each do |notice| %>
     <div>
-      <%= notice.title %>
+      <%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id), data: {turbo: false}, class: "link" %>
     <div>
   <% end %>
   
