@@ -5,8 +5,10 @@
       <%= link_to "回覧板一覧", group_circulars_path(current_group), class: "noticeIndex_circularIndexButton link" %>
     </div>
 
-    <%= link_to "お知らせ一覧", group_notices_path(current_group, view: "list") %> |
-    <%= link_to "カレンダー一覧", group_notices_path(current_group, view: "calendar") %>
+    <div class= "noticeIndex_displayStyle_btn">
+      <%= link_to "お知らせ一覧", group_notices_path(current_group, view: "list"), class: "link" %> |
+      <%= link_to "カレンダー一覧", group_notices_path(current_group, view: "calendar"), class: "link" %>
+    </div>
 
     <% if params[:view] == "calendar" %>
       <%= render partial: "calendar", locals: {notices: @notices} %>
