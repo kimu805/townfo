@@ -1,0 +1,10 @@
+<%= month_calendar events: notices do |date, notices| %>
+  <%= date.day %>
+
+  <% notices.each do |notice| %>
+    <div>
+      <%= notice.title %>
+    <div>
+  <% end %>
+  
+<% end %>
