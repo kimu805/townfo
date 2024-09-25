@@ -36,7 +36,12 @@
 }
 
 .noticeIndex_displayStyle_btn{
-  margin: 15px 0;
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+.current_style{
+  border-bottom: 3px solid black;
 }
 
 .notice_item{
@@ -132,7 +137,7 @@
   width: 60%;
 }
 
-/* calendar */
+/* calendar
 .simple-calendar {
   td.day {
   }
@@ -156,4 +161,14 @@
   .current-month {}
 
   .has-events {}
+} */
+
+.calendar-heading{
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}
+
+.calendar-title{
+  font-size: 24px;
 }
