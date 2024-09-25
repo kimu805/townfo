@@ -137,9 +137,9 @@
   width: 60%;
 }
 
-/* calendar
+/* calendar */
 .simple-calendar {
-  td.day {
+  .day {
   }
 
   .wday-0 {}
@@ -150,18 +150,24 @@
   .wday-5 {}
   .wday-6 {}
 
-  .today {}
+  .today {
+    background-color: #c1e4e9 !important;
+  }
   .past {}
   .future {}
 
   .start-date {}
 
-  .prev-month {}
-  .next-month { }
-  .current-month {}
+  .prev-month {
+  }
+  .next-month {
+  }
+  .current-month {
+    
+  }
 
   .has-events {}
-} */
+}
 
 .calendar-heading{
   display: flex;
