@@ -8,7 +8,11 @@
     <%= link_to "お知らせ一覧", group_notices_path(current_group, view: "list") %> |
     <%= link_to "カレンダー一覧", group_notices_path(current_group, view: "calendar") %>
 
-    <%= render partial: "notice", collection: @notices %>
+    <% if params[:view] == "calendar" %>
+      <%= render partial: "calendar", locals: {notices: @notices} %>
+    <% else %>
+      <%= render partial: "notice", collection: @notices %>
+    <% end %>
     
   </div>
 </div>
