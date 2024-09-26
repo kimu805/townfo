@@ -6,13 +6,14 @@ table{
   width: 100%;
 }
 
+/* 
 table tr:nth-child(odd){
   background-color: white;
 }
 
 table tr:nth-child(even){
-  background-color: #f0f0f0;
-}
+  background-color: #eaf4fc;
+} */
 
 table th,table td{
   text-align: center;
