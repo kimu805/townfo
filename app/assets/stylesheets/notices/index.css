@@ -139,6 +139,13 @@
 
 /* calendar */
 .simple-calendar {
+
+  .day:nth-child(even) {
+    background-color: white;
+  }
+
+  .day:nth-child(odd) {
+    background-color: #eaf4fc;
   }
 
   .wday-0 {}
