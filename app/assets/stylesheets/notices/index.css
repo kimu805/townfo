@@ -152,6 +152,7 @@
   .wday-6 {}
 
   .today {
+    color: #eb6101;
   }
   .past {}
   .future {}
