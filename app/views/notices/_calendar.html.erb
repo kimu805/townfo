@@ -3,7 +3,7 @@
 
   <% notices.each do |notice| %>
     <div>
-      <%= link_to notice.title, group_notice_path(group_id: current_group.id, id: notice.id), data: {turbo: false}, class: "link" %>
+      <%= link_to truncate(notice.title, length: 8), group_notice_path(group_id: current_group.id, id: notice.id), data: {turbo: false}, class: "link" %>
     <div>
   <% end %>
   
