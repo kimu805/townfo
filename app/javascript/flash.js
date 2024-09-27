@@ -1,5 +1,5 @@
 document.addEventListener('turbo:load', function() {
-  let flashMessage = document.getElementById('flash-message');
+  var flashMessage = document.getElementById('flash-message');
   if (flashMessage && flashMessage.innerHTML.trim() !== '') {
     flashMessage.classList.add('show'); // 表示
 
