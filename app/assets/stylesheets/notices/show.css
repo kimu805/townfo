@@ -50,14 +50,14 @@ a.edit_btn:hover, a.delete_btn:hover{
   font-size: 14px;
   resize: none;
 }
-.noticeShow_comments_from_commit{
+.noticeShow_comments_form_commit{
   width: 20%;
   margin-top: 5px;
   height: 100%;
   background-color: #a0d8ef;
   border: none;
 }
-.noticeShow_comments_from_commit:hover{
+.noticeShow_comments_form_commit:hover{
   background-color: #89c3eb;
 }
 .noticeShow_commentsIndex_box{
