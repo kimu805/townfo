@@ -25,3 +25,21 @@
 .circularIndex_noticeIndexButton:hover{
   background-color: #afafb0;
 }
+
+.circularIndex_yearFilter_box{
+  margin: 30px 0;
+}
+
+.circularIndex_yearFilter_select{
+  border: none;
+}
+
+.circularIndex_yearFilter_submit{
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.circularIndex_yearFilter_submit:hover{
+  color: gray;
+}
