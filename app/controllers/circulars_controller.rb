@@ -6,7 +6,7 @@ class CircularsController < ApplicationController
 
   def index
     # @circulars = @group.circulars
-    @years = Circular.pluck("DISTINCT EXTRACT(YEAR FROM created_at)").map(&:to_i).sort
+    @years = Circular.pluck(Arel.sql("DISTINCT EXTRACT(YEAR FROM created_at)")).map(&:to_i).sort
     @selected_year = params[:year] || Time.current.year
     @circulars = @group.circulars.where("EXTRACT(YEAR FROM created_at) = ?", @selected_year)
   end
