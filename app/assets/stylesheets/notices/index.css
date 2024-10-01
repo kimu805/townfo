@@ -89,7 +89,6 @@
 }
 
 .notice_title{
-  margin: 3px 0;
   font-size: 30px;
   font-weight: bold;
 }
@@ -102,6 +101,7 @@
 .notice_user_name{
   font-size: 14px;
   color: gray;
+  padding-bottom: 10px;
 }
 .notice_content{
   margin-top: 8px;
