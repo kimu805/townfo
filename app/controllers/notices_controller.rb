@@ -5,7 +5,7 @@ class NoticesController < ApplicationController
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
-    @notices = current_group.notices.includes(:user).order("created_at DESC")
+    @notices = current_group.notices.includes(:user).recent
   end
 
   def new
