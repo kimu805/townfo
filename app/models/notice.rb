@@ -16,4 +16,6 @@ class Notice < ApplicationRecord
   def start_time
     schedule
   end
+
+  scope :recent, -> { order("created_at DESC")}
 end

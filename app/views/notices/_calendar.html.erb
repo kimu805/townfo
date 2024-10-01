@@ -2,8 +2,8 @@
   <%= date.day %>
 
   <% notices.each do |notice| %>
-    <div>
-      <%= link_to truncate(notice.title, length: 8), group_notice_path(group_id: current_group.id, id: notice.id), data: {turbo: false}, class: "link" %>
+    <div class= "noticeIndex_calendarTitle">
+      <%= link_to truncate(notice.title, length: 7), group_notice_path(group_id: current_group.id, id: notice.id), data: {turbo: false}, class: "link" %>
     <div>
   <% end %>
   

@@ -5,7 +5,10 @@ class CircularsController < ApplicationController
   before_action :ensure_owner, except: [:index, :show, :read_create]
 
   def index
-    @circulars = @group.circulars
+    # @circulars = @group.circulars
+    @years = Circular.pluck(Arel.sql("DISTINCT EXTRACT(YEAR FROM created_at)")).map(&:to_i).sort
+    @selected_year = params[:year] || Time.current.year
+    @circulars = @group.circulars.selected_year(@selected_year).recent
   end
 
   def new

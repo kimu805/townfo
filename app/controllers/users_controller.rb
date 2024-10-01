@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @notices = @user.notices
+    @notices = @user.notices.recent
   end
 
   def edit
