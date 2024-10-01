@@ -92,6 +92,12 @@
                 <% @users.each do |user| %>
                   <tr>
                     <td>
+                      <% if user.id == @group.owner_id %>
+                        ☆
+                      <% end %>
+                      <%= link_to user.nickname, group_user_path(group_id: @group.id, id: user.id), class: "link" %>
+                    </td>
+                    <td>
                       <% if current_user.id == @group.owner_id || user.id == current_user.id %>
                         <%= link_to "退会", group_membership_path(group_id: @group.id, id: user.memberships.first.id), data: {turbo_confirm: "#{user.nickname}を退会させます。よろしいですか？", turbo_method: :delete}, class: "redButton link" %>
                       <% end %>
