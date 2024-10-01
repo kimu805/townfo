@@ -138,6 +138,10 @@
 }
 
 /* calendar */
+.noticeIndex_calendarTitle{
+  font-size: 13px;
+}
+
 .simple-calendar {
 
   .day:nth-child(even) {
