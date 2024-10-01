@@ -8,4 +8,6 @@ class Circular < ApplicationRecord
     validates :title
     validates :pdf_file
   end
+
+  scope :recent, -> {order("created_at DESC")}
 end
