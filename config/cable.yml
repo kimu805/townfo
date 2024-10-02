@@ -1,5 +1,4 @@
 development:
-  channel_prefix: townfo_development
 
 test:
   adapter: test
