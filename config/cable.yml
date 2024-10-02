@@ -2,6 +2,7 @@ development:
   adapter: async
 
 # development:
+#   adapter: redis
 test:
   adapter: test
 
