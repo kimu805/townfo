@@ -1,7 +1,6 @@
 development:
   adapter: async
 
-#   channel_prefix: townfo_development
 
 test:
   adapter: test
