@@ -1,6 +1,7 @@
 development:
   adapter: async
 
+# development:
 test:
   adapter: test
 
