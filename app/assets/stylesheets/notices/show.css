@@ -67,6 +67,10 @@ a.edit_btn:hover, a.delete_btn:hover{
   margin-bottom: 7px;
 }
 .noticeShow_comment_userNickname{
+  margin-bottom: 3px;
+}
+.noticeShow_comment_userNickname_link{
+  text-decoration: none;
   color: gray;
 }
 .noticeShow_comment_text{
