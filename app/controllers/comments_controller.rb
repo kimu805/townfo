@@ -6,8 +6,6 @@ class CommentsController < ApplicationController
     @notice = Notice.find(params[:notice_id])
     if @comment.save
       CommentChannel.broadcast_to @notice, {comment: @comment, user: @comment.user}
-    else
-      render "notice/show"
     end
   end
 

@@ -2,7 +2,6 @@ import consumer from "channels/consumer"
 
 if (location.pathname.match(/\/notices\/\d/)) {
   const currentNoticeId = location.pathname.match(/notices\/(\d+)/)[1];
-  console.log(currentNoticeId);
 
   consumer.subscriptions.create({
     channel: "CommentChannel",

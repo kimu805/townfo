@@ -20,18 +20,18 @@
 # end
 
 10.times do |i|
-  owner = User.create(nickname: "owner#{i+1}", profile: "私はgroup#{i+1}のオーナーです。", email: "owner#{i+1}@owner.com", password: "111111", password_confirmation: "111111")
-  group = Group.create(name: "group#{i+1}", description: "description of group#{i+1}", owner_id: owner.id)
-  Membership.create(user_id: owner.id, group_id: group.id)
+  owner = User.create!(nickname: "owner#{i+1}", profile: "私はgroup#{i+1}のオーナーです。", email: "owner#{i+1}@owner.com", password: "111111", password_confirmation: "111111")
+  group = Group.create!(name: "group#{i+1}", description: "description of group#{i+1}", owner_id: owner.id)
+  Membership.create!(user_id: owner.id, group_id: group.id)
   5.times do |s|
-    Notice.create(title: "title#{s+1}", content: "content of title#{s+1}", tag_id: 2, user_id: owner.id, group_id: group.id )
+    Notice.create!(title: "title#{s+1}", content: "content of title#{s+1}", tag_id: 2, user_id: owner.id, group_id: group.id )
   end
 end
 
 10.times do |i|
-  member = User.create(nickname: "test#{i+1}", profile: "私はgroup#{i+1}のメンバーです。", email: "test#{i+1}@test.com", password: "111111", password_confirmation: "111111")
-  Membership.create(user_id: member.id, group_id: i+1)
+  member = User.create!(nickname: "test#{i+1}", profile: "私はgroup#{i+1}のメンバーです。", email: "test#{i+1}@test.com", password: "111111", password_confirmation: "111111")
+  Membership.create!(user_id: member.id, group_id: i+1)
   5.times do |s|
-    Notice.create(title: "title#{s+6}", content: "content of title#{s+6}", tag_id: 3, user_id: member.id, group_id: i+1 )
+    Notice.create!(title: "title#{s+6}", content: "content of title#{s+6}", tag_id: 3, user_id: member.id, group_id: i+1 )
   end
 end

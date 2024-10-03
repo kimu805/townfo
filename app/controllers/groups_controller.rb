@@ -35,7 +35,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @users = @group.users
+    @users = @group.users.order("nickname")
     @pending_memberships = @group.pending_memberships
   end
 
