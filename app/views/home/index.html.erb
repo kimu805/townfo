@@ -1,21 +1,30 @@
 <div class= "main">
   <div class= "main_box">
-    <div class= "homeIndex_heading3">
-      どちらかを選んで、townfoを始めよう！
-    </div>
+    
+    <% if current_user.pending_groups.length != 0 %>
+      <p style= "margin-top: 30px;">
+        既に、「<%= current_user.pending_groups.first.name %>」へ申請済みです。<br>
+        オーナーからの承認まで、しばらくお待ちください。
+      </p>
+    <% else %>
+      <div class= "homeIndex_heading3">
+        どちらかを選んで、townfoを始めよう！
+      </div>
 
-    <div class= "homeIndex_button_box">
-      <%= link_to(new_group_path, class: "link") do %>
-        <div class= "homeIndex_newGroupButton_text">
-          グループを立ち上げる
-        </div>
-      <% end %>
-      <%= link_to(new_pending_membership_path, class: "link") do %>
-        <div class= "homeIndex_newPendingMembershipButton_text">
-          グループに参加する
-        </div>
-      <% end %>
-    </div>
+      <div class= "homeIndex_button_box">
+        <%= link_to(new_group_path, class: "link") do %>
+          <div class= "homeIndex_newGroupButton_text">
+            グループを立ち上げる
+          </div>
+        <% end %>
+        <%= link_to(new_pending_membership_path, class: "link") do %>
+          <div class= "homeIndex_newPendingMembershipButton_text">
+            グループに参加する
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 </div>
 
