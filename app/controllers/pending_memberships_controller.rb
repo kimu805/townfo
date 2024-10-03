@@ -22,14 +22,14 @@ class PendingMembershipsController < ApplicationController
     membership = @group.memberships.new(user: pending_membership.user)
     if membership.save
       pending_membership.destroy
-      redirect_to root_path, notice: "「#{membership.user.nickname}」が承認されました。"
+      redirect_to group_path(@group), notice: "「#{membership.user.nickname}」が承認されました。"
     end
   end
 
   def reject
     pending_membership = @group.pending_memberships.find(params[:id])
     pending_membership.destroy
-    redirect_to root_path, notice: "参加申請が拒否されました。"
+    redirect_to group_path(@group), notice: "参加申請が拒否されました。"
   end
 
   private
