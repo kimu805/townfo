@@ -17,6 +17,7 @@
 }
 
 .greenButton {
+  padding: 10px 15px;
 }
 .greenButton:hover {
   color: #000;
