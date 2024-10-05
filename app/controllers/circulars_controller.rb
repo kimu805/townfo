@@ -26,7 +26,7 @@ class CircularsController < ApplicationController
 
   def show
     @read = current_user.reads.find_by(readable: @circular, complete: true)
-    @users = @group.users
+    @users = @group.users.order("nickname")
   end
 
   def destroy
