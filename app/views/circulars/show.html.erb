@@ -54,6 +54,7 @@
             <% @users.each do |user| %>
               <tr>
                 <td>
+                  <% if user.id == @group.owner_id %>
                 </td>
                 <td>
                   <% if read = user.reads.find_by(readable: @circular) %>
