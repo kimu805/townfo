@@ -57,6 +57,7 @@
                   <% if user.id == @group.owner_id %>
                     ☆
                   <% end %>
+                  <%= link_to user.nickname, group_user_path(group_id: @group.id, id: user.id), class: "link" %>
                 </td>
                 <td>
                   <% if read = user.reads.find_by(readable: @circular) %>
