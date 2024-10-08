@@ -1,5 +1,6 @@
 .blueButton{
   padding: 5px 15px;
+  font-weight: bold;
   background-color: #a0d8ef;
 }
 
@@ -9,6 +10,7 @@
 
 .redButton{
   padding: 5px 15px;
+  font-weight: bold;
   background-color: #f3bf88;
 }
 
@@ -17,15 +19,10 @@
 }
 
 .greenButton {
-  background-color: #aacf53;
-  color: #000;
-  border-radius: 10px;
-  padding: 10px 30px;
-  text-decoration: none;
-  font-size: 1em;
-  box-shadow: 0 5px 0 #99ab4e;
+  padding: 10px 15px;
+  font-weight: bold;
+  background-color: #badcad;
 }
-.greenButton:hover {
-  color: #000;
-  opacity: 0.6;
+.greenButton:hover{
+  background-color: #88cd7f;
 }

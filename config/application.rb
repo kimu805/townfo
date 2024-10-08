@@ -13,6 +13,7 @@ module Townfo
     config.active_storage.variant_processor = :mini_magick
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
+    config.beginning_of_week = :sunday
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

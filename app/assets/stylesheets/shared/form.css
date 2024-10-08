@@ -71,19 +71,13 @@
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   gap: 10px;
-  
-}
-
-.preview{
-  /* min-width: 300px; */
-  scroll-snap-align: start;
-  width: 100%;
 }
 
 .preview img {
   width: 258px;
   height: 145px;
   object-fit: cover;
+  scroll-snap-align: start;
 }
 
 .notice_previewImage_deleteButton{
@@ -91,8 +85,6 @@
   width: 228px;
 }
 /* /preview */
-
-
 
 .commit-btn {
   width: 30%;
