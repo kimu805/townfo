@@ -84,6 +84,7 @@
   width: 258px;
   height: 145px;
   object-fit: cover;
+  scroll-snap-align: start;
 }
 
 .notice_previewImage_deleteButton{
