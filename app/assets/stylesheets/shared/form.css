@@ -75,6 +75,7 @@
 }
 
 /* .preview{
+  min-width: 300px;
   scroll-snap-align: start;
   width: 100%;
 }
