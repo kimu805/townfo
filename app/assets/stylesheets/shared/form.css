@@ -71,7 +71,6 @@
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   gap: 10px;
-  
 }
 
 .preview img {
