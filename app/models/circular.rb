@@ -5,7 +5,7 @@ class Circular < ApplicationRecord
   has_many :reads, as: :readable, dependent: :destroy
 
   with_options presence: true do
-    validates :title
+    validates :title, length: { maximum: 50 }
     validates :pdf_file
   end
 
