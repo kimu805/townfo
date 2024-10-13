@@ -10,8 +10,8 @@ class Group < ApplicationRecord
     has_many :circulars, dependent: :destroy
 
   with_options presence: true do
-    validates :name
-    validates :description
+    validates :name, length: { maximum: 50 }
+    validates :description, length: { maximum: 2000 }
     validates :owner_id
   end
 
