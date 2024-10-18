@@ -14,7 +14,7 @@ RSpec.describe Comment, type: :model do
         expect(@comment).to be_valid
       end
     end
-    content "投稿できない場合" do
+    context "投稿できない場合" do
       it "textが空では登録できない" do
 
       end
