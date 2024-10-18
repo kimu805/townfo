@@ -22,9 +22,10 @@
           コメント
         </div>
         <div class= "noticeShow_comments_form_box">
-          <%= f.text_area :text, class: "noticeShow_comments_form", placeholder: "" %>
+          <%= f.text_area :text, class: "noticeShow_comments_form", placeholder: "", id: "commentText_form" %>
           <%= f.submit "送信", class: "noticeShow_comments_form_commit" %>
         </div>
+        <p class= "form_count_box">文字数：<span class= "form_count" id= "commentText_count">0</span></p>
       <% end %>
       <div class= "noticeShow_commentsIndex_box">
         <% @comments.each do |comment| %>
