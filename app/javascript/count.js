@@ -1,3 +1,4 @@
+// お知らせ入力フォームの文字数カウンター
 function countNotice() {
   // title
   const noticeTitleForm = document.getElementById("noticeTitle_form")
@@ -35,6 +36,7 @@ function countNotice() {
 window.addEventListener("turbo:load", countNotice)
 window.addEventListener("turbo:render", countNotice)
 
+// 回覧板入力フォームの文字数カウンター
 function countCircular() {
   // title
   const circularTitleForm = document.getElementById("circularTitle_form")
@@ -56,3 +58,41 @@ function countCircular() {
 
 window.addEventListener("turbo:load", countCircular)
 window.addEventListener("turbo:render", countCircular)
+
+// グループ入力フォームの文字数カウンター
+function countGroup() {
+  // name
+  const groupNameForm = document.getElementById("groupName_form")
+  const groupNameCount = document.getElementById("groupName_count")
+
+  if (!groupNameForm) return null
+
+  groupNameForm.addEventListener("input", () => {
+    let nameLength = groupNameForm.value.length
+    groupNameCount.innerHTML = `${nameLength}`
+    if (nameLength > 50) {
+      groupNameCount.setAttribute("style", "color: red;")
+    }
+    if (nameLength <= 50) {
+      groupNameCount.setAttribute("style", "color: black;")
+    }
+  })
+
+  // description
+  const groupDescriptionForm = document.getElementById("groupDescription_form")
+  const groupDescriptionCount = document.getElementById("groupDescription_count")
+
+  groupDescriptionForm.addEventListener("input", () => {
+    let descriptionLength = groupDescriptionForm.value.length
+    groupDescriptionCount.innerHTML = `${descriptionLength}`
+    if (descriptionLength > 2000) {
+      groupDescriptionCount.setAttribute("style", "color: red;")
+    }
+    if (descriptionLength <= 2000) {
+      groupDescriptionCount.setAttribute("style", "color: black;")
+    }
+  })
+}
+
+window.addEventListener("turbo:load", countGroup)
+window.addEventListener("turbo:render", countGroup)
