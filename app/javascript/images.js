@@ -76,4 +76,5 @@ function images() {
   fileField.addEventListener("change", changeFileField)
 }
 
-window.addEventListener("turbo:load", images)
+window.addEventListener("turbo:load", images)window.addEventListener("turbo:load", images)
+window.addEventListener("turbo:render", images)
