@@ -14,7 +14,6 @@ class NoticesController < ApplicationController
 
   def create
     @notice = current_group.notices.build(notice_params)
-    binding.pry
     if @notice.save
       redirect_to group_notices_path(current_group), notice: "投稿しました。"
     else
