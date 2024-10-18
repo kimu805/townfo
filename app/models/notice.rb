@@ -18,4 +18,6 @@ class Notice < ApplicationRecord
   end
 
   scope :recent, -> { order("created_at DESC")}
+
+  attr_accessor :images
 end
