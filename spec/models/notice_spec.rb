@@ -28,6 +28,9 @@ RSpec.describe Notice, type: :model do
         @notice.valid?
         expect(@notice.errors.full_messages).to include("内容を入力してください")
       end
+      it "contentは1001文字以上では登録できない" do
+
+      end
       it "tag_idが空では登録できない" do
         @notice.tag_id = nil
         @notice.valid?
