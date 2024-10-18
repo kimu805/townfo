@@ -19,6 +19,11 @@ RSpec.describe Group, type: :model do
         @group.valid?
         expect(@group.errors.full_messages).to include("グループ名を入力してください")
       end
+      it "nameは51文字以上では登録できない" do
+        @group.name = Faker::Lorem.characters(number: 51)
+        @group.valid?
+        expect(@group.errors.full_messages).to include("グループ名は50文字以内で入力してください")
+      end
       it "descriptionが空では登録できない" do
         @group.description = ""
         @group.valid?
