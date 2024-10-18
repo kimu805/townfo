@@ -2,8 +2,8 @@
   <div class= "main_box">
     
     <% if current_user.pending_groups.length != 0 %>
-      <p style= "margin-top: 30px;">
-        既に、「<%= current_user.pending_groups.first.name %>」へ申請済みです。<br>
+      <p style= "margin-top: 30px; text-align: center;">
+        既に、「<%= current_user.pending_groups.first.name %>」へ加入申請済みです。<br>
         オーナーからの承認まで、しばらくお待ちください。
       </p>
     <% else %>

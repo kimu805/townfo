@@ -38,6 +38,7 @@ a.edit_btn:hover, a.delete_btn:hover{
   height: 80px;
   width: 100%;
   display: flex;
+  margin-bottom: 10px;
 }
 .noticeShow_comments_form{
   width: 100%;

@@ -48,7 +48,8 @@ function markNoticeAsRead(noticeId, groupId) {
       }
     }
   }).catch((error) => {
-    console.log("エラーが発せしました", error)
+    console.log("エラーが発生しました", error)
   })
 }
 window.addEventListener("turbo:load", read)
+window.addEventListener("turbo:render", read)

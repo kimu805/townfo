@@ -17,7 +17,8 @@
       <%= f.label :title, class: "form-text" %>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_field :title, class:"input-default", autofocus: true %>
+    <%= f.text_field :title, class:"input-default", id: "noticeTitle_form", autofocus: true %>
+    <p class= "form_count_box">文字数：<span class= "form_count" id= "noticeTitle_count">0</span></p>
   </div>
 
   <div class= "form-group images">
@@ -35,7 +36,8 @@
       <%= f.label :content, class: "form-text" %>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :content, class:"input-default", placeholder:"" %>
+    <%= f.text_area :content, class:"input-default", id: "noticeContent_form", placeholder: "" %>
+    <p class= "form_count_box">文字数：<span class= "form_count" id= "noticeContent_count">0</span></p>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>

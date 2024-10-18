@@ -16,4 +16,5 @@ class User < ApplicationRecord
   has_many :comments
 
   validates :nickname, presence: true, length: { maximum: 30 }
+  validates :profile, length: { maximum: 1000 }
 end
