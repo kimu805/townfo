@@ -96,3 +96,43 @@ function countGroup() {
 
 window.addEventListener("turbo:load", countGroup)
 window.addEventListener("turbo:render", countGroup)
+
+// ユーザー新規登録の文字数カウンター
+function countNewUser() {
+  // nickname
+  const userNicknameForm = document.getElementById("userNickname_form")
+  const userNicknameCount = document.getElementById("userNickname_count")
+
+  if (!userNicknameForm) return null
+
+  userNicknameForm.addEventListener("input", () => {
+    let nicknameLength = userNicknameForm.value.length
+    userNicknameCount.innerHTML = `${nicknameLength}`
+    if (nicknameLength > 30) {
+      userNicknameCount.setAttribute("style", "color: red;")
+    }
+    if (nicknameLength <= 30) {
+      userNicknameCount.setAttribute("style", "color: black;")
+    }
+  })
+
+    // profile
+    const userProfileForm = document.getElementById("userProfile_form")
+    const userProfileCount = document.getElementById("userProfile_count")
+  
+    if (!userProfileForm) return null
+  
+    userProfileForm.addEventListener("input", () => {
+      let profileLength = userProfileForm.value.length
+      userProfileCount.innerHTML = `${profileLength}`
+      if (profileLength > 1000) {
+        userProfileCount.setAttribute("style", "color: red;")
+      }
+      if (profileLength <= 1000) {
+        userProfileCount.setAttribute("style", "color: black;")
+      }
+    })
+}
+
+window.addEventListener("turbo:load", countNewUser)
+window.addEventListener("turbo:render", countNewUser)
