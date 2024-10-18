@@ -98,7 +98,7 @@ window.addEventListener("turbo:load", countGroup)
 window.addEventListener("turbo:render", countGroup)
 
 // ユーザー新規登録の文字数カウンター
-function countNewUser() {
+function countUser() {
   // nickname
   const userNicknameForm = document.getElementById("userNickname_form")
   const userNicknameCount = document.getElementById("userNickname_count")
@@ -134,5 +134,28 @@ function countNewUser() {
     })
 }
 
-window.addEventListener("turbo:load", countNewUser)
-window.addEventListener("turbo:render", countNewUser)
+window.addEventListener("turbo:load", countUser)
+window.addEventListener("turbo:render", countUser)
+
+// 回覧板入力フォームの文字数カウンター
+function countCircular() {
+  // title
+  const circularTitleForm = document.getElementById("circularTitle_form")
+  const circularTitleCount = document.getElementById("circularTitle_count")
+
+  if (!circularTitleForm) return null
+
+  circularTitleForm.addEventListener("input", () => {
+    let titleLength = circularTitleForm.value.length
+    circularTitleCount.innerHTML = `${titleLength}`
+    if (titleLength > 50) {
+      circularTitleCount.setAttribute("style", "color: red;")
+    }
+    if (titleLength <= 50) {
+      circularTitleCount.setAttribute("style", "color: black;")
+    }
+  })
+}
+
+window.addEventListener("turbo:load", countCircular)
+window.addEventListener("turbo:render", countCircular)
