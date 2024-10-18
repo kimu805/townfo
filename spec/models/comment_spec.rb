@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   before do
     @user = FactoryBot.create(:user)
-    @notice = FactoryBot.create(:notice, user_id: @user.id)
+    @group = FactoryBot.create(:group, owner_id: @user.id)
+    @notice = FactoryBot.create(:notice, user_id: @user.id, group_id: @group.id)
     @comment = FactoryBot.build(:comment, user_id: @user.id, notice_id: @notice.id)
   end
 
