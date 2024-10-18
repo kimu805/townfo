@@ -34,3 +34,25 @@ function countNotice() {
 
 window.addEventListener("turbo:load", countNotice)
 window.addEventListener("turbo:render", countNotice)
+
+function countCircular() {
+  // title
+  const circularTitleForm = document.getElementById("circularTitle_form")
+  const circularTitleCount = document.getElementById("circularTitle_count")
+
+  if (!circularTitleForm) return null
+
+  circularTitleForm.addEventListener("input", () => {
+    let titleLength = circularTitleForm.value.length
+    circularTitleCount.innerHTML = `${titleLength}`
+    if (titleLength > 50) {
+      circularTitleCount.setAttribute("style", "color: red;")
+    }
+    if (titleLength <= 50) {
+      circularTitleCount.setAttribute("style", "color: black;")
+    }
+  })
+}
+
+window.addEventListener("turbo:load", countCircular)
+window.addEventListener("turbo:render", countCircular)
