@@ -18,4 +18,5 @@ class Notice < ApplicationRecord
   end
 
   scope :recent, -> { order("created_at DESC")}
+
 end

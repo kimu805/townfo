@@ -17,6 +17,11 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("お名前を入力してください")
       end
+      it "nicknameは31文字以上では登録できない" do
+        @user.nickname = Faker::Lorem.characters(number: 31)
+        @user.valid?
+        expect(@user.errors.full_messages).to include("お名前は30文字以内で入力してください")
+      end
       it "emailが空だと登録できない" do
         @user.email = ""
         @user.valid?

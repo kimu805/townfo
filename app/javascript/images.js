@@ -77,3 +77,4 @@ function images() {
 }
 
 window.addEventListener("turbo:load", images)
+window.addEventListener("turbo:render", images)

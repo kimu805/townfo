@@ -4,7 +4,7 @@
 }
 
 .circularIndex_circularIndexButton{
-  padding: 30px 0;
+  padding: 15px 0 10px 0;
   width: 50%;
   text-align: center;
   align-items: center;
@@ -14,12 +14,12 @@
 }
 
 .circularIndex_noticeIndexButton{
-  padding: 30px 0;
+  padding: 15px 0 10px 0;
   width: 50%;
   text-align: center;
   align-items: center;
   background-color: #c0c6c9;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .circularIndex_noticeIndexButton:hover{

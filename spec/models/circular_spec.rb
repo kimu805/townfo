@@ -18,6 +18,11 @@ RSpec.describe Circular, type: :model do
         @circular.valid?
         expect(@circular.errors.full_messages).to include("タイトルを入力してください")
       end
+      it "titleは51文字以上では作成できない" do
+        @circular.title = Faker::Lorem.characters(number: 51)
+        @circular.valid?
+        expect(@circular.errors.full_messages).to include("タイトルは50文字以内で入力してください")
+      end
       it "pdf_fileが空では作成できない" do
         @circular.pdf_file = nil
         @circular.valid?
