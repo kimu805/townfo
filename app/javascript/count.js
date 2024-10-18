@@ -137,25 +137,30 @@ function countUser() {
 window.addEventListener("turbo:load", countUser)
 window.addEventListener("turbo:render", countUser)
 
-// 回覧板入力フォームの文字数カウンター
-function countCircular() {
-  // title
-  const circularTitleForm = document.getElementById("circularTitle_form")
-  const circularTitleCount = document.getElementById("circularTitle_count")
+// コメント入力フォームの文字数カウンター
+function countComment() {
+  // text
+  const commentTextForm = document.getElementById("commentText_form")
+  const commentTextCount = document.getElementById("commentText_count")
 
-  if (!circularTitleForm) return null
+  if (!commentTextForm) return null
 
-  circularTitleForm.addEventListener("input", () => {
-    let titleLength = circularTitleForm.value.length
-    circularTitleCount.innerHTML = `${titleLength}`
-    if (titleLength > 50) {
-      circularTitleCount.setAttribute("style", "color: red;")
+  commentTextForm.addEventListener("input", () => {
+    let textLength = commentTextForm.value.length
+    commentTextCount.innerHTML = `${textLength}`
+    if (textLength > 1000) {
+      commentTextCount.setAttribute("style", "color: red;")
     }
-    if (titleLength <= 50) {
-      circularTitleCount.setAttribute("style", "color: black;")
+    if (textLength <= 1000) {
+      commentTextCount.setAttribute("style", "color: black;")
     }
+  })
+
+  const commentSubmitBtn = document.querySelector(".noticeShow_comments_form_commit")
+  commentSubmitBtn.addEventListener("click", () => {
+    commentTextCount.innerHTML = 0
   })
 }
 
-window.addEventListener("turbo:load", countCircular)
-window.addEventListener("turbo:render", countCircular)
+window.addEventListener("turbo:load", countComment)
+window.addEventListener("turbo:render", countComment)
