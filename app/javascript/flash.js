@@ -1,4 +1,4 @@
-document.addEventListener('turbo:load', function() {
+function flash() {
   var flashMessage = document.getElementById('flash-message');
   if (flashMessage && flashMessage.innerHTML.trim() !== '') {
     flashMessage.classList.add('show'); // 表示
@@ -8,4 +8,7 @@ document.addEventListener('turbo:load', function() {
       flashMessage.classList.add('hide'); // フェードアウト
     }, 5000);
   }
-});
+}
+
+window.addEventListener("turbo:load", flash)
+window.addEventListener("turbo:render", flash)
