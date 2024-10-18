@@ -21,7 +21,9 @@ RSpec.describe Comment, type: :model do
         expect(@comment.errors.full_messages).to include("Textを入力してください")
       end
       it "textは1001文字以上では登録できない" do
-
+        @comment.text = Faker::Lorem.characters(number: 1001)
+        @comment.valid?
+        expect(@comment.errors.full_messages).to include("Textは1000文字以内で入力してください")
       end
       it "user_idが紐づいていなければ登録できない" do
 
