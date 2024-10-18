@@ -26,7 +26,9 @@ RSpec.describe Comment, type: :model do
         expect(@comment.errors.full_messages).to include("Textは1000文字以内で入力してください")
       end
       it "user_idが紐づいていなければ登録できない" do
-
+        @comment.user_id = nil
+        @comment.valid?
+        expect(@comment.errors.full_messages).to include("Userを入力してください")
       end
       it "notice_idが紐づいていなければ登録できない" do
 
