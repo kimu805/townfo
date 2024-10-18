@@ -34,7 +34,9 @@ RSpec.describe Notice, type: :model do
         expect(@notice.errors.full_messages).to include("内容を入力してください")
       end
       it "contentは1001文字以上では登録できない" do
-
+        @notice.content = Faker::Lorem.characters(number: 1001)
+        @notice.vaild?
+        expect(@notice.errors.full_messages).to include("内容は1000文字以内で入力してください")
       end
       it "tag_idが空では登録できない" do
         @notice.tag_id = nil
