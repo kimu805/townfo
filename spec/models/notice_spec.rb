@@ -23,6 +23,11 @@ RSpec.describe Notice, type: :model do
         @notice.valid?
         expect(@notice.errors.full_messages).to include("タイトルを入力してください")
       end
+      it "titleは51文字以上では登録できない" do
+        @notice.title = Faker::Lorem.characters(number: 51)
+        @notice.valid?
+        expect(@notice.errors.full_messages).to include("タイトルは50文字以内で入力してください")
+      end
       it "contentが空では登録できない" do
         @notice.content = ""
         @notice.valid?
