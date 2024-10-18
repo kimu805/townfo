@@ -17,7 +17,6 @@ class NoticesController < ApplicationController
     if @notice.save
       redirect_to group_notices_path(current_group), notice: "投稿しました。"
     else
-      @notice.images = params[:notice][:images]
       render :new, status: :unprocessable_entity
     end
   end
