@@ -31,7 +31,9 @@ RSpec.describe Comment, type: :model do
         expect(@comment.errors.full_messages).to include("Userを入力してください")
       end
       it "notice_idが紐づいていなければ登録できない" do
-
+        @comment.notice_id = nil
+        @comment.valid?
+        expect(@comment.errors.full_messages).to include("Noticeを入力してください")
       end
     end
   end
