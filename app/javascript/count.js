@@ -1,4 +1,5 @@
 function countNotice() {
+  // title
   const noticeTitleForm = document.getElementById("noticeTitle_form")
   const noticeTitleCount = document.getElementById("noticeTitle_count")
 
@@ -10,6 +11,9 @@ function countNotice() {
     noticeTitleCount.innerHTML = `${titleLength}`
     if (titleLength > 50) {
       noticeTitleCount.setAttribute("style", "color: red;")
+    }
+    if (titleLength <= 50) {
+      noticeTitleCount.setAttribute("style", "color: black;")
     }
   })
 }
