@@ -29,6 +29,9 @@ RSpec.describe Group, type: :model do
         @group.valid?
         expect(@group.errors.full_messages).to include("グループの説明を入力してください")
       end
+      it "descriptionは2001文字以上では登録できない" do
+
+      end
       it "owner_idが空では登録できない" do
         @group.owner_id = ""
         @group.valid?
