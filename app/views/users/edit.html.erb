@@ -27,7 +27,9 @@
           <%= f.label :profile, class: "form-text" %>
         </div>
         <%= f.text_area :profile, class:"form_userProfile input-default", id: "userProfile_form" %>
-        <p class= "form_count_box">文字数：<span class= "form_count" id= "userProfile_count">0</span></p>
+        <p class= "form_count_box">
+          文字数：<span class= "form_count" id= "userProfile_count"><%= current_user.profile.length if current_user.profile %></span>
+        </p>
       </div>
 
       <div class="form-group">
