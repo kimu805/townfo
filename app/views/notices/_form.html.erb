@@ -37,6 +37,7 @@
       <span class="indispensable">必須</span>
     </div>
     <%= f.text_area :content, class:"textArea_default", id: "noticeContent_form", placeholder: "" %>
+    <p class= "form_count_box">文字数：<span class= "form_count" id= "noticeContent_count"><%= notice.content.length if notice.content %></span></p>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
