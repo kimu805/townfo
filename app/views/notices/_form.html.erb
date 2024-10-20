@@ -18,15 +18,23 @@
       <span class="indispensable">必須</span>
     </div>
     <%= f.text_field :title, class:"input-default", id: "noticeTitle_form", autofocus: true %>
-    <p class= "form_count_box">文字数：<span class= "form_count" id= "noticeTitle_count">0</span></p>
+    <p class= "form_count_box">文字数：<span class= "form_count" id= "noticeTitle_count"><%= notice.title.length if notice.title %></span></p>
   </div>
 
   <div class= "form-group images">
     <div class= "form-text-wrap">
       <%= f.label :images, class: "form-text" %>
     </div>
+    <div class= "notice_image_title">変更前</div>
+    <div class= "notice_already_images">
+      <% if notice.images.attached? %>
+        <% notice.images.each do |image| %>
+          <%= image_tag url_for(image), class: "notice_already_image" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class= "notice_image_title">変更後</div>
     <div class= "notice_image_previews">
-    
     </div>
    <%= f.file_field :images, name: "notice[images][]", data: {index: 0}, class: "input-default" %> 
   </div>
@@ -36,8 +44,8 @@
       <%= f.label :content, class: "form-text" %>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :content, class:"input-default", id: "noticeContent_form", placeholder: "" %>
-    <p class= "form_count_box">文字数：<span class= "form_count" id= "noticeContent_count">0</span></p>
+    <%= f.text_area :content, class:"textArea_default", id: "noticeContent_form", placeholder: "" %>
+    <p class= "form_count_box">文字数：<span class= "form_count" id= "noticeContent_count"><%= notice.content.length if notice.content %></span></p>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>

@@ -17,7 +17,9 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_field :nickname, class:"input-default", id: "userNickname_form", autofocus: true %>
-        <p class= "form_count_box">文字数：<span class= "form_count" id= "userNickname_count">0</span></p>
+        <p class= "form_count_box">
+          文字数：<span class= "form_count" id= "userNickname_count"><%= current_user.nickname.length if current_user.nickname %></span>
+        </p>
       </div>
       
       <div class="form-group">
@@ -25,7 +27,9 @@
           <%= f.label :profile, class: "form-text" %>
         </div>
         <%= f.text_area :profile, class:"form_userProfile input-default", id: "userProfile_form" %>
-        <p class= "form_count_box">文字数：<span class= "form_count" id= "userProfile_count">0</span></p>
+        <p class= "form_count_box">
+          文字数：<span class= "form_count" id= "userProfile_count"><%= current_user.profile.length if current_user.profile %></span>
+        </p>
       </div>
 
       <div class="form-group">

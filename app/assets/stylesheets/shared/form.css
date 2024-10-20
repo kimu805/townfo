@@ -64,6 +64,17 @@
   height: 90px;
 }
 
+.textArea_default {
+  margin-top: 5px;
+  height: 90px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 14px;
+  resize: none;
+}
+
 /* preview */
 
 .notice_image_previews{
@@ -73,7 +84,7 @@
   gap: 10px;
 }
 
-.preview img {
+.preview img  {
   width: 258px;
   height: 145px;
   object-fit: cover;
@@ -84,6 +95,28 @@
   text-align: center;
   width: 228px;
 }
+
+.notice_already_images{
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.notice_image_title{
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.notice_already_image{
+  width: 258px;
+  height: 145px;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
 /* /preview */
 
 .commit-btn {
