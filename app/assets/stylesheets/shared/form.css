@@ -95,6 +95,23 @@
   text-align: center;
   width: 228px;
 }
+
+.notice_already_images{
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.notice_already_image{
+  width: 258px;
+  height: 145px;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
 /* /preview */
 
 .commit-btn {
