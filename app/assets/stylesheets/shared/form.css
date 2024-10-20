@@ -84,7 +84,7 @@
   gap: 10px;
 }
 
-.preview img {
+.preview img  {
   width: 258px;
   height: 145px;
   object-fit: cover;
