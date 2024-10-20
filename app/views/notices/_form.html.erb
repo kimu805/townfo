@@ -27,7 +27,7 @@
     </div>
     <div class= "notice_image_previews">
       <% if notice.images.attached? %>
-        <%= notice.images.each do |image| %>
+        <% notice.images.each do |image| %>
           <%= image_tag url_for(image), size: "258x145" %>
         <% end %>
       <% end %>
