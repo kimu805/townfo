@@ -6,10 +6,10 @@ https://townfo.onrender.com
 ・Basic認証ID：  
 ・Basic認証Password：  
 ### 「group1」管理者アカウント
-・メールアドレス： owner1@owner.com 
+・メールアドレス： owner1@owner.com   
 ・パスワード：  111111
 ### 「group1」メンバーアカウント
-・メールアドレス：  member1@member.com
+・メールアドレス：  member1@member.com  
 ・パスワード：  111111
 
 # 概要
