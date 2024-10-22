@@ -13,16 +13,19 @@
   </head>
 
   <body>
-    <div id="flash-message" class="flash-message <%= flash[:notice] ? 'notice' : flash[:alert] ? 'alert' : '' %>">
-      <span class="icon">
-        <% if flash[:notice] %>
-          &#x2714; <!-- チェックマークアイコン -->
-        <% elsif flash[:alert] %>
-          &#x26A0; <!-- 警告アイコン -->
-        <% end %>
-      </span>
-      <%= flash[:notice] || flash[:alert] %>
-    </div>
+    <% if flash[:notice] %>
+      <div id="flash-message" class="flash-message <%= flash[:notice] ? 'notice' : flash[:alert] ? 'alert' : '' %>">
+        <span class="icon">
+          &#x2714; <%= flash[:notice] %> <!-- チェックマークアイコン -->
+        </span>
+      </div>
+    <% elsif flash[:alert] %>
+      <div id="flash-message" class="flash-message <%= flash[:notice] ? 'notice' : flash[:alert] ? 'alert' : '' %>">
+        <span class="icon">
+          &#x26A0; <%= flash[:alert] %> <!-- 警告アイコン -->
+        </span>
+      </div>
+    <% end %>
     <%= render "shared/header" %>
     <%= yield %>
     <%= render "shared/footer" %>
