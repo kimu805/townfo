@@ -15,7 +15,7 @@
       </li>
     <% elsif current_user %>
       <li class= "nav_list">
-        <%= current_user.nickname %>
+        <%= link_to current_user.nickname, user_path(current_user), class: "link" %>
       </li>
       <li class= "nav_list">
         <%= link_to "ログアウト", destroy_user_session_path, data: {turbo_method: :delete}, class: "link" %>
