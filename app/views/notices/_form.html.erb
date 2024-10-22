@@ -25,15 +25,18 @@
     <div class= "form-text-wrap">
       <%= f.label :images, class: "form-text" %>
     </div>
-    <div class= "notice_image_title">変更前</div>
-    <div class= "notice_already_images">
-      <% if notice.images.attached? %>
-        <% notice.images.each do |image| %>
-          <%= image_tag url_for(image), class: "notice_already_image" %>
+
+    <% if notice.persisted? %>
+      <div class= "notice_image_title">変更前</div>
+      <div class= "notice_already_images">
+        <% if notice.images.attached? %>
+          <% notice.images.each do |image| %>
+            <%= image_tag url_for(image), class: "notice_already_image" %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-    <div class= "notice_image_title">変更後</div>
+      </div>
+      <div class= "notice_image_title">変更後</div>
+    <% end %>
     <div class= "notice_image_previews">
     </div>
    <%= f.file_field :images, name: "notice[images][]", data: {index: 0}, class: "input-default" %> 
@@ -47,12 +50,14 @@
     <%= f.text_area :content, class:"textArea_default", id: "noticeContent_form", placeholder: "" %>
     <p class= "form_count_box">文字数：<span class= "form_count" id= "noticeContent_count"><%= notice.content.length if notice.content %></span></p>
   </div>
+
   <div class="form-group">
     <div class='form-text-wrap'>
       <%= f.label :schedule, class: "form-text" %>
     </div>
     <%= f.date_field :schedule, class:"input-default" %>
   </div>
+  
   <div class="form-group">
     <div class='form-text-wrap'>
       <%= f.label :tag_id, class: "form-text" %>
@@ -60,6 +65,7 @@
     </div>
     <%= f.collection_select(:tag_id, Tag.all, :id, :name, {prompt: false}, {class: "select_input"}) %>
   </div>
+  
   <% if notice.persisted? %>
     <div class='commit-btn'>
       <%= f.submit "更新" ,class:"commit-red-btn" %>
