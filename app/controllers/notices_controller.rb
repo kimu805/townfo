@@ -6,8 +6,7 @@ class NoticesController < ApplicationController
 
   def index
     if params[:schedule].present?
-      @notices = current_group.notices.where(schedule: params[:schedule]).includes(:user).resent
-      @notices_count = @notices.count
+      @notices = current_group.notices.where(schedule: params[:schedule]).includes(:user).recent
     else
       @notices = current_group.notices.includes(:user).recent
     end
