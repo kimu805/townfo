@@ -44,6 +44,11 @@
   border-bottom: 3px solid black;
 }
 
+.noticeIndex_schedule_title{
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .notice_item{
   border: 2px solid black;
   border-radius: 10px;

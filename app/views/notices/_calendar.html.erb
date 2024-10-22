@@ -1,10 +1,13 @@
 <%= month_calendar events: notices do |date, notices| %>
-  <%= date.day %>
+  <%= link_to(group_notices_path(current_group, schedule: date), data: { turbo: false }, class: "link") do %>
+    <%= date.day %>
 
-  <% notices.each do |notice| %>
-    <div class= "noticeIndex_calendarTitle">
-      <%= link_to truncate(notice.title, length: 7), group_notice_path(group_id: current_group.id, id: notice.id), data: {turbo: false}, class: "link" %>
-    <div>
+    <% notices_count = notices.select { |notice| notice.schedule == date }.count %>
+    <% if notices_count > 0 %>
+      <div class= "noticeCalendar_count">
+        <%= notices_count %>件
+      </div>
+    <% end %>
+
   <% end %>
-  
 <% end %>
