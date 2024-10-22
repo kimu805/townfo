@@ -1,16 +1,16 @@
 # アプリケーション名
 townfo(タウンフォ)  
-（URL）
+https://townfo.onrender.com
 
 ## テスト用アカウント
 ・Basic認証ID：  
 ・Basic認証Password：  
 ### 「group1」管理者アカウント
-・メールアドレス：  
-・パスワード：  
+・メールアドレス： owner1@owner.com   
+・パスワード：  111111
 ### 「group1」メンバーアカウント
-・メールアドレス：  
-・パスワード：  
+・メールアドレス：  member1@member.com  
+・パスワード：  111111
 
 # 概要
 回覧板の機能をデジタルで再現。
