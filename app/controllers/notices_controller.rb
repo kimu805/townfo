@@ -5,7 +5,12 @@ class NoticesController < ApplicationController
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
-    @notices = current_group.notices.includes(:user).recent
+    if params[:schedule].present?
+      @notices = current_group.notices.where(schedule: params[:schedule]).includes(:user).resent
+      @notices_count = @notices.count
+    else
+      @notices = current_group.notices.includes(:user).recent
+    end
   end
 
   def new
