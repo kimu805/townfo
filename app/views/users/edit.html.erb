@@ -3,7 +3,7 @@
     <%= link_to(:back, class: "link") do %>
       <%= image_tag "back.png", size: "40x40", class: "back_image" %>
     <% end %>
-    <%= form_with model: current_user, url: group_user_path(group_id: current_group.id, id: current_user.id), local: true do |f| %>
+    <%= form_with model: current_user, url: user_path(current_user), local: true do |f| %>
 
       <div class='form-header'>
         <h1 class='form-header-text'>
