@@ -1,7 +1,13 @@
 <div class= "main">
   <div class= "main_box">
-    <%= link_to(group_notices_path(current_group), class: "link") do %>
-      <%= image_tag "back.png", size: "40x40", class: "back_image" %>
+    <% if current_group %>
+      <%= link_to(group_notices_path(current_group), class: "link") do %>
+        <%= image_tag "back.png", size: "40x40", class: "back_image" %>
+      <% end %>
+    <% else %>
+      <%= link_to(root_path, class: "link") do %>
+        <%= image_tag "back.png", size: "40x40", class: "back_image" %>
+      <% end %>
     <% end %>
 
     <div class= "mypage">
