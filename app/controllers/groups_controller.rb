@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      redirect_to root_path, notice: "グループ「#{@group.name}」を編集しました。"
+      redirect_to group_path(@group), notice: "グループ「#{@group.name}」を編集しました。"
     else
       render :edit, status: :unprocessable_entity
     end
