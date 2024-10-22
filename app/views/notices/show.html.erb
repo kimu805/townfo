@@ -31,7 +31,7 @@
         <% @comments.each do |comment| %>
           <div class= "noticeShow_comment_box">
             <div class= "noticeShow_comment_userNickname">
-              <%= link_to comment.user.nickname, group_user_path(group_id: current_group.id, id: comment.user_id), class: "noticeShow_comment_userNickname_link" %>：
+              <%= link_to comment.user.nickname, user_path(comment.user), class: "noticeShow_comment_userNickname_link" %>：
             </div>
             <div class= "noticeShow_comment_text">
               <%= simple_format(h(comment.text), {}, sanitize: false, wrapper_tag: "div") %>
