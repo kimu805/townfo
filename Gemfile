@@ -83,3 +83,7 @@ gem 'image_processing', '~> 1.2'
 gem "rails-i18n"
 gem 'simple_calendar', '~> 2.0' 
 gem "sassc-rails"
+
+group :production do
+  gem "pg"
+end
