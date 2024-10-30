@@ -85,5 +85,5 @@ gem 'simple_calendar', '~> 2.0'
 gem "sassc-rails"
 
 group :production do
-  gem "pg"
+  gem 'unicorn', '6.1.0'
 end
