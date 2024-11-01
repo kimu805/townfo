@@ -37,7 +37,7 @@
   <%= link_to(group_notice_path(group_id: current_group.id, id: notice.id), data: {turbo: false}, class: "link") do %>
     <% if request.path == group_notices_path(current_group) || request.path == user_path(notice.user.id) %>
       <p class="notice_content">
-        <%= simple_format(sanitize(truncate(notice.content, length: 200)), {}, wrapper_tag: "div") %>
+        <%= simple_format(sanitize(truncate(notice.content, length: 200, omission: " ...続きを読む")), {}, wrapper_tag: "div") %>
       </p>
     <% else %>
       <p class= "notice_content">
