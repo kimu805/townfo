@@ -86,6 +86,7 @@ Ruby on Rails 7.0.0
 RSpec
 
 ・インフラ  
+AWS
 
 ・テキストエディタ  
 VSCode
