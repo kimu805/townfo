@@ -1,6 +1,6 @@
 # アプリケーション名
 townfo(タウンフォ)  
-https://townfo.onrender.com
+http://52.69.79.34/
 
 ## テスト用アカウント
 ・Basic認証ID： admin  
