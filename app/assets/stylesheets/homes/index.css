@@ -15,6 +15,7 @@
   line-height: 70px;
   background-color: #ee7800;
   font-weight: bold;
+  padding: 0 10px;
 }
 
 .homeIndex_newPendingMembershipButton_text{
@@ -23,4 +24,5 @@
   line-height: 70px;
   background-color: #89c3eb;
   font-weight: bold;
+  padding: 0 10px;
 }
