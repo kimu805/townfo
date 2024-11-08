@@ -25,7 +25,7 @@ class Notice < ApplicationRecord
 
   # ransack
   def self.ransackable_attributes(auth_object = nil)
-    ["title", "content"]
+    ["title", "content", "tag_id"]
   end
 
   # def self.ransackable_associations(auth_object = nil)
