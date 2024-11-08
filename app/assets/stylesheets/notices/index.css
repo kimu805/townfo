@@ -10,33 +10,70 @@
 
 .noticeIndex_indexButton_box{
   display: flex;
-  justify-content: space-around;
+  width: 100%;
 }
-
 .noticeIndex_noticeIndexButton{
-  padding: 15px 0 10px 0;
-  width: 50%;
+  width: 100%;
+  padding: 5px 0;
   text-align: center;
-  align-items: center;
-  background-color: white;
+
+}
+.noticeIndex_noticeIndexButton_text{
   font-size: 20px;
   font-weight: bold;
+  text-decoration: underline;
 }
 .noticeIndex_circularIndexButton{
-  padding: 15px 0 10px 0;
-  width: 50%;
-  text-align: center;
-  align-items: center;
+  width: 100%;
+  padding: 5px 0;
   background-color: #c0c6c9;
-  font-size: 16px;
+  text-align: center;
+}
+.noticeIndex_circularIndexButton:hover{
+  opacity: 0.6;
+}
+/* .noticeIndex_circularIndexButton_text{
+  
+} */
+
+/* searchBox **********************************************/
+.noticeIndex_search_box{
+  width: 100%;
+}
+.noticeIndex_search_form{
+  margin: 15px 0;
+  padding: 12px;
+  background-color: #dcdddd;
+  border-radius: 5px;
+  display: flex;
+}
+.noticeIndex_search_inputbox{
+  width: 80%;
+}
+.noticeIndex_search_textField{
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+.noticeIndex_search_checkbox{
+
+}
+.noticeIndex_search_commit{
+  width: 20%;
+  line-height: 50px;
+  text-align: center;
+}
+.noticeIndex_search_commit_text{
+  padding: 10px 20px;
+  font-weight: bold;
 }
 
-.noticeIndex_circularIndexButton:hover{
-  background-color: #afafb0;
-}
+/* /searchBox **********************************************/
+
 
 .noticeIndex_displayStyle_btn{
-  margin: 30px 0;
+  margin: 20px 0;
   font-weight: bold;
 }
 

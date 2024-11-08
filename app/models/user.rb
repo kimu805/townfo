@@ -17,4 +17,9 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { maximum: 30 }
   validates :profile, length: { maximum: 1000 }
+
+  # # ransack
+  # def self.ransackable_attributes(auth_object = nil)
+  #   ["nickname"]
+  # end
 end

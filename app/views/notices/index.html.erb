@@ -1,11 +1,39 @@
 <div class= "main">
   <div class= "main_box">
+
     <div class= "noticeIndex_indexButton_box">
-      <%= link_to "お知らせ一覧", group_notices_path(current_group), class: "noticeIndex_noticeIndexButton link" %>
-      <%= link_to "回覧板一覧", group_circulars_path(current_group), class: "noticeIndex_circularIndexButton link" %>
+      <%= link_to(group_notices_path(current_group), class: "link noticeIndex_noticeIndexButton") do %>
+        <div class= "noticeIndex_noticeIndexButton">
+          <div class= "noticeIndex_noticeIndexButton_text">お知らせ一覧</div>
+        </div>
+      <% end %>
+      <%= link_to(group_circulars_path(current_group), class: "link noticeIndex_circularIndexButton") do %>
+        <div class= "noticeIndex_circularIndexButton">
+          <div class= "noticeIndex_circularIndexButton_text">回覧板一覧</div>
+        </div>
+      <% end %>
     </div>
 
-    
+    <% if params[:view] != "calendar" %>
+      <div class= "noticeIndex_search_box">
+        <%= search_form_for @q, url: group_notices_path, class: "noticeIndex_search_form" do |f| %>
+          <div class= "noticeIndex_search_inputbox">
+            <%= f.search_field :title_or_content_cont, placeholder: "タイトル、説明文から検索", class: "noticeIndex_search_textField" %>
+            <div class= "noticeIndex_search_checkbox">
+              <% Tag.where.not(id: 1).each do |tag| %>
+                <%= label_tag do %>
+                  <%= f.check_box :tag_id_in, { multiple: true }, tag.id, nil %>
+                  <%= tag.name %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class= "noticeIndex_search_commit">
+            <%= f.submit "検索", class: "noticeIndex_search_commit_text" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <% if params[:view] == "calendar" %>
       <div class= "noticeIndex_displayStyle_btn">形式：

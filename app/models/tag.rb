@@ -9,5 +9,4 @@ class Tag < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :notices
-
 end
