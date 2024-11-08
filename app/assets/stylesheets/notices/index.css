@@ -33,33 +33,6 @@
   
 } */
 
-/* .noticeIndex_indexButton_box{
-  display: flex;
-  justify-content: space-around;
-}
-
-.noticeIndex_noticeIndexButton{
-  padding: 15px 0 10px 0;
-  width: 50%;
-  text-align: center;
-  align-items: center;
-  background-color: white;
-  font-size: 20px;
-  font-weight: bold;
-}
-.noticeIndex_circularIndexButton{
-  padding: 15px 0 10px 0;
-  width: 50%;
-  text-align: center;
-  align-items: center;
-  background-color: #c0c6c9;
-  font-size: 16px;
-}
-
-.noticeIndex_circularIndexButton:hover{
-  background-color: #afafb0;
-} */
-
 .noticeIndex_displayStyle_btn{
   margin: 30px 0;
   font-weight: bold;
