@@ -5,9 +5,20 @@
       <%= link_to "回覧板一覧", group_circulars_path(current_group), class: "noticeIndex_circularIndexButton link" %>
     </div>
 
-    <div>
-      
-    </div>
+    <% if params[:view] != "calendar" %>
+      <div>
+        <%= search_form_for @q, url: group_notices_path do |f| %>
+          <%= f.search_field :title_or_content_cont, placeholder: "タイトル、説明文から検索" %>
+          <% Tag.where.not(id: 1).each do |tag| %>
+            <%= label_tag do %>
+              <%= f.check_box :tag_id_in, { multiple: true }, tag.id, nil %>
+              <%= tag.name %>
+            <% end %>
+          <% end %>
+          <%= f.submit "検索" %>
+        <% end %>
+      </div>
+    <% end %>
 
     <% if params[:view] == "calendar" %>
       <div class= "noticeIndex_displayStyle_btn">形式：
