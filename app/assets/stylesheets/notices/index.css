@@ -10,6 +10,31 @@
 
 .noticeIndex_indexButton_box{
   display: flex;
+  width: 100%;
+}
+.noticeIndex_noticeIndexButton{
+  width: 100%;
+  padding: 5px 0;
+  text-align: center;
+
+}
+.noticeIndex_noticeIndexButton_text{
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.noticeIndex_circularIndexButton{
+  width: 100%;
+  padding: 5px 0;
+  background-color: #887f7a;
+  text-align: center;
+}
+/* .noticeIndex_circularIndexButton_text{
+  
+} */
+
+/* .noticeIndex_indexButton_box{
+  display: flex;
   justify-content: space-around;
 }
 
@@ -33,7 +58,7 @@
 
 .noticeIndex_circularIndexButton:hover{
   background-color: #afafb0;
-}
+} */
 
 .noticeIndex_displayStyle_btn{
   margin: 30px 0;
