@@ -8,7 +8,8 @@ class NoticesController < ApplicationController
     if params[:schedule].present?
       @notices = current_group.notices.where(schedule: params[:schedule]).includes(:user).recent
     else
-      @notices = current_group.notices.includes(:user).recent
+      @q = current_group.notices.includes(:user).ransack(params[:q])
+      @notices = @q.result
     end
   end
 
