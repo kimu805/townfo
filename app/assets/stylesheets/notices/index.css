@@ -26,7 +26,7 @@
 .noticeIndex_circularIndexButton{
   width: 100%;
   padding: 5px 0;
-  background-color: #887f7a;
+  background-color: #c0c6c9;
   text-align: center;
 }
 .noticeIndex_circularIndexButton:hover{
@@ -42,8 +42,8 @@
 }
 .noticeIndex_search_form{
   margin: 15px 0;
-  padding: 10px;
-  background-color: #b3ada0;
+  padding: 12px;
+  background-color: #dcdddd;
   border-radius: 5px;
   display: flex;
 }
@@ -53,6 +53,7 @@
 .noticeIndex_search_textField{
   width: 100%;
   margin-bottom: 5px;
+  padding: 5px 10px;
   border-radius: 3px;
 }
 .noticeIndex_search_checkbox{
@@ -65,13 +66,14 @@
 }
 .noticeIndex_search_commit_text{
   padding: 10px 20px;
+  font-weight: bold;
 }
 
 /* /searchBox **********************************************/
 
 
 .noticeIndex_displayStyle_btn{
-  margin: 30px 0;
+  margin: 20px 0;
   font-weight: bold;
 }
 
