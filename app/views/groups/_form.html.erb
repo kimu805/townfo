@@ -32,6 +32,23 @@
     <p class= "form_count_box">文字数：<span class= "form_count" id= "groupDescription_count"><%= group.description.length if group.description %></span></p>
   </div>
 
+  <% if group.persisted? && current_user.id == group.owner_id %>
+    <div class= "form-group">
+      <div class= "form-text-wrap">
+        <%= f.label :owner_id, class: "form-text" %>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select :owner_id, current_group.users, :id, :nickname, { selected: group.owner_id }, { style: "padding: 10px;" } %>
+    </div>
+    <p class= "alert_message">
+      ※ 管理者を変更した場合、以下のような権限が移ります。<br>
+      ・グループの情報の編集・削除<br>
+      ・グループメンバーの管理（承認・退会）。<br>
+      ・回覧板の作成・削除。<br>
+      ・回覧板を既読閲覧。<br>
+    </p>
+  <% end %>
+
   <% if group.persisted? %>
     <div class='commit-btn'>
       <%= f.submit "更新" ,class:"commit-red-btn" %>
