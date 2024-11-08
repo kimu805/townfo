@@ -28,4 +28,7 @@ class Notice < ApplicationRecord
     ["title", "content"]
   end
 
+  # def self.ransackable_associations(auth_object = nil)
+  #   ["user"]
+  # end
 end
