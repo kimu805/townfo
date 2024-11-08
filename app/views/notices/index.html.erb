@@ -15,6 +15,12 @@
     </div>
 
     <% if params[:view] != "calendar" %>
+      <div class= "noticeIndex_search_box">
+
+      </div>
+    <% end %>
+    
+    <% if params[:view] != "calendar" %>
       <div>
         <%= search_form_for @q, url: group_notices_path do |f| %>
           <%= f.search_field :title_or_content_cont, placeholder: "タイトル、説明文から検索" %>
