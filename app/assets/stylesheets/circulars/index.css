@@ -1,29 +1,25 @@
 .circularIndex_indexButton_box{
   display: flex;
-  justify-content: space-around;
+  width: 100%;
 }
-
-.circularIndex_circularIndexButton{
-  padding: 15px 0 10px 0;
-  width: 50%;
+.circularIndex_noticeIndexButton{
+  width: 100%;
+  padding: 5px 0;
+  background-color: #887f7a;
   text-align: center;
-  align-items: center;
-  background-color: white;
+}
+/* .circularIndex_noticeIndexButton_text{
+
+} */
+.circularIndex_circularIndexButton{
+  width: 100%;
+  padding: 5px 0;
+  text-align: center;
+}
+.circularIndex_circularIndexButton_text{
   font-size: 20px;
   font-weight: bold;
-}
-
-.circularIndex_noticeIndexButton{
-  padding: 15px 0 10px 0;
-  width: 50%;
-  text-align: center;
-  align-items: center;
-  background-color: #c0c6c9;
-  font-size: 16px;
-}
-
-.circularIndex_noticeIndexButton:hover{
-  background-color: #afafb0;
+  text-decoration: underline;
 }
 
 .circularIndex_yearFilter_box{
