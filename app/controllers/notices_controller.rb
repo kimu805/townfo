@@ -15,6 +15,9 @@ class NoticesController < ApplicationController
 
   def new
     @notice = current_group.notices.build
+    if params[:prompt]
+      @notice.content = ChatGptService.chat(params[:prompt])
+    end
   end
 
   def create
