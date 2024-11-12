@@ -52,22 +52,24 @@
         <button id= "ai_assist_btn" type= "button" class= "noticeForm_contentForm_aiAssist_btn">AIアシスト</button>
         <div id= "ai_modal" style= "display: none" class= "modal">
           <div class= "modal_window">
-            <div class= "modal_heading">AIアシスト</div>
-            <p class= "modal_sample_message">
-              投稿の内容をAIがサポートさせていただきます。<br>
-              （例）<br>
-              ・今週の日曜日、公園の掃除をする。<br>
-              ・時間は9:00~10:30<br>
-              ・お茶1本と掃除用具は運営側で用意する。<br>
-              ・楽しい雰囲気の文章を作成して。<br>
+            <div class= "modal_content" id= "modal_content">
+              <div class= "modal_heading">AIアシスト</div>
+              <p class= "modal_sample_message">
+                投稿の内容をAIがサポートさせていただきます。<br>
+                （例）<br>
+                ・今週の日曜日、公園の掃除をする。<br>
+                ・時間は9:00~10:30<br>
+                ・お茶1本と掃除用具は運営側で用意する。<br>
+                ・楽しい雰囲気の文章を作成して。<br><br>
 
-              上の条件での出力結果：<br>
-              "日曜日の朝、みんなで公園の掃除をしよう！9時から10時半までの1時間半、みんなで力を合わせてきれいにしようね。お茶1本も用意されているから、作業の合間に休憩してリフレッシュしよう！掃除用具も運営側で用意されているから、手ぶらで参加できるよ。みんなで協力して、楽しく公園をきれいにしていこう！"
-            </p>
-            <textarea id= "ai_input" placeholder= "含めたい情報や雰囲気を入力" class= "modal_textarea"></textarea>
-            <div class= "modal_btn_box">
-              <button id= "cancel_btn" type= "button" class= "modal_cancel_btn">キャンセル</button>
-              <button id= "generate_btn" type= "button" class= "modal_generate_btn">生成</button>
+                上の条件での出力結果：<br>
+                "日曜日の朝、みんなで公園の掃除をしよう！9時から10時半までの1時間半、みんなで力を合わせてきれいにしようね。お茶1本も用意されているから、作業の合間に休憩してリフレッシュしよう！掃除用具も運営側で用意されているから、手ぶらで参加できるよ。みんなで協力して、楽しく公園をきれいにしていこう！"
+              </p>
+              <textarea id= "ai_input" placeholder= "含めたい情報や雰囲気を入力" class= "modal_textarea"></textarea>
+              <div class= "modal_btn_box">
+                <button id= "cancel_btn" type= "button" class= "modal_cancel_btn">キャンセル</button>
+                <button id= "generate_btn" type= "button" class= "modal_generate_btn">生成</button>
+              </div>
             </div>
           </div>
         </div>
