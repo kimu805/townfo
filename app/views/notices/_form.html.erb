@@ -48,14 +48,15 @@
       <span class="indispensable">必須</span>
     </div>
 
-    <div>
-      <button type= "button" id= "ai_assist_button">AIアシスト</button>
+    <div class= "noticeForm_ai_assist_box">
+      <button id= "ai_assist_button">AIアシスト</button>
+      <div id= "ai_modal" style= "display: none">
+        <textarea id= "ai_input" placeholder= "含めたい情報や雰囲気を入力"></textarea>
+        <button id= "generate_button" type= "button">生成</button>
+        <button id= "cancel_button" type= "button">キャンセル</button>
+      </div>
     </div>
-
-    <div>
-      <textarea id= "prompt" rows= "4"></textarea>
-      
-    </div>
+    
     <%= f.text_area :content, class:"textArea_default", id: "noticeContent_form", placeholder: "例）季節の美味しい食材が一堂に会するグルメフェアで、贅沢な味覚の旅に出かけませんか？" %>
     <p class= "form_count_box">文字数：<span class= "form_count" id= "noticeContent_count"><%= notice.content.length if notice.content %></span></p>
   </div>
