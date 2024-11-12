@@ -158,12 +158,12 @@
   display: flex;
   justify-content: space-between;
 }
-.noticeForm_contentForm_title_box{}
+/* .noticeForm_contentForm_title_box{} */
 .noticeForm_contentForm_title{
   font-size: 20px;
   font-weight: bold;
 }
-.noticeForm_contentForm_aiAssist_box{}
+/* .noticeForm_contentForm_aiAssist_box{} */
 .noticeForm_contentForm_aiAssist_btn{
   padding: 5px 10px;
   background-color: #3e62ab;
@@ -174,9 +174,9 @@
 .noticeForm_contentForm_aiAssist_btn:hover{
   opacity: 0.8;
 }
-.modal {
+/* .modal {
 
-}
+} */
 .modal_window {
   position: fixed;
   top: 0;
