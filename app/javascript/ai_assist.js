@@ -31,5 +31,4 @@ window.addEventListener("turbo:load", () => {
     aiModal.style.display = "none"
   })
 
-
 })
