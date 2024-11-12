@@ -15,9 +15,6 @@ class NoticesController < ApplicationController
 
   def new
     @notice = current_group.notices.build
-    if params[:prompt]
-      @notice.content = ChatGptService.chat(params[:prompt])
-    end
   end
 
   def create
@@ -54,6 +51,12 @@ class NoticesController < ApplicationController
     current_user.reads.find_or_create_by(readable: @notice, complete: true)
     read_count = @notice.reads.count
     render json: {read_count: read_count}
+  end
+
+  def generate_content
+    chat_gpt = ChatGptService.new
+    generated_text = chat_gpt.chat(params[:prompt])
+    render json: { generated_text: generated_text }
   end
 
   private
