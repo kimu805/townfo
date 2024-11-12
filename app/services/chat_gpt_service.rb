@@ -6,7 +6,7 @@ class ChatGptService
   end
 
   def chat(prompt)
-    response = @openai.completions(
+    response = @openai.chat(
       parameters: {
         model: "gpt-3.5-turbo",
         messages: [
