@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update]
   resources :pending_memberships, only: :new
+  post "notices/generate_content", to: "notices#generate_content"
 end

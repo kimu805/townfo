@@ -53,6 +53,12 @@ class NoticesController < ApplicationController
     render json: {read_count: read_count}
   end
 
+  def generate_content
+    chat_gpt = ChatGptService.new
+    generated_text = chat_gpt.chat(params[:prompt])
+    render json: { generated_text: generated_text }
+  end
+
   private
   def notice_params
     params.require(:notice).permit(:title, :content, :schedule, :tag_id, {images: []}).merge(user_id: current_user.id)
