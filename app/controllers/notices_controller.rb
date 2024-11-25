@@ -5,10 +5,11 @@ class NoticesController < ApplicationController
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
+    @q = current_group.notices.includes(:user).ransack(params[:q])
+    
     if params[:schedule].present?
       @notices = current_group.notices.where(schedule: params[:schedule]).includes(:user).recent
     else
-      @q = current_group.notices.includes(:user).ransack(params[:q])
       @notices = @q.result.recent
     end
   end
