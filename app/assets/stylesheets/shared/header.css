@@ -30,6 +30,7 @@ body{
 .nav_list{
   margin-right: 24px;
   position: relative;
+  font-weight: bold;
   border-bottom: 1px solid black;
 }
 
