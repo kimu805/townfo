@@ -49,7 +49,7 @@
       <% if params[:schedule].present? %>
         <% schedule_date = Date.parse(params[:schedule]) rescue nil %>
         <div class= "noticeIndex_schedule_title">
-          <%= schedule_date.strftime("%Y年%m月%d日") %>の投稿
+          <%= schedule_date.strftime("%Y年%m月%d日") %>
         </div>
       <% end %>
       <%= render partial: "notice", collection: @notices %>
