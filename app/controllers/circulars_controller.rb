@@ -5,8 +5,11 @@ class CircularsController < ApplicationController
   before_action :ensure_owner, except: [:index, :show, :read_create]
 
   def index
+    # 回覧板の投稿から、投稿された年度を取得して昇順に並べる。
     @years = Circular.pluck(Arel.sql("DISTINCT EXTRACT(YEAR FROM created_at)")).map(&:to_i).sort
+    # 送られてきた年度を取得。なければ、今年の年度を取得。
     @selected_year = params[:year] || Time.current.year
+    # 年度に該当する回覧板を新しい順に取得。
     @circulars = @group.circulars.selected_year(@selected_year).recent
   end
 
@@ -24,6 +27,7 @@ class CircularsController < ApplicationController
   end
 
   def show
+    # 回覧板に対するユーザーの既読情報を取得。
     @read = current_user.reads.find_by(readable: @circular, complete: true)
     @users = @group.users.order("nickname")
   end
@@ -33,6 +37,7 @@ class CircularsController < ApplicationController
     redirect_to group_circulars_path(current_group), notice: "「#{@circular.title}」を削除しました。"
   end
 
+  # 「見ました」ボタンから、既読情報をつけるメソッド
   def read_create
     current_user.reads.find_or_create_by(readable: @circular, complete: true)
     redirect_to group_circular_path(group_id: current_group.id, id: @circular.id )
@@ -47,6 +52,11 @@ class CircularsController < ApplicationController
     @group = Group.find(params[:group_id])
   end
 
+  def set_circular
+    @circular = @group.circulars.find(params[:id])
+  end
+
+  # グループの管理者以外からのアクセスを排除するメソッド
   def ensure_owner
     set_group
     unless current_user.id == @group.owner_id
@@ -54,7 +64,4 @@ class CircularsController < ApplicationController
     end
   end
 
-  def set_circular
-    @circular = @group.circulars.find(params[:id])
-  end
 end
