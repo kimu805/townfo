@@ -51,7 +51,10 @@ class NoticesController < ApplicationController
 
   # 非同期で投稿に既読を付けるメソッド
   def mark_as_read
-    current_user.reads.find_or_create_by(readable: @notice, complete: true)
+    existing_read = current_user.reads.find_by(readable: @notice)
+    unless existing_read
+      current_user.reads.create(readable: @notice, complete: true)
+    end
     read_count = @notice.reads.count
     render json: {read_count: read_count}
   end
