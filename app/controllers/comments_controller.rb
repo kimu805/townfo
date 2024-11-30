@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
     @notice = Notice.find(params[:notice_id])
     if @comment.save
       CommentChannel.broadcast_to @notice, {comment: @comment, user: @comment.user}
+    else
+      redirect_to group_notice_path(group_id: @notice.group_id, id: @notice.id), alert: "このコメントは投稿できません"
     end
   end
 
