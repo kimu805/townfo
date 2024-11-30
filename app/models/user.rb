@@ -5,10 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # association
-  has_many :notices
+  has_many :notices, dependent: :destroy
   has_many :circulars
-  has_many :reads
-  has_many :comments
+  has_many :reads, dependent: :destroy
+  has_many :comments, dependent: :destroy
   ## 承認済みのユーザーとの関連付け
   has_many :memberships, dependent: :destroy
   has_many :groups, through: :memberships, source: :group
