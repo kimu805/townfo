@@ -9,8 +9,10 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
+    # 作成者をグループの管理者として設定。
     @group.owner_id = current_user.id
     if @group.save
+      # 作成者をグループのメンバーとして設定。
       @group.memberships.create(user: current_user)
       redirect_to root_path, notice: "グループ「#{@group.name}」を作成しました。"
     else
@@ -35,7 +37,9 @@ class GroupsController < ApplicationController
   end
 
   def show
+    # メンバーを取得。
     @users = @group.users.order("nickname")
+    # 承認待ちのユーザーを取得。
     @pending_memberships = @group.pending_memberships
   end
 
@@ -48,6 +52,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
+  # グループの管理者以外からのアクセスを排除するメソッド
   def ensure_owner
     set_group
     unless current_user.id == @group.owner_id
