@@ -76,7 +76,7 @@ class NoticesController < ApplicationController
   def only_posted_person
     set_notice
     unless current_user == @notice.user
-      redirect_to action: :show
+      redirect_to action: :show, alert: "投稿者本人しかアクセスできません"
     end
   end
 end
