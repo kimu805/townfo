@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_23_024723) do
+ActiveRecord::Schema[7.0].define(version: 2024_11_30_021401) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -103,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_23_024723) do
     t.boolean "complete", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "readable_type", "readable_id"], name: "index_reads_on_user_and_readable", unique: true
     t.index ["user_id"], name: "index_reads_on_user_id"
   end
 
