@@ -1,5 +1,4 @@
 class NoticesController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_notice, only: [:edit, :update, :destroy, :show, :mark_as_read]
   before_action :only_posted_person, only: [:edit, :update, :destroy]
