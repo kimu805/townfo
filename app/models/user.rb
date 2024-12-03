@@ -20,6 +20,5 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { maximum: 30 }
   validates :profile, length: { maximum: 1000 }
 
-  #   ["nickname"]
   # end
 end
