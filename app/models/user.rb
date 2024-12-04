@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :pending_memberships, dependent: :destroy
   has_many :pending_groups, through: :pending_memberships, source: :group
 
-
+  # validation
   validates :nickname, presence: true, length: { maximum: 30 }
   validates :profile, length: { maximum: 1000 }
 
