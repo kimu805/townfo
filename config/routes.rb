@@ -12,15 +12,8 @@ Rails.application.routes.draw do
     end
     resources :notices do
       resources :comments, only: :create
-      member do
-        post "mark_as_read"
-      end
     end
-    resources :circulars, except: [:edit, :update] do
-      member do
-        post "read_create"
-      end
-    end
+    resources :circulars, except: [:edit, :update]
   end
   resources :users, only: [:show, :edit, :update]
   resources :pending_memberships, only: :new
