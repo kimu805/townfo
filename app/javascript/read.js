@@ -8,10 +8,11 @@ function read() {
         // 100%表示されたとき (threshold: 1.0)
         if (entry.isIntersecting && entry.intersectionRatio === 1) {
           const noticeId = entry.target.dataset.noticeId;
+          const groupId = entry.target.dataset.groupId
 
           // 既読処理（表示された時点でサーバーにリクエストを送る）
           if (!readNotices.has(noticeId)) {
-            markNoticeAsRead(noticeId);
+            markNoticeAsRead(noticeId, groupId);
             readNotices.add(noticeId); // 重複送信を防ぐためにセットに追加
           }
         }
@@ -25,7 +26,7 @@ function read() {
 }
 
 // 既読情報をサーバーに送信する関数
-function markNoticeAsRead(noticeId) {
+function markNoticeAsRead(noticeId, groupId) {
   fetch(`/reads`, {
     method: 'POST',
     headers: {
