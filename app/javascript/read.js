@@ -8,6 +8,7 @@ function read() {
         // 100%表示されたとき (threshold: 1.0)
         if (entry.isIntersecting && entry.intersectionRatio === 1) {
           const noticeId = entry.target.dataset.noticeId;
+          const groupId = entry.target.dataset.groupId
 
           // 既読処理（表示された時点でサーバーにリクエストを送る）
           if (!readNotices.has(noticeId)) {
@@ -32,7 +33,7 @@ function markNoticeAsRead(noticeId) {
       'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ read: true })
+    body: JSON.stringify({ read: true, notice_id: noticeId })
   }).then((response) => {
     if (!response.ok) {
       console.error("既読情報の送信に失敗しました");
