@@ -7,8 +7,8 @@ class ReadsController < ApplicationController
     end
     read_count = @obj.reads.count
     respond_to do |format|
-      format.html { redirect_to group_circular_path(group_id: current_group.id, id: @obj.id) }
-      format.json { render json: {read_count: read_count} }
+      format.html { redirect_to group_circular_path(group_id: current_group.id, id: @obj.id), notice: "既読を付けました" }
+      format.json { render json: { read_count: read_count } }
     end
   end
 
