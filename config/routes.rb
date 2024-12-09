@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   resources :groups do
     resources :memberships, only: [:destroy]
-    resources :pending_memberships, only: [:create] do
+    resources :pending_memberships, only: [] do
       member do
         patch "approve"
         delete "reject"
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :circulars, except: [:edit, :update]
   end
   resources :users, only: [:show, :edit, :update]
-  resources :pending_memberships, only: :new
+  resources :pending_memberships, only: [:new, :create]
   resources :reads, only: [:create]
   post "notices/generate_content", to: "notices#generate_content"
 end
