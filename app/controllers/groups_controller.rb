@@ -9,11 +9,9 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    # 作成者をグループの管理者として設定。
-    @group.owner_id = current_user.id
+    @group.owner_id = current_user.id # 作成者をグループの管理者として設定。
     if @group.save
-      # 作成者をグループのメンバーとして設定。
-      @group.memberships.create(user: current_user)
+      @group.memberships.create(user: current_user) # 作成者をグループのメンバーとして設定。
       redirect_to root_path, notice: "グループ「#{@group.name}」を作成しました。"
     else
       render :new, status: :unprocessable_entity
@@ -37,10 +35,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    # メンバーを取得。
-    @users = @group.users.order("nickname")
-    # 承認待ちのユーザーを取得。
-    @pending_memberships = @group.pending_memberships
+    @users = @group.users.order("nickname") # メンバーを取得。
+    @pending_memberships = @group.pending_memberships # 承認待ちのユーザーを取得。
   end
 
   private

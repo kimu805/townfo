@@ -10,12 +10,14 @@ class Group < ApplicationRecord
   has_many :pending_users, through: :pending_memberships, source: :user
 
 
+  # validation
   with_options presence: true do
     validates :name, length: { maximum: 50 }
     validates :description, length: { maximum: 2000 }
     validates :owner_id
   end
 
+  # ransack
   def self.ransackable_attributes(auth_object = nil)
     ["name"]
   end
