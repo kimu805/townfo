@@ -4,16 +4,16 @@ Rails.application.routes.draw do
   
   resources :groups do
     resources :memberships, only: [:destroy]
+    resources :notices do
+      resources :comments, only: :create
+    end
+    resources :circulars, except: [:edit, :update]
     resources :pending_memberships, only: [] do
       member do
         patch "approve"
         delete "reject"
       end
     end
-    resources :notices do
-      resources :comments, only: :create
-    end
-    resources :circulars, except: [:edit, :update]
   end
   resources :users, only: [:show, :edit, :update]
   resources :pending_memberships, only: [:new, :create]
