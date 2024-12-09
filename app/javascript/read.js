@@ -27,13 +27,14 @@ function read() {
 
 // 既読情報をサーバーに送信する関数
 function markNoticeAsRead(noticeId, groupId) {
-  fetch(`/groups/${groupId}/notices/${noticeId}/mark_as_read`, {
+  fetch(`/reads`, {
     method: 'POST',
     headers: {
       'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      "Accept": "application/json"
     },
-    body: JSON.stringify({ read: true })
+    body: JSON.stringify({ read: true, notice_id: noticeId })
   }).then((response) => {
     if (!response.ok) {
       console.error("既読情報の送信に失敗しました");

@@ -37,12 +37,6 @@ class CircularsController < ApplicationController
     redirect_to group_circulars_path(current_group), notice: "「#{@circular.title}」を削除しました。"
   end
 
-  # 「見ました」ボタンから、既読情報をつけるメソッド
-  def read_create
-    current_user.reads.find_or_create_by(readable: @circular, complete: true)
-    redirect_to group_circular_path(group_id: current_group.id, id: @circular.id )
-  end
-
   private
   def circular_params
     params.require(:circular).permit(:title, :pdf_file).merge(group_id: @group.id, user_id: current_user.id)
