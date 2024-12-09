@@ -2,7 +2,6 @@ class ReadsController < ApplicationController
   before_action :set_obj
   
   def create
-    binding.pry
     ActiveRecord::Base.transaction do
       current_user.reads.find_or_create_by(readable: @obj, complete: true)
     end
