@@ -35,10 +35,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    # メンバーを取得。
-    @users = @group.users.order("nickname")
-    # 承認待ちのユーザーを取得。
-    @pending_memberships = @group.pending_memberships
+    @users = @group.users.order("nickname") # メンバーを取得。
+    @pending_memberships = @group.pending_memberships # 承認待ちのユーザーを取得。
   end
 
   private
