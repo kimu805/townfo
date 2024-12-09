@@ -2,7 +2,8 @@ class ReadsController < ApplicationController
   before_action :set_obj
   
   def create
-    ActiveSupport::Base.transaction do
+    binding.pry
+    ActiveRecord::Base.transaction do
       current_user.reads.find_or_create_by(readable: @obj, complete: true)
     end
     read_count = @obj.reads.count
