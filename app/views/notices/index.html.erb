@@ -3,8 +3,6 @@
 
     <%= render "shared/index_btn" %>
 
-
-
     <% if params[:view] != "calendar" %>
       <div class= "noticeIndex_search_box">
         <%= search_form_for @q, url: group_notices_path, class: "noticeIndex_search_form" do |f| %>
