@@ -2,20 +2,9 @@
   <%= link_to(group_notice_path(group_id: current_group.id, id: notice.id), data: {turbo: false}, class: "link") do %>
     <div class= "notice_header">
       <div class= "notice_header_info">
-        <% if notice.tag.name == "お知らせ" %>
-          <span class= "notice_tag green">
-            <%= notice.tag.name %>
-          </span>
-        <% elsif notice.tag.name == "イベント" %>
-          <span class= "notice_tag blue">
-            <%= notice.tag.name %>
-          </span>
-        <% elsif notice.tag.name == "緊急" %>
-          <span class= "notice_tag yellow">
-            <%= notice.tag.name %>
-          </span>
-        <% elsif notice.tag.name == "重要" %>
-          <span class= "notice_tag red">
+        <% tag_classes = { "お知らせ" => "green", "イベント" => "blue", "緊急" => "yellow", "重要" => "red"} %>
+        <% if tag_classes[notice.tag.name] %>
+          <span class= "notice_tag <%= tag_classes[notice.tag.name] %>">
             <%= notice.tag.name %>
           </span>
         <% end %>
