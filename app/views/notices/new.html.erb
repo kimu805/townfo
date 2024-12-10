@@ -5,7 +5,7 @@
       <%= image_tag "back.png", size: "40x40", class: "back_image" %>
     <% end %>
 
-    <%= render partial: "form", locals: { notice: @notice, url: group_notices_path(current_group) } %>
+    <%= render partial: "form", locals: { notice: @notice, url: group_notices_path(current_group), form_title: "お知らせ 新規作成", commit_text: "投稿" } %>
 
   </div>
 </div>
