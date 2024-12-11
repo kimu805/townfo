@@ -1,0 +1,9 @@
+.main{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.main_box{
+  width: 80vw;
+}

@@ -38,6 +38,7 @@ class CircularsController < ApplicationController
   end
 
   private
+  
   def circular_params
     params.require(:circular).permit(:title, :pdf_file).merge(group_id: @group.id, user_id: current_user.id)
   end

@@ -1,18 +1,7 @@
 <div class= "main">
   <div class= "main_box">
 
-    <div class= "noticeIndex_indexButton_box">
-      <%= link_to(group_notices_path(current_group), class: "link noticeIndex_noticeIndexButton") do %>
-        <div class= "noticeIndex_noticeIndexButton">
-          <div class= "noticeIndex_noticeIndexButton_text">お知らせ一覧</div>
-        </div>
-      <% end %>
-      <%= link_to(group_circulars_path(current_group), class: "link noticeIndex_circularIndexButton") do %>
-        <div class= "noticeIndex_circularIndexButton">
-          <div class= "noticeIndex_circularIndexButton_text">回覧板一覧</div>
-        </div>
-      <% end %>
-    </div>
+    <%= render "shared/index_btn" %>
 
     <% if params[:view] != "calendar" %>
       <div class= "noticeIndex_search_box">

@@ -1,18 +1,7 @@
 <div class= "main">
   <div class= "main_box">
 
-    <div class= "circularIndex_indexButton_box">
-      <%= link_to(group_notices_path(current_group), class: "link circularIndex_noticeIndexButton") do %>
-        <div class= "circularIndex_noticeIndexButton">
-          <div class= "circularIndex_noticeIndexButton_text">お知らせ一覧</div>
-        </div>
-      <% end %>
-      <%= link_to(group_circulars_path(current_group), class: "link circularIndex_circularIndexButton") do %>
-        <div class= "circularIndex_circularIndexButton">
-          <div class= "circularIndex_circularIndexButton_text">回覧板一覧</div>
-        </div>
-      <% end %>
-    </div>
+    <%= render "shared/index_btn" %>
 
     <div class= "circularIndex_yearFilter_box">
       <%= form_with url: group_circulars_path(current_group), method: :get, local: true do %>

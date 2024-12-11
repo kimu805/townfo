@@ -1,16 +1,11 @@
 <%= form_with model: notice, url: url, local: true do |f| %>
 
   <div class='form-header'>
-  <% if notice.persisted? %>
     <h1 class='form-header-text'>
-      お知らせ編集画面
+      <%= form_title %>
     </h1>
-  <% else %>
-    <h1 class='form-header-text'>
-      新規お知らせ入力
-    </h1>
-  <% end %>
   </div>
+
   <%= render partial: "shared/error", locals: {model: notice} %>
   <div class="form-group">
     <div class='form-text-wrap'>
@@ -94,13 +89,8 @@
     <%= f.collection_select(:tag_id, Tag.all, :id, :name, {prompt: false}, {class: "select_input"}) %>
   </div>
   
-  <% if notice.persisted? %>
-    <div class='commit-btn'>
-      <%= f.submit "更新" ,class:"commit-red-btn" %>
-    </div>
-  <% else %>
-    <div class='commit-btn'>
-      <%= f.submit "投稿" ,class:"commit-red-btn" %>
-    </div>
-  <% end %>
+  <div class='commit-btn'>
+    <%= f.submit commit_text ,class:"commit-red-btn" %>
+  </div>
+
 <% end %>
