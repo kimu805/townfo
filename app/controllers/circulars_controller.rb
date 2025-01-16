@@ -6,8 +6,7 @@ class CircularsController < ApplicationController
 
   def index
     @years = Circular.pluck(Arel.sql("DISTINCT EXTRACT(YEAR FROM created_at)")).map(&:to_i).sort # 回覧板の投稿から、投稿された年度を取得して昇順に並べる。
-    
-    @selected_year = params[:year] || Time.current.year
+    @selected_year = params[:year] || Time.current.year # 送られてきた年度を取得。なければ、今年の年度を取得。
     # 年度に該当する回覧板を新しい順に取得。
     @circulars = @group.circulars.selected_year(@selected_year).recent
   end
