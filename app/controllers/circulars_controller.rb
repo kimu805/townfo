@@ -24,7 +24,7 @@ class CircularsController < ApplicationController
   end
 
   def show
-    # 回覧板に対するユーザーの既読情報を取得。
+    
     @read = current_user.reads.find_by(readable: @circular, complete: true)
     @users = @group.users.order("nickname")
   end
