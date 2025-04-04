@@ -4,5 +4,5 @@ class Comment < ApplicationRecord
   belongs_to :notice
 
   # validation
-  validates :text, presence: true, length: { maximum: 1000 }
+  validates :text, presence: true, length: { minimum: 1, maximum: 1000 }
 end
