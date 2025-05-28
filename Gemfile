@@ -95,3 +95,4 @@ end
 
 gem "aws-sdk-s3", require: false
 gem "ruby-openai"
+gem 'dotenv-rails', groups: [:development, :test]

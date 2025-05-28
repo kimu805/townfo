@@ -3,12 +3,14 @@
 
     <%= render "shared/index_btn" %>
 
-    <div class= "circularIndex_yearFilter_box">
-      <%= form_with url: group_circulars_path(current_group), method: :get, local: true do %>
-        <%= select_tag :year, options_for_select(@years, @selected_year), class: "circularIndex_yearFilter_select" %>
-        <%= submit_tag "表示", class: "circularIndex_yearFilter_submit" %>
-      <% end %>
-    </div>
+    <% if @circulars.present? %>
+      <div class= "circularIndex_yearFilter_box">
+        <%= form_with url: group_circulars_path(current_group), method: :get, local: true do %>
+          <%= select_tag :year, options_for_select(@years, @selected_year), class: "circularIndex_yearFilter_select" %>
+          <%= submit_tag "表示", class: "circularIndex_yearFilter_submit" %>
+        <% end %>
+      </div>
+    <% end %>
 
     <%= render partial: "circular", collection: @circulars %>
       
